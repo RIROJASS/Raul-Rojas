@@ -1,0 +1,116 @@
+/* Add this to the bottom of your main.css file to override the default colors */
+
+/* Earth tones with tech accent - Main background gradients */
+body {
+  background-color: #2d2a24 !important; /* Deep earthy brown */
+  background-image: linear-gradient(to top, rgba(45, 42, 36, 0.8), rgba(45, 42, 36, 0.8)), url("../../images/bg.jpg") !important;
+}
+
+/* Spotlight section colors */
+.wrapper.spotlight {
+  background-color: #5c4d3b !important; /* Warm brown */
+}
+
+.wrapper.spotlight:before, .wrapper.spotlight:after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%235c4d3b%3B' /%3E%3C/svg%3E") !important;
+}
+
+.wrapper.spotlight:before {
+  box-shadow: inset 0 -1px 0 0 #5c4d3b, 0 1px 0 0 #5c4d3b !important;
+}
+
+.wrapper.spotlight:after {
+  box-shadow: inset 0 -1px 0 0 #5c4d3b, 0 1px 0 0 #5c4d3b !important;
+}
+
+/* Style 2 section colors (Projects) */
+.wrapper.spotlight.style2 {
+  background-color: #8b634c !important; /* Terracotta */
+}
+
+.wrapper.spotlight.style2:before, .wrapper.spotlight.style2:after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%238b634c%3B' /%3E%3C/svg%3E") !important;
+}
+
+.wrapper.spotlight.style2:before {
+  box-shadow: inset 0 -1px 0 0 #8b634c, 0 1px 0 0 #8b634c !important;
+}
+
+.wrapper.spotlight.style2:after {
+  box-shadow: inset 0 -1px 0 0 #8b634c, 0 1px 0 0 #8b634c !important;
+}
+
+/* Style 3 section colors (Skills) */
+.wrapper.spotlight.style3 {
+  background-color: #704c32 !important; /* Rich brown */
+}
+
+.wrapper.spotlight.style3:before, .wrapper.spotlight.style3:after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23704c32%3B' /%3E%3C/svg%3E") !important;
+}
+
+.wrapper.spotlight.style3:before {
+  box-shadow: inset 0 -1px 0 0 #704c32, 0 1px 0 0 #704c32 !important;
+}
+
+.wrapper.spotlight.style3:after {
+  box-shadow: inset 0 -1px 0 0 #704c32, 0 1px 0 0 #704c32 !important;
+}
+
+/* Style 4 section colors (Research) */
+.wrapper.spotlight.style4 {
+  background-color: #3d6e52 !important; /* Tech-inspired teal-green */
+}
+
+.wrapper.spotlight.style4:before, .wrapper.spotlight.style4:after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%233d6e52%3B' /%3E%3C/svg%3E") !important;
+}
+
+.wrapper.spotlight.style4:before {
+  box-shadow: inset 0 -1px 0 0 #3d6e52, 0 1px 0 0 #3d6e52 !important;
+}
+
+.wrapper.spotlight.style4:after {
+  box-shadow: inset 0 -1px 0 0 #3d6e52, 0 1px 0 0 #3d6e52 !important;
+}
+
+/* What's New section colors */
+.wrapper.alt.style1 {
+  background-color: #37312b !important; /* Dark brown */
+}
+
+.wrapper.alt.style1:before, .wrapper.alt.style1:after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%2337312b%3B' /%3E%3C/svg%3E") !important;
+}
+
+.wrapper.alt.style1:before {
+  box-shadow: inset 0 -1px 0 0 #37312b, 0 1px 0 0 #37312b !important;
+}
+
+.wrapper.alt.style1:after {
+  box-shadow: inset 0 -1px 0 0 #37312b, 0 1px 0 0 #37312b !important;
+}
+
+/* Article backgrounds in What's New section */
+.features article {
+  background-color: #403930 !important; /* Slightly lighter brown */
+}
+
+/* Links and special elements */
+a {
+  color: #e9c46a !important; /* Golden accent color */
+  border-bottom-color: rgba(233, 196, 106, 0.35) !important;
+}
+
+a:hover {
+  border-bottom-color: transparent !important;
+  color: #e9c46a !important;
+}
+
+a.special:not(.button):before {
+  background-color: rgba(233, 196, 106, 0.075) !important;
+}
+
+a.special:not(.button):hover:before {
+  background-color: rgba(233, 196, 106, 0.15) !important;
+}
