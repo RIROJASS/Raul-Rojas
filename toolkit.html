@@ -7,6 +7,38 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/custom-colors.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.cert-container {
+				height: 200px;
+				margin-bottom: 20px;
+				position: relative;
+			}
+			.cert-embed {
+				width: 100%;
+				height: 100%;
+				border: 1px solid rgba(255, 255, 255, 0.125);
+				border-radius: 5px;
+			}
+			.cert-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(0,0,0,0.5);
+				color: white;
+				text-align: center;
+				opacity: 0;
+				transition: opacity 0.3s;
+				border-radius: 5px;
+			}
+			.cert-container:hover .cert-overlay {
+				opacity: 1;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -80,20 +112,58 @@
 										<h3 class="major">Certifications</h3>
 										
 										<h4>GIS & Remote Sensing</h4>
-										<div class="box alt">
-											<div class="row gtr-uniform">
-												<div class="col-4"><a href="#" class="image cert-thumbnail"><img src="images/certs/gis-basics.jpg" alt="GIS Basics Certificate" /></a></div>
-												<div class="col-4"><a href="#" class="image cert-thumbnail"><img src="images/certs/map-design.jpg" alt="Map Design Fundamentals Certificate" /></a></div>
-												<div class="col-4"><a href="#" class="image cert-thumbnail"><img src="images/certs/coordinate-systems.jpg" alt="Introduction to Coordinate Systems Certificate" /></a></div>
-												<div class="col-4"><a href="#" class="image cert-thumbnail"><img src="images/certs/gis-models.jpg" alt="Building Models for GIS Analysis Certificate" /></a></div>
-												<div class="col-4"><a href="#" class="image cert-thumbnail"><img src="images/certs/geodatabase.jpg" alt="Getting Started with Geodatabase Certificate" /></a></div>
+										<div class="row">
+											<div class="col-4 col-12-medium">
+												<div class="cert-container">
+													<embed class="cert-embed" src="images/gis-basics.pdf" type="application/pdf">
+													<div class="cert-overlay">
+														<span>GIS Basics</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-4 col-12-medium">
+												<div class="cert-container">
+													<embed class="cert-embed" src="images/map-design.pdf" type="application/pdf">
+													<div class="cert-overlay">
+														<span>Map Design Fundamentals</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-4 col-12-medium">
+												<div class="cert-container">
+													<embed class="cert-embed" src="images/coordinate-systems.pdf" type="application/pdf">
+													<div class="cert-overlay">
+														<span>Introduction to Coordinate Systems</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-4 col-12-medium">
+												<div class="cert-container">
+													<embed class="cert-embed" src="images/gis-models.pdf" type="application/pdf">
+													<div class="cert-overlay">
+														<span>Building Models for GIS Analysis</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-4 col-12-medium">
+												<div class="cert-container">
+													<embed class="cert-embed" src="images/geodatabase.pdf" type="application/pdf">
+													<div class="cert-overlay">
+														<span>Getting Started with Geodatabase</span>
+													</div>
+												</div>
 											</div>
 										</div>
 										
 										<h4>Programming & Data Science</h4>
-										<div class="box alt">
-											<div class="row gtr-uniform">
-												<div class="col-4"><a href="#" class="image cert-thumbnail"><img src="images/certs/kaggle-programming.jpg" alt="Kaggle Intro to Programming Certificate" /></a></div>
+										<div class="row">
+											<div class="col-4 col-12-medium">
+												<div class="cert-container">
+													<embed class="cert-embed" src="images/kaggle-programming.png" type="image/png">
+													<div class="cert-overlay">
+														<span>Kaggle Intro to Programming</span>
+													</div>
+												</div>
 											</div>
 										</div>
 										
