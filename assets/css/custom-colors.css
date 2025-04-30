@@ -102,10 +102,18 @@ body {
     background-color: var(--color-green) !important;
 }
 
-/* Text colors */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--color-cream) !important;
+/* Use more specific selectors for headings */
+#wrapper h1, 
+#wrapper h2, 
+#wrapper h3, 
+#wrapper h4, 
+#wrapper h5, 
+#wrapper h6,
+#banner h1,
+#banner h2,
+#banner h3 {
     font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+    letter-spacing: 0.05em !important;
 }
 
 .wrapper.spotlight.style2 h1,
