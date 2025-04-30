@@ -137,7 +137,7 @@ h4 {
 #menu h2,
 #menu .links,
 nav a[href="#menu"] {
-    font-family: Raleway, Helvetica, sans-serif !important;
+    font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
 }
 
 /* Keep body text in original font */
