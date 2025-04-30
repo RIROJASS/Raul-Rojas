@@ -114,7 +114,7 @@ header.major h2,
 section h3.major,
 section h4 {
     font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
-    font-size: inherit !important; /* Keep original size */
+    font-size: 6em !important;
     letter-spacing: 0.05em !important;
     font-weight: 400 !important; /* Tanker is already bold, so we use normal weight */
 }
