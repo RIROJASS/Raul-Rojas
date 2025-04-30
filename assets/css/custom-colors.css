@@ -102,18 +102,52 @@ body {
     background-color: var(--color-green) !important;
 }
 
-/* Use more specific selectors for headings */
-#wrapper h1, 
-#wrapper h2, 
-#wrapper h3, 
-#wrapper h4, 
-#wrapper h5, 
-#wrapper h6,
-#banner h1,
+/* Font styling for specific elements */
+/* Main headings with Tanker font - maintain original sizes */
 #banner h2,
-#banner h3 {
+#wrapper h1.major, 
+#wrapper h2.major, 
+.wrapper .inner h2.major,
+.wrapper .inner h3.major,
+.features h3.major,
+header.major h2,
+section h3.major,
+section h4 {
     font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+    font-size: inherit !important; /* Keep original size */
     letter-spacing: 0.05em !important;
+    font-weight: 400 !important; /* Tanker is already bold, so we use normal weight */
+}
+
+/* Keep these specific sizes that match the original design */
+h2 {
+    font-size: 1.2em !important;
+}
+
+h3 {
+    font-size: 0.9em !important;
+}
+
+h4 {
+    font-size: 0.7em !important;
+}
+
+/* Keep menu in original font for readability */
+#header h1,
+#menu h2,
+#menu .links,
+nav a[href="#menu"] {
+    font-family: Raleway, Helvetica, sans-serif !important;
+}
+
+/* Keep body text in original font */
+p, ul, li, .content p {
+    font-family: 'Source Sans Pro', Helvetica, sans-serif !important;
+}
+
+/* Text colors */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-cream) !important;
 }
 
 .wrapper.spotlight.style2 h1,
@@ -173,4 +207,50 @@ a:hover {
 
 .education-header h4 {
     margin-bottom: 0.5em;
+}
+
+/* Certificate containers */
+.cert-container {
+    height: 200px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cert-embed {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    border-radius: 5px;
+}
+
+.cert-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 5px;
+}
+
+.cert-container:hover .cert-overlay {
+    opacity: 1;
+}
+
+/* Resume container */
+.resume-container {
+    height: 600px;
+    margin-bottom: 20px;
+}
+
+.resume-container embed {
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    border-radius: 5px;
 }
