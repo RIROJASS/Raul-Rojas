@@ -270,3 +270,18 @@ a:hover {
   font-size: 4em !important;     /* tweak this value */
   line-height: 1.1;              /* optional */
 }
+
+/* --------------------------------- */
+/* 1) Project titles (half size)    */
+/* --------------------------------- */
+.wrapper .inner section > h4.major {
+  font-size: 0.5em !important;    /* was 0.7em → 0.5em */
+}
+
+/* --------------------------------- */
+/* 2) Highlights label & bullets    */
+/* --------------------------------- */
+/* Target the plain H4 (“Project Highlights:”) */
+.wrapper .inner section > h4:not(.major) {
+  font-size: 0.25em !important;   /* quarter of H3.major */
+}
