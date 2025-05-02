@@ -285,3 +285,24 @@ a:hover {
 .wrapper .inner section > h4:not(.major) {
   font-size: 1em !important; 
 }
+
+/* Adjust vertical positioning of name in header */
+#header h1 {
+  margin-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#header h1 a {
+  display: inline-block;
+  padding-top: 5px;
+}
+
+/* Green text for project link */
+.wrapper.spotlight.style2 .content a.special {
+  color: #4daf7c !important; /* Dark green color matching PROJECTS title */
+}
+
+.wrapper.spotlight.style2 .content a.special:hover {
+  color: #6acb98 !important; /* Lighter green on hover */
+}
