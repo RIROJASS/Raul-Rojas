@@ -63,24 +63,33 @@
 			#four .features article {
 				width: 100% !important;
 				display: block !important;
-				margin-bottom: 4em;
-				padding-bottom: 3em;
+				margin-bottom: 3em;
+				padding: 2em;
+				padding-top: 0;
 				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				box-sizing: border-box;
 			}
 			
 			#four .features article:last-child {
 				border-bottom: none;
 				margin-bottom: 0;
-				padding-bottom: 0;
 			}
 			
 			#four .features article .image {
 				margin-bottom: 1.5em;
 				display: block;
+				margin-left: -2em;
+				margin-right: -2em;
+				width: calc(100% + 4em);
 			}
 			
 			#four .features article h3 {
 				margin-top: 0;
+				margin-bottom: 1em;
+			}
+			
+			#four .features article p:last-child {
+				margin-bottom: 0;
 			}
 			
 			/* Make What's New titles orange */
@@ -88,19 +97,18 @@
 				color: #E3572B !important; /* Orange from custom colors */
 			}
 			
-			/* Add dynamic spacing after the last paragraph */
-			#four .features article p:last-child {
-				margin-bottom: 2em;
-			}
-			
-			/* Adjust spacing for the last article to maintain consistency */
-			#four .features article:last-child p:last-child {
-				margin-bottom: 1em;
-			}
-			
-			/* Ensure proper spacing even with additional content */
-			#four .features article {
-				padding-bottom: 1em;
+			/* Responsive adjustments */
+			@media screen and (max-width: 736px) {
+				#four .features article {
+					padding: 1.5em;
+					padding-top: 0;
+				}
+				
+				#four .features article .image {
+					margin-left: -1.5em;
+					margin-right: -1.5em;
+					width: calc(100% + 3em);
+				}
 			}
 		</style>
 	</head>
@@ -214,4 +222,49 @@
 									<!-- Multimodal AI -->
 									<article>
 										<a href="#" class="image"><img src="images/multimodal_ai.png" alt="" /></a>
-										<h3 class="major">Multimoda
+										<h3 class="major">Multimodal AI Internship Completion</h3>
+										<p>Recently wrapped up my internship focused on <a href="https://www.ibm.com/topics/multimodal-ai" target="_blank">multimodal AI</a> applications, where I helped develop systems that can process and analyze multiple types of data simultaneously.</p>
+										<p>I had the opportunity to work on embedding & analyzing visual data for archaeological artifact classification, creating AI that makes research easier.</p>
+									</article>
+									
+									<!-- Research Conference -->
+									<article>
+										<a href="#" class="image"><img src="images/furc_presentation.jpg" alt="" /></a>
+										<h3 class="major">Florida Undergraduate Research Conference 2025</h3>
+										<p>For Valentine's day this year, my date was my first research poster. I presented "Finding Lost Archaeological Sites with AI: Object Detection with Remote Sensing" at the <a href="https://www.flbog.edu/furc/" target="_blank">2025 Florida Undergraduate Research Conference</a> alongside lab partner Olivia Zhang.</p>
+										<p>My presentation showcased how machine learning algorithms can identify potential archaeological sites from satellite imagery with more efficiency than traditional methods. I had a blast looking at everyone's posters and left chock-full of ideas for future investigation!</p>
+									</article>
+								</section>
+							</div>
+						</section>
+
+				</section>
+
+				<!-- Footer -->
+				<section id="footer">
+				    <div class="inner">
+				        <h2 class="major">Connect With Me</h2>
+				        <ul class="contact">
+				            <li class="icon solid fa-envelope"><a href="mailto:raul.rojas@ufl.edu">raul.rojas@ufl.edu</a></li>
+				            <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/ra%C3%BAl-rojas" target="_blank">LinkedIn</a></li>
+				            <li class="icon brands fa-github"><a href="https://github.com/RIROJASS" target="_blank">GitHub</a></li>
+				        </ul>
+				        <ul class="copyright">
+				            <li>&copy; Raul Rojas. All rights reserved.</li>
+				            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				        </ul>
+				    </div>
+				</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
