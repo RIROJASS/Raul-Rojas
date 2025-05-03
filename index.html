@@ -35,18 +35,17 @@
 				color: #2d6a50 !important; /* Slightly lighter green on hover */
 			}
 			
-			/* Override the grid layout for What's New section to make it a list */
+			/* Override the grid layout for What's New section to make it a vertical list */
 			#four .features {
 				display: block !important;
 			}
 			
 			#four .features article {
 				width: 100% !important;
-				display: flex !important;
-				margin-bottom: 3em;
+				display: block !important;
+				margin-bottom: 4em;
 				padding-bottom: 3em;
 				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-				align-items: flex-start;
 			}
 			
 			#four .features article:last-child {
@@ -56,34 +55,12 @@
 			}
 			
 			#four .features article .image {
-				width: 50%;
-				margin-right: 2em;
-				flex-shrink: 0;
-			}
-			
-			#four .features article .content {
-				width: 50%;
-				flex-grow: 1;
+				margin-bottom: 1.5em;
+				display: block;
 			}
 			
 			#four .features article h3 {
 				margin-top: 0;
-			}
-			
-			@media screen and (max-width: 736px) {
-				#four .features article {
-					flex-direction: column;
-				}
-				
-				#four .features article .image {
-					width: 100%;
-					margin-right: 0;
-					margin-bottom: 1.5em;
-				}
-				
-				#four .features article .content {
-					width: 100%;
-				}
 			}
 		</style>
 	</head>
@@ -181,41 +158,33 @@
 									<!-- Breakthrough Tech AI -->
 									<article>
 										<a href="#" class="image"><img src="images/breakthroughtech_ai.png" alt="" /></a>
-										<div class="content">
-											<h3 class="major">Breakthrough AI Program Acceptance</h3>
-											<p>Excited to announce my acceptance into the prestigious <a href="https://www.breakthroughtech.org/ai/" target="_blank">Breakthrough Tech AI</a> program, where I'll be developing cutting-edge solutions under the guidance of faculty from MIT and Cornell.</p>
-											<p>This competitive program will allow me to collaborate with leading researchers in the AI field while building technology that addresses real human needs.</p>
-										</div>
+										<h3 class="major">Breakthrough AI Program Acceptance</h3>
+										<p>Excited to announce my acceptance into the prestigious <a href="https://www.breakthroughtech.org/ai/" target="_blank">Breakthrough Tech AI</a> program, where I'll be developing cutting-edge solutions under the guidance of faculty from MIT and Cornell.</p>
+										<p>This competitive program will allow me to collaborate with leading researchers in the AI field while building technology that addresses real human needs.</p>
 									</article>
 									
 									<!-- Northrop Grumman -->
 									<article>
 										<a href="#" class="image"><img src="images/northrop_internship.gif" alt="" /></a>
-										<div class="content">
-											<h3 class="major">Upcoming Northrop Grumman Internship</h3>
-											<p>Excited to announce my upcoming summer internship with <a href="https://www.northropgrumman.com/what-we-do/mission-systems/" target="_blank">Northrop Grumman</a> where I'll be joining their Mission Systems team.</p>
-											<p>I'll be applying my unique background to help develop more human-centered technology solutions for complex challenges in and off the field.</p>
-										</div>
+										<h3 class="major">Upcoming Northrop Grumman Internship</h3>
+										<p>Excited to announce my upcoming summer internship with <a href="https://www.northropgrumman.com/what-we-do/mission-systems/" target="_blank">Northrop Grumman</a> where I'll be joining their Mission Systems team.</p>
+										<p>I'll be applying my unique background to help develop more human-centered technology solutions for complex challenges in and off the field.</p>
 									</article>
 									
 									<!-- Multimodal AI -->
 									<article>
 										<a href="#" class="image"><img src="images/multimodal_ai.png" alt="" /></a>
-										<div class="content">
-											<h3 class="major">Multimodal AI Internship Completion</h3>
-											<p>Recently wrapped up my internship focused on <a href="https://www.ibm.com/topics/multimodal-ai" target="_blank">multimodal AI</a> applications, where I helped develop systems that can process and analyze multiple types of data simultaneously.</p>
-											<p>I had the opportunity to work on embedding & analyzing visual data for archaeological artifact classification, creating AI that makes research easier.</p>
-										</div>
+										<h3 class="major">Multimodal AI Internship Completion</h3>
+										<p>Recently wrapped up my internship focused on <a href="https://www.ibm.com/topics/multimodal-ai" target="_blank">multimodal AI</a> applications, where I helped develop systems that can process and analyze multiple types of data simultaneously.</p>
+										<p>I had the opportunity to work on embedding & analyzing visual data for archaeological artifact classification, creating AI that makes research easier.</p>
 									</article>
 									
 									<!-- Research Conference -->
 									<article>
 										<a href="#" class="image"><img src="images/furc_presentation.jpg" alt="" /></a>
-										<div class="content">
-											<h3 class="major">Florida Undergraduate Research Conference 2025</h3>
-											<p>For Valentine's day this year, my date was my first research poster. I presented "Finding Lost Archaeological Sites with AI: Object Detection with Remote Sensing" at the <a href="https://www.flbog.edu/furc/" target="_blank">2025 Florida Undergraduate Research Conference</a> alongside lab partner Olivia Zhang.</p>
-											<p>My presentation showcased how machine learning algorithms can identify potential archaeological sites from satellite imagery with more efficiency than traditional methods. I had a blast looking at everyone's posters and left chock-full of ideas for future investigation!</p>
-										</div>
+										<h3 class="major">Florida Undergraduate Research Conference 2025</h3>
+										<p>For Valentine's day this year, my date was my first research poster. I presented "Finding Lost Archaeological Sites with AI: Object Detection with Remote Sensing" at the <a href="https://www.flbog.edu/furc/" target="_blank">2025 Florida Undergraduate Research Conference</a> alongside lab partner Olivia Zhang.</p>
+										<p>My presentation showcased how machine learning algorithms can identify potential archaeological sites from satellite imagery with more efficiency than traditional methods. I had a blast looking at everyone's posters and left chock-full of ideas for future investigation!</p>
 									</article>
 								</section>
 							</div>
