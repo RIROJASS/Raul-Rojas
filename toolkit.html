@@ -16,13 +16,21 @@
 			
 			/* Force Tanker on all text elements */
 			body, p, li, a, span, div, section, article, header, footer,
-			h1, h2, h3, h4, h5, h6, ul, .content, .inner, .major {
+			.content, .inner, .major, .special, h1, h2, h3, h4, h5, h6,
+			table, td, th, ul, ol, dl, dt, dd {
 				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
 			}
 			
-			/* Make all headings orange */
-			h2, h3, h4, .major {
-				color: #E3572B !important; /* Orange from custom colors */
+			/* Make main headings orange */
+			header h2,  /* "Toolkit" title in header */
+			.inner > h3.major  /* Section titles: Technical Skills, Certifications, Education, Club & Organization Involvement */
+			{
+				color: #E3572B !important;  /* Orange from custom colors */
+			}
+			
+			/* Keep subsection headings (h4) in their default color */
+			h4 {
+				color: inherit;
 			}
 			
 			/* Certificate styling */
