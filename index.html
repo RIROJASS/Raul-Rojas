@@ -19,14 +19,18 @@
 				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
 			}
 			
-			/* Additional specific targeting to override template styles */
-			.wrapper .content p, 
-			.wrapper .content a, 
-			.wrapper.spotlight .content p,
-			#about .content p,
-			.features article p,
-			.contact li,
-			.copyright li {
+			/* Force Tanker on body text paragraphs and descriptions */
+			body, p, li, a, span, div, section, article, header, footer,
+			.content, .inner, .major, .special, .features, .links,
+			#about p, .wrapper p, .content p, .features p {
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+			}
+			
+			/* Ensure all text elements use Tanker */
+			#wrapper p, #wrapper li, #wrapper a, #wrapper span,
+			.wrapper.spotlight p, .wrapper.spotlight li,
+			#four p, #four li, #four a,
+			#banner p {
 				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
 			}
 			
@@ -78,6 +82,11 @@
 			#four .features article h3 {
 				margin-top: 0;
 			}
+			
+			/* Make What's New titles orange */
+			#four .features article h3.major {
+				color: #E3572B !important; /* Orange from custom colors */
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -111,7 +120,7 @@
 					<section id="banner">
 						<div class="inner">
 							<h2>Raul Rojas</h2>
-							<p>AI Engineer & Anthropologist</a></p>
+							<p>AI Engineer & Anthropologist</p>
 						</div>
 					</section>
 
