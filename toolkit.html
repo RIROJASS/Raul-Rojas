@@ -14,26 +14,27 @@
 				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
 			}
 			
-			/* Force Tanker on all text elements */
+			/* Ensure all text elements use Tanker */
 			body, p, li, a, span, div, section, article, header, footer,
-			.content, .inner, .major, .special, h1, h2, h3, h4, h5, h6,
-			table, td, th, ul, ol, dl, dt, dd {
+			.content, .inner, .major, .special, h1, h2, h3, h4, h5, h6 {
 				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
 			}
 			
-			/* Make main headings orange */
-			header h2,  /* "Toolkit" title in header */
-			.inner > h3.major  /* Section titles: Technical Skills, Certifications, Education, Club & Organization Involvement */
+			/* Make specific titles orange and same size */
+			header .inner h2,  /* Toolkit main title */
+			.inner > h3.major,  /* Section titles */
+			section > h3.major  /* Section titles */
 			{
-				color: #E3572B !important;  /* Orange from custom colors */
+				color: #E3572B !important;
+				font-size: 2em !important;  /* Standardize size */
 			}
 			
-			/* Keep subsection headings (h4) in their default color */
-			h4 {
+			/* Keep other headings default color */
+			.inner h4:not(.major),
+			.row h4:not(.major) {
 				color: inherit;
 			}
 			
-			/* Certificate styling */
 			.cert-container {
 				height: 200px;
 				margin-bottom: 20px;
