@@ -29,6 +29,19 @@
 				font-size: 2em !important;  /* Standardize size */
 			}
 			
+			/* Add more separation before major sections */
+			.inner > h3.major,
+			section > h3.major {
+				margin-top: 3em !important;
+				padding-top: 1em;
+			}
+			
+			/* First h3.major doesn't need extra top margin */
+			.inner > h3.major:first-child {
+				margin-top: 0 !important;
+				padding-top: 0;
+			}
+			
 			/* Keep other headings default color */
 			.inner h4:not(.major),
 			.row h4:not(.major) {
@@ -134,8 +147,7 @@
 											</ul>
 										</div>
 									</div>
-								</div>
-									
+
 									<section>
 										<h3 class="major">Certifications</h3>
 										
