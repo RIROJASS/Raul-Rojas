@@ -54,25 +54,33 @@
 				color: inherit;
 			}
 			
+			/* Remove default borders from box elements */
+			.box.alt {
+				border: none !important;
+			}
+			
 			/* Styling for individual project sections */
 			section > section {
 				padding: 2em 0;
-				margin: 2em 0;
-				border-top: 1px solid rgba(255, 255, 255, 0.1);
-				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				margin: 3em 0;
+				position: relative;
 			}
 			
-			/* First project in a section shouldn't have top border */
+			/* Add bold lines before and after project title only */
+			section > section h4.major {
+				padding: 1em 0;
+				margin: 1em 0;
+				border-top: 2px solid rgba(255, 255, 255, 0.3);
+				border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+			}
+			
+			/* First project spacing adjustment */
 			section > section:first-child {
-				border-top: none;
-				padding-top: 0;
-				margin-top: 0;
+				margin-top: 1em;
 			}
 			
-			/* Last project in a section shouldn't have bottom border */
+			/* Last project spacing adjustment */
 			section > section:last-child {
-				border-bottom: none;
-				padding-bottom: 0;
 				margin-bottom: 0;
 			}
 		</style>
