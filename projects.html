@@ -8,6 +8,46 @@
 		<link rel="stylesheet" href="assets/css/custom-colors.css" />
 		<link rel="stylesheet" href="assets/css/tanker.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Apply Tanker font to all text */
+			* {
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+			}
+			
+			/* Ensure all text elements use Tanker */
+			body, p, li, a, span, div, section, article, header, footer,
+			.content, .inner, .major, .special, h1, h2, h3, h4, h5, h6 {
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+			}
+			
+			/* Make specific titles orange and same size */
+			header .inner h2,  /* Projects main title */
+			.inner > h3.major,  /* Section titles */
+			section > h3.major  /* Section titles */
+			{
+				color: #E3572B !important;
+				font-size: 2em !important;  /* Standardize size */
+			}
+			
+			/* Add more separation before major sections */
+			.inner > h3.major,
+			section > h3.major {
+				margin-top: 3em !important;
+				padding-top: 1em;
+			}
+			
+			/* First h3.major doesn't need extra top margin */
+			.inner > h3.major:first-child {
+				margin-top: 0 !important;
+				padding-top: 0;
+			}
+			
+			/* Keep other headings default color */
+			.inner h4:not(.major),
+			.row h4:not(.major) {
+				color: inherit;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -147,10 +187,9 @@
 											<h4 class="major">SHPE National Convention Corporate Database</h4>
 											<div class="box alt">
 												<div class="resume-container" style="height: 600px; margin-bottom: 20px;">
-													<embed src="images/shpe_database_preview.pdf type="application/pdf" width="100%" height="100%" style=border: 1px solid rgba(255, 255, 255, 0.125); border-radius: 5px;">
+													<embed src="images/shpe_database_preview.pdf" type="application/pdf" width="100%" height="100%" style="border: 1px solid rgba(255, 255, 255, 0.125); border-radius: 5px;">
 												</div>
 											</div>
-										</div>
 											
 											<p>As the Corporate Database Director for the Society of Hispanic Professional Engineers (SHPE), I developed and maintained a comprehensive system for tracking corporate partnerships and engagement during the National Convention.</p>
 											
