@@ -29,7 +29,7 @@
 				font-size: 2em !important;  /* Standardize size */
 			}
 			
-			/* Make individual project titles golden */
+			/* Make project titles golden */
 			section h4.major {
 				color: #F9DB50 !important;
 				font-size: 1.5em !important;
@@ -52,6 +52,28 @@
 			.inner h4:not(.major),
 			.row h4:not(.major) {
 				color: inherit;
+			}
+			
+			/* Styling for individual project sections */
+			section > section {
+				padding: 2em 0;
+				margin: 2em 0;
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			
+			/* First project in a section shouldn't have top border */
+			section > section:first-child {
+				border-top: none;
+				padding-top: 0;
+				margin-top: 0;
+			}
+			
+			/* Last project in a section shouldn't have bottom border */
+			section > section:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+				margin-bottom: 0;
 			}
 		</style>
 	</head>
