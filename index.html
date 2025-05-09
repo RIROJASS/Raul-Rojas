@@ -55,7 +55,7 @@
 			/* Link styles for the main sections */
 			.main-links a.special {
 				color: #204B38 !important; /* Dark green from custom colors */
-				margin-right: 2em;
+				margin-right: 1.5em;
 				display: inline-block;
 			}
 
@@ -67,17 +67,15 @@
 				margin-right: 0;
 			}
 			
-			/* Combined navigation section styles */
+			/* Combined navigation section styles - more compact */
 			.main-links {
 				text-align: center;
-				padding: 2em 0;
-				background-color: #f5f5f5;
-				border-radius: 4px;
-				margin-bottom: 2em;
+				padding: 1.5em 0;
+				margin-bottom: 1em;
 			}
 			
 			.main-links p {
-				margin-bottom: 1.5em;
+				margin-bottom: 1em;
 				font-size: 1.2em;
 			}
 			
@@ -143,28 +141,59 @@
 				
 				.main-links a.special {
 					display: block;
-					margin: 1em 0;
+					margin: 0.75em 0;
 					text-align: center;
 				}
 			}
 			
-			/* Fix About Me section to be gradient blue instead of orange */
+			/* SWAPPED COLORS: About Me section now has the style3 colors */
 			.wrapper.spotlight.style1 {
+				background-color: #FAF4DF !important; /* Cream color */
+			}
+			
+			.wrapper.spotlight.style1 h2, 
+			.wrapper.spotlight.style1 p {
+				color: #204B38 !important; /* Dark green text */
+			}
+			
+			.wrapper.spotlight.style1:before, 
+			.wrapper.spotlight.style1:after {
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23FAF4DF%3B' /%3E%3C/svg%3E") !important;
+			}
+			
+			.wrapper.spotlight.style1:before {
+				box-shadow: inset 0 -1px 0 0 #FAF4DF, 0 1px 0 0 #FAF4DF !important;
+			}
+			
+			.wrapper.spotlight.style1:after {
+				box-shadow: inset 0 -1px 0 0 #FAF4DF, 0 1px 0 0 #FAF4DF !important;
+			}
+			
+			/* Main links section now has the blue gradient */
+			.wrapper.alt.spotlight.style3 {
 				background-color: #4fa49a !important; /* Blue */
 				background-image: linear-gradient(45deg, #4fa49a, #4361c2) !important;
 			}
 			
-			/* Also fix the SVG triangle shapes at the edges of the section */
-			.wrapper.spotlight.style1:before, 
-			.wrapper.spotlight.style1:after {
+			.wrapper.alt.spotlight.style3 .main-links p,
+			.wrapper.alt.spotlight.style3 .main-links a.special {
+				color: #ffffff !important; 
+			}
+			
+			.wrapper.alt.spotlight.style3 .main-links a.special:hover {
+				color: rgba(255, 255, 255, 0.8) !important;
+			}
+			
+			.wrapper.alt.spotlight.style3:before, 
+			.wrapper.alt.spotlight.style3:after {
 				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%234361c2%3B' /%3E%3C/svg%3E") !important;
 			}
 			
-			.wrapper.spotlight.style1:before {
+			.wrapper.alt.spotlight.style3:before {
 				box-shadow: inset 0 -1px 0 0 #4361c2, 0 1px 0 0 #4361c2 !important;
 			}
 			
-			.wrapper.spotlight.style1:after {
+			.wrapper.alt.spotlight.style3:after {
 				box-shadow: inset 0 -1px 0 0 #4361c2, 0 1px 0 0 #4361c2 !important;
 			}
 		</style>
@@ -204,7 +233,7 @@
 						</div>
 					</section>
 
-				<!-- About Me Section -->
+				<!-- About Me Section - Now cream colored -->
 				<section id="about" class="wrapper spotlight style1">
 					<div class="inner">
 						<a href="#" class="image"><img src="images/profile_pic.JPG" alt="" /></a>
@@ -219,7 +248,7 @@
 				<!-- Wrapper -->
 				<section id="wrapper">
 					
-					<!-- Simplified navigation links -->
+					<!-- Simplified navigation links - Now blue gradient -->
 					<section class="wrapper alt spotlight style3">
 						<div class="inner">
 							<div class="main-links">
@@ -271,350 +300,6 @@
 						</div>
 					</section>
 
-				</section>
-
-				<!-- Footer -->
-				<section id="footer">
-				    <div class="inner">
-				        <h2 class="major">Connect With Me</h2>
-				        <ul class="contact">
-				            <li class="icon solid fa-envelope"><a href="mailto:raul.rojas@ufl.edu">raul.rojas@ufl.edu</a></li>
-				            <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/ra%C3%BAl-rojas" target="_blank">LinkedIn</a></li>
-				            <li class="icon brands fa-github"><a href="https://github.com/RIROJASS" target="_blank">GitHub</a></li>
-				        </ul>
-				        <ul class="copyright">
-				            <li>&copy; Raúl Rojas. All rights reserved.</li>
-				            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				        </ul>
-				    </div>
-				</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
-</html><!DOCTYPE HTML>
-<!--
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Raúl Rojas</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/custom-colors.css" />
-		<link rel="stylesheet" href="assets/css/tanker.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			/* Apply Tanker font to all text - more comprehensive */
-			* {
-				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
-			}
-			
-			/* Force Tanker on body text paragraphs and descriptions */
-			body, p, li, a, span, div, section, article, header, footer,
-			.content, .inner, .major, .special, .features, .links,
-			#about p, .wrapper p, .content p, .features p {
-				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
-			}
-			
-			/* Ensure all text elements use Tanker */
-			#wrapper p, #wrapper li, #wrapper a, #wrapper span,
-			.wrapper.spotlight p, .wrapper.spotlight li,
-			#four p, #four li, #four a,
-			#banner p {
-				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
-			}
-			
-			/* Make the banner subtitle larger */
-			#banner p {
-				font-size: 1.75em !important;
-			}
-			
-			/* Make the top titles the same color */
-			#header h1 a, #banner h2 {
-				color: #fff !important;
-			}
-			
-			/* Adjust vertical positioning of name in header */
-			#header h1 {
-				margin-bottom: 0;
-				padding-top: 5px;
-				padding-bottom: 5px;
-			}
-
-			#header h1 a {
-				display: inline-block;
-				padding-top: 5px;
-			}
-			
-			/* Dark green text for project link */
-			.wrapper.spotlight.style2 .content a.special,
-			.card a.special {
-				color: #204B38 !important; /* Dark green from custom colors */
-			}
-
-			.wrapper.spotlight.style2 .content a.special:hover,
-			.card a.special:hover {
-				color: #2d6a50 !important; /* Slightly lighter green on hover */
-			}
-			
-			/* Dark green text for toolkit link */
-			.wrapper.spotlight.style3 .content a.special {
-				color: #204B38 !important; /* Dark green from custom colors */
-			}
-
-			.wrapper.spotlight.style3 .content a.special:hover {
-				color: #2d6a50 !important; /* Slightly lighter green on hover */
-			}
-			
-			/* Combined section for Projects, Toolkit, and Research */
-			.cards-container {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2em;
-				padding: 2em 0;
-			}
-			
-			.card {
-				flex: 1;
-				min-width: 300px;
-				background-color: rgba(0, 0, 0, 0.15);
-				border-radius: 4px;
-				padding: 1.5em;
-				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-			}
-			
-			.card h2 {
-				color: #E3572B !important;
-				margin-bottom: 0.5em;
-			}
-			
-			.card .image {
-				width: 100%;
-				margin-bottom: 1em;
-				border-radius: 4px;
-				overflow: hidden;
-			}
-			
-			.card .image img {
-				width: 100%;
-				height: auto;
-				display: block;
-			}
-			
-			/* Override the grid layout for What's New section to make it a vertical list */
-			#four .features {
-				display: block !important;
-			}
-			
-			#four .features article {
-				width: 100% !important;
-				display: block !important;
-				margin-bottom: 3em;
-				padding: 2em;
-				padding-top: 0;
-				border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-				box-sizing: border-box;
-			}
-			
-			#four .features article:last-child {
-				border-bottom: none;
-				margin-bottom: 0;
-			}
-			
-			#four .features article .image {
-				margin-bottom: 1.5em;
-				display: block;
-				margin-left: -2em;
-				margin-right: -2em;
-				width: calc(100% + 4em);
-			}
-			
-			#four .features article h3 {
-				margin-top: 0;
-				margin-bottom: 1em;
-			}
-			
-			#four .features article p {
-				font-size: 1.3em !important; /* Increase font size for What's New text */
-			}
-			
-			#four .features article p:last-child {
-				margin-bottom: 0;
-			}
-			
-			/* Make What's New titles orange */
-			#four .features article h3.major {
-				color: #E3572B !important; /* Orange from custom colors */
-			}
-			
-			/* Responsive adjustments */
-			@media screen and (max-width: 736px) {
-				#four .features article {
-					padding: 1.5em;
-					padding-top: 0;
-				}
-				
-				#four .features article .image {
-					margin-left: -1.5em;
-					margin-right: -1.5em;
-					width: calc(100% + 3em);
-				}
-				
-				.cards-container {
-					flex-direction: column;
-				}
-			}
-			
-			/* Fix About Me section to be gradient blue instead of orange */
-			.wrapper.spotlight.style1 {
-				background-color: #4fa49a !important; /* Blue */
-				background-image: linear-gradient(45deg, #4fa49a, #4361c2) !important;
-			}
-			
-			/* Also fix the SVG triangle shapes at the edges of the section */
-			.wrapper.spotlight.style1:before, 
-			.wrapper.spotlight.style1:after {
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%234361c2%3B' /%3E%3C/svg%3E") !important;
-			}
-			
-			.wrapper.spotlight.style1:before {
-				box-shadow: inset 0 -1px 0 0 #4361c2, 0 1px 0 0 #4361c2 !important;
-			}
-			
-			.wrapper.spotlight.style1:after {
-				box-shadow: inset 0 -1px 0 0 #4361c2, 0 1px 0 0 #4361c2 !important;
-			}
-		</style>
-	</head>
-	<body class="is-preload">
-
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
-
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Raúl Rojas</a></h1>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
-
-				<!-- Menu -->
-					<nav id="menu">
-						<div class="inner">
-							<h2>Menu</h2>
-							<ul class="links">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="projects.html">Projects</a></li>
-								<li><a href="toolkit.html">Toolkit</a></li>
-								<li><a href="research.html">Research & Field Work</a></li>
-							</ul>
-							<a href="#" class="close">Close</a>
-						</div>
-					</nav>
-
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Raúl Rojas</h2>
-							<p>AI Engineer & Anthropologist</p>
-						</div>
-					</section>
-
-				<!-- About Me Section -->
-				<section id="about" class="wrapper spotlight style1">
-					<div class="inner">
-						<a href="#" class="image"><img src="images/profile_pic.JPG" alt="" /></a>
-						<div class="content">
-							<h2 class="major">About Me</h2>
-							<p>I'm a Computer Science and Anthropology student with a passion for AI engineering and cultural research. My interdisciplinary background allows me to approach technological problems with a unique human-centered perspective, and create solutions that bridge technology and society.</p>
-							<p>When I'm not coding or conducting research, you'll find me surfing, running, or exploring.</p>
-						</div>
-					</div>
-				</section>
-
-				<!-- Combined Projects, Toolkit, Research Section -->
-				<section class="wrapper alt style1">
-					<div class="inner">
-						<h2 class="major">Explore</h2>
-						<div class="cards-container">
-							<!-- Projects Card -->
-							<div class="card">
-								<a href="#" class="image"><img src="images/satellite.jpg" alt="" /></a>
-								<h2 class="major">Projects</h2>
-								<p>Applications that blend technology with anthropological insights</p>
-								<a href="projects.html" class="special">View My Projects</a>
-							</div>
-							
-							<!-- Toolkit Card -->
-							<div class="card">
-								<a href="#" class="image"><img src="images/pathway-20.jpg" alt="" /></a>
-								<h2 class="major">Toolkit</h2>
-								<p>My technical skills, methodologies, and professional experience</p>
-								<a href="toolkit.html" class="special">Explore My Toolkit</a>
-							</div>
-							
-							<!-- Research Card -->
-							<div class="card">
-								<a href="#" class="image"><img src="images/research.jpg" alt="" /></a>
-								<h2 class="major">Research & Field Work</h2>
-								<p>My intellectual journey across the world, physically and digitally</p>
-								<a href="research.html" class="special">Explore My Research</a>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<!-- What's New Section -->
-				<section id="four" class="wrapper alt style2">
-					<div class="inner">
-						<h2 class="major">What's New?</h2>
-						<section class="features">
-							<!-- Breakthrough Tech AI -->
-							<article>
-								<a href="#" class="image"><img src="images/breakthroughtech_ai.png" alt="" /></a>
-								<h3 class="major">Breakthrough AI Program Acceptance</h3>
-								<p>Excited to announce my acceptance into the prestigious <a href="https://www.breakthroughtech.org/ai/" target="_blank">Breakthrough Tech AI</a> program, where I'll be developing cutting-edge solutions under the guidance of faculty from MIT and Cornell.</p>
-								<p>This competitive program will allow me to collaborate with leading researchers in the AI field while building technology that addresses real human needs.</p>
-							</article>
-							
-							<!-- Northrop Grumman -->
-							<article>
-								<a href="#" class="image"><img src="images/northrop_internship.gif" alt="" /></a>
-								<h3 class="major">Upcoming Northrop Grumman Internship</h3>
-								<p>Excited to announce my upcoming summer internship with <a href="https://www.northropgrumman.com/what-we-do/advanced-technology-and-innovation" target="_blank">Northrop Grumman</a> where I'll be joining their <a href="https://www.northropgrumman.com/who-we-are/business-sectors/mission-systems" target="_blank">Mission Systems</a> team.</p>
-								<p>I'll be making my way to Baltimore, checking out the Bay, and maybe going to an Orioles game! There, I'll be applying my unique background to help develop more human-centered technology solutions for complex challenges off and on the field.</p>
-							</article>
-							
-							<!-- Multimodal AI -->
-							<article>
-								<a href="#" class="image"><img src="images/multimodal_ai.png" alt="" /></a>
-								<h3 class="major">Multimodal AI Internship Completion</h3>
-								<p>Recently wrapped up my internship focused on <a href="https://www.ibm.com/topics/multimodal-ai" target="_blank">multimodal AI</a> applications, where I helped develop systems that can process and analyze multiple types of data simultaneously.</p>
-								<p>This made research easier for my colleagues, specifically through embedding & analyzing visual data for archaeological artifact classification.</p>
-							</article>
-							
-							<!-- Research Conference -->
-							<article>
-								<a href="#" class="image"><img src="images/furc_presentation.jpg" alt="" /></a>
-								<h3 class="major">Florida Undergraduate Research Conference 2025</h3>
-								<p>For Valentine's day this year, my date was my first research poster. I presented "Finding Lost Archaeological Sites with AI: Object Detection with Remote Sensing" at the <a href="https://www.flbog.edu/furc/" target="_blank">2025 Florida Undergraduate Research Conference</a> alongside lab partner <a href="https://via-zhang.github.io/" target="_blank">Olivia Zhang</a>.</p>
-								<p>My presentation showcased how machine learning algorithms can identify potential archaeological sites from satellite imagery with more efficiency than traditional methods. I had a blast looking at everyone's posters and left chock-full of ideas for future investigations!</p>
-							</article>
-						</section>
-					</div>
 				</section>
 
 				<!-- Footer -->
