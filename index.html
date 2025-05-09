@@ -55,7 +55,7 @@
 			/* Link styles for the main sections */
 			.main-links a.special {
 				color: #204B38 !important; /* Dark green from custom colors */
-				margin-right: 1.5em;
+				margin: 0.8em 1.5em;
 				display: inline-block;
 			}
 
@@ -63,19 +63,21 @@
 				color: #2d6a50 !important; /* Slightly lighter green on hover */
 			}
 			
-			/* Make arrow circles smaller and change arrow color */
+			/* Make the circles around arrows smaller */
 			.main-links a.special:before {
-				height: 1.6em !important; /* Smaller circle */
-				width: 1.6em !important; /* Smaller circle */
-				line-height: 1.35em !important; /* Adjust vertical centering of arrow */
-				color: #EB9A3E !important; /* New arrow color between orange and gold */
+				width: 1.7em !important; /* Smaller circle (original was 2em) */
+				height: 1.7em !important;
+				line-height: 1.55em !important; /* Adjust line height to center the arrow */
+				font-size: 1.15em !important; /* Slightly smaller arrow */
+				color: #F19A3E !important; /* New color between golden and orange */
+				border-color: #F19A3E !important; /* Match the circle border color */
 			}
 			
-			.main-links a.special:last-child {
-				margin-right: 0;
+			.main-links a.special:hover:before {
+				background-color: rgba(241, 154, 62, 0.1) !important; /* Matching hover effect */
 			}
 			
-			/* Combined navigation section styles - with grid layout */
+			/* Combined navigation section styles - more compact */
 			.main-links {
 				text-align: center;
 				padding: 1.5em 0;
@@ -83,23 +85,32 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				justify-content: center;
 			}
 			
 			.main-links p {
 				margin-bottom: 1em;
 				font-size: 1.2em;
+				width: 100%;
 			}
 			
-			/* Create a flex container for the top row links */
-			.main-links .top-row {
+			/* Create row layout for first two links */
+			.main-links .links-container {
 				display: flex;
 				justify-content: center;
-				margin-bottom: 1.5em;
+				flex-wrap: wrap;
+				margin-bottom: 0.5em;
 			}
 			
-			/* Bottom row (just Research) centered */
-			.main-links .bottom-row {
-				text-align: center;
+			/* Responsive styling for small screens */
+			@media screen and (max-width: 736px) {
+				.main-links .links-container {
+					flex-direction: column;
+				}
+				
+				.main-links a.special {
+					margin: 0.5em 0;
+				}
 			}
 			
 			/* Increase font size for What's New text */
@@ -160,12 +171,6 @@
 					margin-left: -1.5em;
 					margin-right: -1.5em;
 					width: calc(100% + 3em);
-				}
-				
-				/* Responsive navigation for mobile */
-				.main-links .top-row {
-					flex-direction: column;
-					margin-bottom: 0;
 				}
 				
 				.main-links a.special {
@@ -363,13 +368,11 @@
 						<div class="inner">
 							<div class="main-links">
 								<p>Explore my work, skills, and research:</p>
-								<div class="top-row">
+								<div class="links-container">
 									<a href="projects.html" class="special">Projects</a>
 									<a href="toolkit.html" class="special">Toolkit</a>
 								</div>
-								<div class="bottom-row">
-									<a href="research.html" class="special">Research & Field Work</a>
-								</div>
+								<a href="research.html" class="special">Research & Field Work</a>
 							</div>
 						</div>
 					</section>
