@@ -94,6 +94,36 @@
 			.cert-container:hover .cert-overlay {
 				opacity: 1;
 			}
+
+			/* NEW STYLES ADDED - Certificate subcategory titles and menu */
+			
+			/* Update certificate subcategory titles to match other section headings */
+			section h4 {
+				font-size: 2em !important; /* Match the size of major section titles */
+				margin-top: 1.5em !important;
+				margin-bottom: 1em !important;
+				color: #F9DB50 !important; /* Keep the golden color */
+				font-weight: 700 !important;
+			}
+
+			/* First h4 in each section doesn't need extra top margin */
+			section > h4:first-of-type {
+				margin-top: 0.5em !important;
+			}
+
+			/* Menu text size increases */
+			#menu h2 {
+				font-size: 2.5em !important; /* Larger menu title */
+			}
+
+			#menu .links li a {
+				font-size: 1.5em !important; /* Larger menu links */
+				padding: 0.9em 0 !important; /* More vertical spacing */
+			}
+
+			#menu .inner {
+				width: 22em !important; /* Slightly wider menu container */
+			}
 		</style>
 	</head>
 	<body class="is-preload">
