@@ -39,6 +39,11 @@
 				font-size: 1.75em !important;
 			}
 			
+			/* Make the top titles the same color */
+			#header h1 a, #banner h2 {
+				color: #fff !important;
+			}
+			
 			/* Adjust vertical positioning of name in header */
 			#header h1 {
 				margin-bottom: 0;
@@ -52,11 +57,13 @@
 			}
 			
 			/* Dark green text for project link */
-			.wrapper.spotlight.style2 .content a.special {
+			.wrapper.spotlight.style2 .content a.special,
+			.card a.special {
 				color: #204B38 !important; /* Dark green from custom colors */
 			}
 
-			.wrapper.spotlight.style2 .content a.special:hover {
+			.wrapper.spotlight.style2 .content a.special:hover,
+			.card a.special:hover {
 				color: #2d6a50 !important; /* Slightly lighter green on hover */
 			}
 			
@@ -67,6 +74,41 @@
 
 			.wrapper.spotlight.style3 .content a.special:hover {
 				color: #2d6a50 !important; /* Slightly lighter green on hover */
+			}
+			
+			/* Combined section for Projects, Toolkit, and Research */
+			.cards-container {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 2em;
+				padding: 2em 0;
+			}
+			
+			.card {
+				flex: 1;
+				min-width: 300px;
+				background-color: rgba(0, 0, 0, 0.15);
+				border-radius: 4px;
+				padding: 1.5em;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+			
+			.card h2 {
+				color: #E3572B !important;
+				margin-bottom: 0.5em;
+			}
+			
+			.card .image {
+				width: 100%;
+				margin-bottom: 1em;
+				border-radius: 4px;
+				overflow: hidden;
+			}
+			
+			.card .image img {
+				width: 100%;
+				height: auto;
+				display: block;
 			}
 			
 			/* Override the grid layout for What's New section to make it a vertical list */
@@ -102,6 +144,10 @@
 				margin-bottom: 1em;
 			}
 			
+			#four .features article p {
+				font-size: 1.3em !important; /* Increase font size for What's New text */
+			}
+			
 			#four .features article p:last-child {
 				margin-bottom: 0;
 			}
@@ -122,6 +168,10 @@
 					margin-left: -1.5em;
 					margin-right: -1.5em;
 					width: calc(100% + 3em);
+				}
+				
+				.cards-container {
+					flex-direction: column;
 				}
 			}
 			
@@ -193,112 +243,14 @@
 					</div>
 				</section>
 
-				<!-- Wrapper -->
-					<section id="wrapper">
-
-						<!-- One -->
-						<section id="one" class="wrapper spotlight style2">
-							<div class="inner">
-								<a href="#" class="image"><img src="images/satellite.jpg" /></a>
-								<div class="content">
-									<h2 class="major">Projects</h2>
-									<p>Applications that blend technology with anthropological insights</p>
-									<a href="projects.html" class="special">View My Projects</a>
-								</div>
-							</div>
-						</section>
-
-						<!-- Two -->
-						<section id="two" class="wrapper alt spotlight style3">
-							<div class="inner">
-								<a href="#" class="image"><img src="images/pathway-20.jpg" alt="" /></a>
-								<div class="content">
-									<h2 class="major">Toolkit</h2>
-									<p>My technical skills, methodologies, and professional experience</p>
-									<a href="toolkit.html" class="special">Explore My Toolkit</a>
-								</div>
-							</div>
-						</section>
-
-						<!-- Three -->
-							<section id="three" class="wrapper spotlight style4">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/research.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Research & Field Work</h2>
-										<p>My intellectual journey across the world, physically and digitally</p>
-										<a href="research.html" class="special">Explore My Research</a>
-									</div>
-								</div>
-							</section>
-
-						<!-- Four -->
-						<section id="four" class="wrapper alt style1">
-							<div class="inner">
-								<h2 class="major">What's New?</h2>
-								<section class="features">
-									<!-- Breakthrough Tech AI -->
-									<article>
-										<a href="#" class="image"><img src="images/breakthroughtech_ai.png" alt="" /></a>
-										<h3 class="major">Breakthrough AI Program Acceptance</h3>
-										<p>Excited to announce my acceptance into the prestigious <a href="https://www.breakthroughtech.org/ai/" target="_blank">Breakthrough Tech AI</a> program, where I'll be developing cutting-edge solutions under the guidance of faculty from MIT and Cornell.</p>
-										<p>This competitive program will allow me to collaborate with leading researchers in the AI field while building technology that addresses real human needs.</p>
-									</article>
-									
-									<!-- Northrop Grumman -->
-									<article>
-										<a href="#" class="image"><img src="images/northrop_internship.gif" alt="" /></a>
-										<h3 class="major">Upcoming Northrop Grumman Internship</h3>
-										<p>Excited to announce my upcoming summer internship with <a href="https://www.northropgrumman.com/what-we-do/advanced-technology-and-innovation" target="_blank">Northrop Grumman</a> where I'll be joining their <a href="https://www.northropgrumman.com/who-we-are/business-sectors/mission-systems" target="_blank">Mission Systems</a> team.</p>
-										<p>I'll be making my way to Baltimore, checking out the Bay, and maybe going to an Orioles game! There, I'll be applying my unique background to help develop more human-centered technology solutions for complex challenges off and on the field.</p>
-									</article>
-									
-									<!-- Multimodal AI -->
-									<article>
-										<a href="#" class="image"><img src="images/multimodal_ai.png" alt="" /></a>
-										<h3 class="major">Multimodal AI Internship Completion</h3>
-										<p>Recently wrapped up my internship focused on <a href="https://www.ibm.com/topics/multimodal-ai" target="_blank">multimodal AI</a> applications, where I helped develop systems that can process and analyze multiple types of data simultaneously.</p>
-										<p>This made research easier for my colleagues, specifically through embedding & analyzing visual data for archaeological artifact classification.</p>
-									</article>
-									
-									<!-- Research Conference -->
-									<article>
-										<a href="#" class="image"><img src="images/furc_presentation.jpg" alt="" /></a>
-										<h3 class="major">Florida Undergraduate Research Conference 2025</h3>
-										<p>For Valentine's day this year, my date was my first research poster. I presented "Finding Lost Archaeological Sites with AI: Object Detection with Remote Sensing" at the <a href="https://www.flbog.edu/furc/" target="_blank">2025 Florida Undergraduate Research Conference</a> alongside lab partner <a href="https://via-zhang.github.io/" target="_blank">Olivia Zhang</a>.</p>
-										<p>My presentation showcased how machine learning algorithms can identify potential archaeological sites from satellite imagery with more efficiency than traditional methods. I had a blast looking at everyone's posters and left chock-full of ideas for future investigations!</p>
-									</article>
-								</section>
-							</div>
-						</section>
-
-				</section>
-
-				<!-- Footer -->
-				<section id="footer">
-				    <div class="inner">
-				        <h2 class="major">Connect With Me</h2>
-				        <ul class="contact">
-				            <li class="icon solid fa-envelope"><a href="mailto:raul.rojas@ufl.edu">raul.rojas@ufl.edu</a></li>
-				            <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/ra%C3%BAl-rojas" target="_blank">LinkedIn</a></li>
-				            <li class="icon brands fa-github"><a href="https://github.com/RIROJASS" target="_blank">GitHub</a></li>
-				        </ul>
-				        <ul class="copyright">
-				            <li>&copy; Raúl Rojas. All rights reserved.</li>
-				            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				        </ul>
-				    </div>
-				</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
-</html>
+				<!-- Combined Projects, Toolkit, Research Section -->
+				<section class="wrapper alt style1">
+					<div class="inner">
+						<h2 class="major">Explore</h2>
+						<div class="cards-container">
+							<!-- Projects Card -->
+							<div class="card">
+								<a href="#" class="image"><img src="images/satellite.jpg" alt="" /></a>
+								<h2 class="major">Projects</h2>
+								<p>Applications that blend technology with anthropological insights</p>
+								<a href="projects.html" class=
