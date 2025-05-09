@@ -8,6 +8,122 @@
 		<link rel="stylesheet" href="assets/css/custom-colors.css" />
 		<link rel="stylesheet" href="assets/css/tanker.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Apply Tanker font to all text */
+			* {
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+			}
+			
+			/* Ensure all text elements use Tanker */
+			body, p, li, a, span, div, section, article, header, footer,
+			.content, .inner, .major, .special, h1, h2, h3, h4, h5, h6 {
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+			}
+			
+			/* Increase font size for body text */
+			p, li, .inner p, .content p {
+				font-size: 1.2em !important;
+			}
+			
+			/* Make specific titles orange and same size */
+			header .inner h2,  /* Research main title */
+			.inner > h3.major,  /* Section titles */
+			section > h3.major  /* Section titles */
+			{
+				color: #E3572B !important;
+				font-size: 2em !important;  /* Standardize size */
+			}
+			
+			/* Add more separation before major sections */
+			.inner > h3.major,
+			section > h3.major {
+				margin-top: 1.5em !important;
+				padding-top: 0.5em;
+			}
+			
+			/* First h3.major doesn't need extra top margin */
+			.inner > h3.major:first-child {
+				margin-top: 0 !important;
+				padding-top: 0;
+			}
+			
+			/* Make subtitles golden */
+			.inner h4:not(.major),
+			.row h4:not(.major),
+			section h4:not(.major) {
+				color: #F9DB50 !important;
+				font-size: 1.7em !important;
+				margin-top: 1.5em !important;
+				margin-bottom: 0.7em !important;
+				font-weight: 700 !important;
+			}
+			
+			/* Remove default borders from box elements */
+			.box.alt {
+				border: none !important;
+			}
+			
+			/* Styling for individual research sections */
+			.inner > section {
+				padding: 1em 0;
+				margin: 2em 0;
+				position: relative;
+				/* Optional subtle divider like toolkit uses */
+				border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+				padding-bottom: 2em;
+			}
+			
+			/* Last section doesn't need a border */
+			.inner > section:last-child {
+				border-bottom: none;
+			}
+			
+			/* First section spacing adjustment */
+			.inner > section:first-child {
+				margin-top: 1em;
+				padding-top: 0;
+			}
+			
+			/* Style for link buttons */
+			a.special:before {
+				width: 1.7em !important; /* Smaller circle */
+				height: 1.7em !important;
+				line-height: 1.55em !important; /* Adjust line height to center the arrow */
+				font-size: 1.15em !important; /* Slightly smaller arrow */
+				color: #F19A3E !important; /* New color between golden and orange */
+				border-color: #F19A3E !important; /* Match the circle border color */
+			}
+			
+			a.special:hover:before {
+				background-color: rgba(241, 154, 62, 0.1) !important; /* Matching hover effect */
+			}
+			
+			/* Menu text size increases */
+			#menu h2 {
+				font-size: 2.5em !important; /* Larger menu title */
+			}
+			
+			#menu .links li a {
+				font-size: 1.5em !important; /* Larger menu links */
+				padding: 0.9em 0 !important; /* More vertical spacing */
+			}
+			
+			#menu .inner {
+				width: 22em !important; /* Slightly wider menu container */
+			}
+			
+			/* Style for embedded PDF */
+			object[data$=".pdf"] {
+				border: 1px solid rgba(255, 255, 255, 0.125);
+				border-radius: 5px;
+				margin-bottom: 1.5em;
+			}
+			
+			/* Add space between images in gallery */
+			.row.gtr-uniform > .col-4 {
+				padding: 0.5em;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
