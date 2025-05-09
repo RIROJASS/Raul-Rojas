@@ -89,6 +89,97 @@
 			section > section:last-child {
 				margin-bottom: 0;
 			}
+			
+			/* Update projects page to match toolkit styling */
+
+			/* Increase font size for body text */
+			p, li, .inner p, .content p {
+				font-size: 1.2em !important;
+			}
+
+			/* Make project titles larger to match toolkit headings */
+			section h4.major {
+				color: #F9DB50 !important;
+				font-size: 2em !important; /* Match the toolkit h4 size */
+				margin-top: 1.5em !important;
+				margin-bottom: 1em !important;
+				font-weight: 700 !important;
+				/* Remove borders for cleaner look matching toolkit */
+				border-top: none !important;
+				border-bottom: none !important;
+				padding: 0.5em 0 !important;
+			}
+
+			/* Style "Project Highlights" subheadings in golden */
+			section > section h4:not(.major) {
+				color: #F9DB50 !important;
+				font-size: 1.7em !important; /* Match toolkit's .inner h4 size */
+				margin-top: 1.5em !important;
+				margin-bottom: 0.7em !important;
+				font-weight: 700 !important;
+			}
+
+			/* Adjust spacing between projects to match toolkit */
+			section > section {
+				padding: 1em 0;
+				margin: 2em 0;
+				position: relative;
+				/* Optional subtle divider like toolkit uses */
+				border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+				padding-bottom: 2em;
+			}
+
+			/* Last project doesn't need a border */
+			section > section:last-child {
+				border-bottom: none;
+			}
+
+			/* First project spacing adjustment */
+			section > section:first-child {
+				margin-top: 1em;
+				padding-top: 0;
+			}
+
+			/* Style links to match amber arrow circles from home page */
+			a.special:before {
+				width: 1.7em !important; /* Smaller circle */
+				height: 1.7em !important;
+				line-height: 1.55em !important; /* Adjust line height to center the arrow */
+				font-size: 1.15em !important; /* Slightly smaller arrow */
+				color: #F19A3E !important; /* New color between golden and orange */
+				border-color: #F19A3E !important; /* Match the circle border color */
+			}
+
+			a.special:hover:before {
+				background-color: rgba(241, 154, 62, 0.1) !important; /* Matching hover effect */
+			}
+
+			/* Adjust section headings spacing */
+			.inner > h3.major,
+			section > h3.major {
+				margin-top: 1.5em !important; /* Match toolkit spacing */
+				padding-top: 0.5em;
+			}
+
+			/* Menu text size increases like on other pages */
+			#menu h2 {
+				font-size: 2.5em !important; /* Larger menu title */
+			}
+
+			#menu .links li a {
+				font-size: 1.5em !important; /* Larger menu links */
+				padding: 0.9em 0 !important; /* More vertical spacing */
+			}
+
+			#menu .inner {
+				width: 22em !important; /* Slightly wider menu container */
+			}
+
+			/* Style for technologies used sections */
+			p:last-of-type:not(:only-of-type) {
+				font-style: italic;
+				margin-top: 1.5em;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
