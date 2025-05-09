@@ -196,6 +196,84 @@
 			.wrapper.alt.spotlight.style3:after {
 				box-shadow: inset 0 -1px 0 0 #4361c2, 0 1px 0 0 #4361c2 !important;
 			}
+
+			/* NEW STYLES ADDED PER YOUR REQUEST */
+			
+			/* FONT SIZE INCREASES */
+
+			/* Increase font size for navigation links */
+			.main-links a.special {
+				font-size: 1.4em !important; /* Increased from original size */
+				color: #204B38 !important; /* Dark green */
+				margin-right: 1.5em;
+				display: inline-block;
+			}
+
+			/* Increase font size for About Me section text */
+			#about p {
+				font-size: 1.2em !important;
+			}
+
+			/* BACKGROUND COLOR CHANGES */
+
+			/* Change banner background to original blue gradient instead of orange */
+			#banner {
+				background-color: #4c5c96 !important; /* Original template blue */
+				background-image: linear-gradient(45deg, #4fa49a, #4361c2) !important; /* Blue gradient */
+			}
+
+			/* Change About Me section to orange (currently cream) */
+			.wrapper.spotlight.style1 {
+				background-color: #E3572B !important; /* Orange color */
+			}
+
+			.wrapper.spotlight.style1:before, 
+			.wrapper.spotlight.style1:after {
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23E3572B%3B' /%3E%3C/svg%3E") !important;
+			}
+
+			.wrapper.spotlight.style1:before {
+				box-shadow: inset 0 -1px 0 0 #E3572B, 0 1px 0 0 #E3572B !important;
+			}
+
+			.wrapper.spotlight.style1:after {
+				box-shadow: inset 0 -1px 0 0 #E3572B, 0 1px 0 0 #E3572B !important;
+			}
+
+			/* Change About Me section text to white for better contrast on orange background */
+			.wrapper.spotlight.style1 h2, 
+			.wrapper.spotlight.style1 p {
+				color: #ffffff !important; /* White text for better contrast on orange */
+			}
+
+			/* Change links section to green (currently blue gradient) */
+			.wrapper.alt.spotlight.style3 {
+				background-color: #204B38 !important; /* Green */
+				background-image: none !important; /* Remove gradient */
+			}
+
+			.wrapper.alt.spotlight.style3:before, 
+			.wrapper.alt.spotlight.style3:after {
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23204B38%3B' /%3E%3C/svg%3E") !important;
+			}
+
+			.wrapper.alt.spotlight.style3:before {
+				box-shadow: inset 0 -1px 0 0 #204B38, 0 1px 0 0 #204B38 !important;
+			}
+
+			.wrapper.alt.spotlight.style3:after {
+				box-shadow: inset 0 -1px 0 0 #204B38, 0 1px 0 0 #204B38 !important;
+			}
+
+			/* Ensure links in green section are white for contrast */
+			.wrapper.alt.spotlight.style3 .main-links p,
+			.wrapper.alt.spotlight.style3 .main-links a.special {
+				color: #ffffff !important; 
+			}
+
+			.wrapper.alt.spotlight.style3 .main-links a.special:hover {
+				color: rgba(255, 255, 255, 0.8) !important;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -233,7 +311,7 @@
 						</div>
 					</section>
 
-				<!-- About Me Section - Now cream colored -->
+				<!-- About Me Section - Now orange colored with white text -->
 				<section id="about" class="wrapper spotlight style1">
 					<div class="inner">
 						<a href="#" class="image"><img src="images/profile_pic.JPG" alt="" /></a>
@@ -248,7 +326,7 @@
 				<!-- Wrapper -->
 				<section id="wrapper">
 					
-					<!-- Simplified navigation links - Now blue gradient -->
+					<!-- Simplified navigation links - Now green background -->
 					<section class="wrapper alt spotlight style3">
 						<div class="inner">
 							<div class="main-links">
