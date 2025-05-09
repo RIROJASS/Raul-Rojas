@@ -63,20 +63,43 @@
 				color: #2d6a50 !important; /* Slightly lighter green on hover */
 			}
 			
+			/* Make arrow circles smaller and change arrow color */
+			.main-links a.special:before {
+				height: 1.6em !important; /* Smaller circle */
+				width: 1.6em !important; /* Smaller circle */
+				line-height: 1.35em !important; /* Adjust vertical centering of arrow */
+				color: #EB9A3E !important; /* New arrow color between orange and gold */
+			}
+			
 			.main-links a.special:last-child {
 				margin-right: 0;
 			}
 			
-			/* Combined navigation section styles - more compact */
+			/* Combined navigation section styles - with grid layout */
 			.main-links {
 				text-align: center;
 				padding: 1.5em 0;
 				margin-bottom: 1em;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 			}
 			
 			.main-links p {
 				margin-bottom: 1em;
 				font-size: 1.2em;
+			}
+			
+			/* Create a flex container for the top row links */
+			.main-links .top-row {
+				display: flex;
+				justify-content: center;
+				margin-bottom: 1.5em;
+			}
+			
+			/* Bottom row (just Research) centered */
+			.main-links .bottom-row {
+				text-align: center;
 			}
 			
 			/* Increase font size for What's New text */
@@ -137,6 +160,12 @@
 					margin-left: -1.5em;
 					margin-right: -1.5em;
 					width: calc(100% + 3em);
+				}
+				
+				/* Responsive navigation for mobile */
+				.main-links .top-row {
+					flex-direction: column;
+					margin-bottom: 0;
 				}
 				
 				.main-links a.special {
@@ -334,9 +363,13 @@
 						<div class="inner">
 							<div class="main-links">
 								<p>Explore my work, skills, and research:</p>
-								<a href="projects.html" class="special">Projects</a>
-								<a href="toolkit.html" class="special">Toolkit</a>
-								<a href="research.html" class="special">Research & Field Work</a>
+								<div class="top-row">
+									<a href="projects.html" class="special">Projects</a>
+									<a href="toolkit.html" class="special">Toolkit</a>
+								</div>
+								<div class="bottom-row">
+									<a href="research.html" class="special">Research & Field Work</a>
+								</div>
 							</div>
 						</div>
 					</section>
