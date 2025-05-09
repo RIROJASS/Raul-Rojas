@@ -124,6 +124,26 @@
 					width: calc(100% + 3em);
 				}
 			}
+			
+			/* Fix About Me section to be gradient blue instead of orange */
+			.wrapper.spotlight.style1 {
+				background-color: #4fa49a !important; /* Blue */
+				background-image: linear-gradient(45deg, #4fa49a, #4361c2) !important;
+			}
+			
+			/* Also fix the SVG triangle shapes at the edges of the section */
+			.wrapper.spotlight.style1:before, 
+			.wrapper.spotlight.style1:after {
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%234361c2%3B' /%3E%3C/svg%3E") !important;
+			}
+			
+			.wrapper.spotlight.style1:before {
+				box-shadow: inset 0 -1px 0 0 #4361c2, 0 1px 0 0 #4361c2 !important;
+			}
+			
+			.wrapper.spotlight.style1:after {
+				box-shadow: inset 0 -1px 0 0 #4361c2, 0 1px 0 0 #4361c2 !important;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
