@@ -124,6 +124,16 @@
 			#menu .inner {
 				width: 22em !important; /* Slightly wider menu container */
 			}
+			
+			/* Smooth scrolling for anchor links */
+			html {
+				scroll-behavior: smooth;
+			}
+
+			/* Offset for anchor links to account for fixed header */
+			:target {
+				scroll-margin-top: 5em;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -165,11 +175,11 @@
 						<!-- Content -->
 							<div class="wrapper">
 								<div class="inner">
-									<h3 class="major">Technical Skills</h3>
+									<h3 class="major" id="technical-skills">Technical Skills</h3>
 									
 									<div class="row">
 										<div class="col-6 col-12-medium">
-											<h4>Programming & Data Science</h4>
+											<h4 id="programming-data-science">Programming & Data Science</h4>
 											<ul>
 												<li>Python (NumPy, Pandas, Scikit-learn, TensorFlow)</li>
 												<li>R for statistical analysis and visualization</li>
@@ -181,7 +191,7 @@
 											</ul>
 										</div>
 										<div class="col-6 col-12-medium">
-											<h4>Research & Field Methods</h4>
+											<h4 id="research-field-methods">Research & Field Methods</h4>
 											<ul>
 												<li>Ethnographic Research Design</li>
 												<li>Archaeological Survey & Excavation</li>
@@ -195,9 +205,9 @@
 									</div>
 
 									<section>
-										<h3 class="major">Certifications</h3>
+										<h3 class="major" id="certifications">Certifications</h3>
 										
-										<h4>GIS & Remote Sensing</h4>
+										<h4 id="gis-remote-sensing">GIS & Remote Sensing</h4>
 										<div class="row">
 											<div class="col-4 col-12-medium">
 												<div class="cert-container">
@@ -241,7 +251,7 @@
 											</div>
 										</div>
 										
-										<h4>Programming & Data Science</h4>
+										<h4 id="programming-certification">Programming & Data Science</h4>
 										<div class="row">
 											<div class="col-4 col-12-medium">
 												<div class="cert-container">
@@ -254,10 +264,10 @@
 										</div>
 										
 									</section>
-									<h3 class="major">Education</h3>
+									<h3 class="major" id="education">Education</h3>
 									
 									<div style="text-align: center; margin-bottom: 3em;">
-									    <h4>University of Florida</h4>
+									    <h4 id="university-florida">University of Florida</h4>
 									    <p>B.S. Computer Science & Anthropology<br>
 									    B.A. Anthropology<br>
 									    Expected Graduation: 2027</p>
@@ -265,7 +275,7 @@
 									
 									<div class="row">
 									    <div class="col-6 col-12-medium">
-									        <h4>Relevant Coursework</h4>
+									        <h4 id="relevant-coursework">Relevant Coursework</h4>
 									        <ul>
 									            <li>GeoAI</li>
 									            <li>Language and Computers</li>
@@ -286,11 +296,11 @@
 									</div>
 									
 									<section>
-										<h3 class="major">Club & Organization Involvement</h3>
+										<h3 class="major" id="organizations">Club & Organization Involvement</h3>
 										
 										<div class="row">
 											<div class="col-6 col-12-medium">
-												<h4>Society of Hispanic Professional Engineers (SHPE)</h4>
+												<h4 id="shpe">Society of Hispanic Professional Engineers (SHPE)</h4>
 												<p><span class="leadership">Corporate Database Director</span> and active member of SHPE, promoting STEM awareness among Hispanic students.</p>
 												<ul>
 													<li>Manage and analyze corporate partnership data for national conventions</li>
@@ -299,7 +309,7 @@
 												</ul>
 											</div>
 											<div class="col-6 col-12-medium">
-												<h4>IGNITE</h4>
+												<h4 id="ignite">IGNITE</h4>
 												<p><span class="leadership">Member</span> of IGNITE, an organization dedicated to supporting innovation and entrepreneurship among students.</p>
 												<ul>
 													<li>Collaborate on startup projects and venture competitions</li>
@@ -311,7 +321,7 @@
 										
 										<div class="row" style="margin-top: 2em;">
 											<div class="col-6 col-12-medium">
-												<h4>Thrift Club @ UF</h4>
+												<h4 id="thrift-club">Thrift Club @ UF</h4>
 												<p><span class="leadership">Vice President of External Affairs</span>, previously <span class="leadership">Outreach Chair</span>, for one of UF's largest student organizations with over 4,000 members.</p>
 												<ul>
 													<li>Organize Thrift Swaps that have collected over 20,000 donated items</li>
@@ -320,7 +330,7 @@
 												</ul>
 											</div>
 											<div class="col-6 col-12-medium">
-												<h4>ColorStack</h4>
+												<h4 id="colorstack">ColorStack</h4>
 												<p>Active member and <span class="leadership">peer mentor</span> in ColorStack, a non-profit organization focused on increasing the number of Black and Latinx computer science graduates.</p>
 												<ul>
 													<li>Provide mentorship to underrepresented students in computing</li>
@@ -332,7 +342,7 @@
 									</section>
 									
 									<section>
-									    <h3 class="major">Resume</h3>
+									    <h3 class="major" id="resume">Resume</h3>
 									    <div class="resume-container" style="height: 600px; margin-bottom: 20px;">
 										<embed src="assets/Raul Rojas Resume.pdf" type="application/pdf" width="100%" height="100%" 
 										   style="border: 1px solid rgba(255, 255, 255, 0.125); border-radius: 5px;">
@@ -357,6 +367,283 @@
 
 			</div>
 
+		<!-- Dynamic Navigation Component -->
+		<div id="dynamic-nav-wrapper">
+			<nav id="dynamic-nav" class="collapsed">
+				<div class="nav-container">
+					<div class="progress-container">
+						<div class="progress-bar" id="scroll-progress"></div>
+					</div>
+					<button id="nav-toggle">
+						<span class="nav-icon"></span>
+						<span class="nav-label">Navigation</span>
+					</button>
+					<ul id="nav-links">
+						<!-- Links will be dynamically generated here -->
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<!-- CSS for the dynamic navigation -->
+		<style>
+			/* Dynamic Navigation Styling */
+			#dynamic-nav-wrapper {
+				position: absolute;
+				left: 0;
+				top: 100%; /* Position below the header */
+				z-index: 999;
+				width: auto;
+			}
+			
+			#dynamic-nav {
+				position: fixed;
+				top: 3.25em; /* Height of header */
+				left: 0;
+				z-index: 1000;
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+				transition: transform 0.3s ease, width 0.3s ease;
+				display: flex;
+				height: auto;
+			}
+			
+			.nav-container {
+				background-color: rgba(32, 75, 56, 0.95); /* Dark green with transparency */
+				border-radius: 0 8px 8px 0;
+				box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				position: relative;
+				transition: width 0.3s ease;
+			}
+			
+			/* Progress bar styling - vertical */
+			.progress-container {
+				width: 4px;
+				height: 100%;
+				background: rgba(255, 255, 255, 0.1);
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				z-index: 2;
+			}
+			
+			.progress-bar {
+				width: 100%;
+				background: #F9DB50; /* Golden yellow */
+				height: 0%;
+				transition: height 0.1s ease;
+				position: absolute;
+				top: 0; /* Start from the top */
+				left: 0;
+			}
+			
+			/* Toggle button styling */
+			#nav-toggle {
+				background-color: #E3572B; /* Orange */
+				color: white;
+				border: none;
+				padding: 10px 15px 10px 20px; /* Extra padding left for progress bar */
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				width: 100%;
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+				font-size: 1.2em;
+				position: relative;
+				z-index: 1;
+			}
+			
+			/* Icon animation for toggle */
+			.nav-icon {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+				position: relative;
+			}
+			
+			.nav-icon:before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: #fff;
+				top: 6px;
+				left: 0;
+				box-shadow: 0 6px 0 #fff;
+				transition: all 0.3s ease;
+			}
+			
+			.nav-icon:after {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: #fff;
+				bottom: 6px;
+				left: 0;
+				transition: all 0.3s ease;
+			}
+			
+			/* Collapsed state icon animation */
+			#dynamic-nav.collapsed .nav-icon:before {
+				transform: rotate(90deg);
+				top: 10px;
+				box-shadow: none;
+			}
+			
+			#dynamic-nav.collapsed .nav-icon:after {
+				transform: rotate(90deg);
+				bottom: 8px;
+			}
+			
+			/* Navigation links list */
+			#nav-links {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease;
+				margin: 0;
+				padding: 0 0 0 20px; /* Extra left padding for progress bar */
+				list-style: none;
+				position: relative;
+				z-index: 1;
+			}
+			
+			#nav-links.expanded {
+				max-height: calc(100vh - 7em); /* Account for header and toggle */
+				overflow-y: auto; /* Allow scrolling if many links */
+			}
+			
+			#nav-links li {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#nav-links a {
+				display: block;
+				padding: 12px 15px;
+				color: white;
+				text-decoration: none;
+				border-left: 4px solid transparent;
+				transition: all 0.3s ease;
+				font-size: 1.1em;
+				white-space: nowrap; /* Prevent text wrapping */
+			}
+			
+			#nav-links a:hover {
+				background-color: rgba(227, 87, 43, 0.3); /* Light orange */
+				border-left-color: #F9DB50; /* Golden yellow */
+			}
+			
+			#nav-links a.active {
+				background-color: rgba(227, 87, 43, 0.5); /* Darker orange */
+				border-left-color: #F9DB50; /* Golden yellow */
+				font-weight: bold;
+			}
+			
+			/* Shows submenu items for active sections */
+			#nav-links .submenu {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease;
+				padding-left: 15px;
+			}
+			
+			#nav-links .active + .submenu,
+			#nav-links .submenu:hover {
+				max-height: 500px;
+			}
+			
+			#nav-links .submenu a {
+				padding: 8px 15px;
+				font-size: 0.95em;
+			}
+			
+			/* Collapsed state styling */
+			#dynamic-nav.collapsed .nav-container {
+				width: 40px; /* Narrow when collapsed */
+			}
+			
+			#dynamic-nav.collapsed .nav-label {
+				display: none; /* Hide text when collapsed */
+			}
+			
+			#dynamic-nav.collapsed #nav-toggle {
+				padding: 10px; /* Smaller padding when collapsed */
+				justify-content: center;
+			}
+			
+			#dynamic-nav.collapsed .nav-icon {
+				margin-right: 0; /* No margin needed when text is hidden */
+			}
+			
+			/* Hover effect to hint at expandability */
+			#dynamic-nav.collapsed:hover .nav-container {
+				width: 45px; /* Slightly wider on hover to hint at expandability */
+			}
+			
+			/* Collapsed state for mobile */
+			@media screen and (max-width: 736px) {
+				#dynamic-nav {
+					top: auto;
+					bottom: 0;
+					width: 100%;
+					left: 0;
+				}
+				
+				.nav-container {
+					border-radius: 8px 8px 0 0;
+					width: 100% !important; /* Override desktop collapsed width */
+				}
+				
+				/* Progress bar becomes horizontal on mobile */
+				.progress-container {
+					width: 100%;
+					height: 4px;
+					top: 0;
+					left: 0;
+					right: 0;
+				}
+				
+				.progress-bar {
+					height: 100%;
+					width: 0%;
+					left: 0;
+					right: auto;
+				}
+				
+				#nav-toggle {
+					padding: 15px;
+					width: 100%;
+					justify-content: flex-start;
+				}
+				
+				/* When collapsed, push it off screen except for the toggle button */
+				#dynamic-nav.collapsed {
+					transform: translateY(calc(100% - 50px));
+				}
+				
+				#dynamic-nav.collapsed .nav-label {
+					display: inline; /* Show text on mobile even when collapsed */
+				}
+				
+				#dynamic-nav.collapsed .nav-icon {
+					margin-right: 10px; /* Restore margin for mobile */
+				}
+				
+				#nav-links {
+					padding-left: 0;
+				}
+				
+				#nav-links a {
+					white-space: normal; /* Allow text wrapping on mobile */
+				}
+			}
+		</style>
+
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -364,6 +651,197 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<!-- Dynamic Navigation Script -->
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					// Select elements
+					const dynamicNav = document.getElementById('dynamic-nav');
+					const navToggle = document.getElementById('nav-toggle');
+					const navLinks = document.getElementById('nav-links');
+					const progressBar = document.getElementById('scroll-progress');
+					
+					// Function to automatically generate navigation from page structure
+					function generateNavigation() {
+						// Get all major section headers
+						const mainSections = document.querySelectorAll('h3.major');
+						const navList = document.getElementById('nav-links');
+						
+						mainSections.forEach(section => {
+							// Create main section link
+							const sectionId = section.id;
+							const sectionText = section.textContent;
+							const listItem = document.createElement('li');
+							const link = document.createElement('a');
+							
+							link.href = `#${sectionId}`;
+							link.textContent = sectionText;
+							link.setAttribute('data-section', sectionId);
+							listItem.appendChild(link);
+							navList.appendChild(listItem);
+							
+							// Find all subsection headers (h4) under this main section
+							const sectionContainer = section.closest('section') || section.parentElement;
+							const subsections = sectionContainer.querySelectorAll('h4[id]');
+							
+							// Create submenu for subsections if needed
+							if (subsections.length > 0) {
+								const submenu = document.createElement('ul');
+								submenu.className = 'submenu';
+								
+								subsections.forEach(subsection => {
+									const subsectionId = subsection.id;
+									const subsectionTitle = subsection.textContent;
+									
+									// Skip empty headers (like the one used for alignment)
+									if (subsectionTitle.trim() === '&nbsp;' || subsectionTitle.trim() === '') {
+										return;
+									}
+									
+									const subItem = document.createElement('li');
+									const subLink = document.createElement('a');
+									subLink.href = `#${subsectionId}`;
+									subLink.textContent = subsectionTitle;
+									subLink.setAttribute('data-section', subsectionId);
+									subItem.appendChild(subLink);
+									submenu.appendChild(subItem);
+								});
+								
+								if (submenu.children.length > 0) {
+									navList.appendChild(submenu);
+								}
+							}
+						});
+					}
+					
+					// Toggle navigation expansion
+					navToggle.addEventListener('click', function() {
+						dynamicNav.classList.toggle('collapsed');
+						if (!dynamicNav.classList.contains('collapsed')) {
+							navLinks.classList.add('expanded');
+						} else {
+							navLinks.classList.remove('expanded');
+						}
+					});
+					
+					// Handle scroll events
+					window.addEventListener('scroll', function() {
+						// Update progress bar - vertical for desktop, horizontal for mobile
+						const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+						const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+						const scrolled = (winScroll / height) * 100;
+						
+						if (window.innerWidth <= 736) {
+							// Horizontal progress for mobile
+							progressBar.style.width = scrolled + '%';
+							progressBar.style.height = '100%';
+						} else {
+							// Vertical progress for desktop - FROM TOP TO BOTTOM
+							progressBar.style.height = scrolled + '%';
+							progressBar.style.width = '100%';
+						}
+						
+						// Highlight current section
+						const scrollPosition = window.scrollY;
+						
+						// Get all section elements
+						const sections = document.querySelectorAll('h3.major, h4[id]');
+						
+						// Find which section is currently in view
+						let currentSection = null;
+						
+						sections.forEach(section => {
+							const sectionTop = section.getBoundingClientRect().top + window.scrollY - 100;
+							if (scrollPosition >= sectionTop) {
+								currentSection = section.id;
+							}
+						});
+						
+						// Update active class on navigation links
+						if (currentSection) {
+							document.querySelectorAll('#nav-links a').forEach(link => {
+								link.classList.remove('active');
+								if (link.getAttribute('data-section') === currentSection) {
+									link.classList.add('active');
+								}
+							});
+						}
+						
+						// Auto-collapse nav on mobile when scrolling down
+						if (window.innerWidth <= 736) {
+							const isScrollingDown = this.oldScroll < winScroll;
+							this.oldScroll = winScroll;
+							
+							if (isScrollingDown && !navToggle.contains(document.activeElement)) {
+								dynamicNav.classList.add('collapsed');
+								navLinks.classList.remove('expanded');
+							}
+						}
+					});
+					
+					// Smooth scrolling for navigation links
+					document.addEventListener('click', function(e) {
+						if (e.target.tagName === 'A' && e.target.hash && e.target.hash.startsWith('#')) {
+							const targetElement = document.querySelector(e.target.hash);
+							if (targetElement) {
+								e.preventDefault();
+								
+								// Calculate offset (account for sticky header if any)
+								const offset = 80;
+								const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+								
+								// Scroll smoothly
+								window.scrollTo({
+									top: targetPosition,
+									behavior: 'smooth'
+								});
+								
+								// Update URL hash without scrolling
+								history.pushState(null, null, e.target.hash);
+								
+								// Collapse the navigation after clicking a link
+								setTimeout(() => {
+									if (window.innerWidth > 736) {
+										// On desktop, collapse after a delay
+										dynamicNav.classList.add('collapsed');
+										navLinks.classList.remove('expanded');
+									} else {
+										// On mobile, collapse immediately
+										dynamicNav.classList.add('collapsed');
+										navLinks.classList.remove('expanded');
+									}
+								}, 300);
+							}
+						}
+					});
+					
+					// Handle window resize
+					window.addEventListener('resize', function() {
+						// Reset progress bar orientation
+						const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+						const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+						const scrolled = (winScroll / height) * 100;
+						
+						if (window.innerWidth <= 736) {
+							progressBar.style.width = scrolled + '%';
+							progressBar.style.height = '100%';
+						} else {
+							progressBar.style.height = scrolled + '%';
+							progressBar.style.width = '100%';
+						}
+					});
+					
+					// Initialize navigation
+					generateNavigation();
+					
+					// Set initial collapsed state
+					dynamicNav.classList.add('collapsed');
+					navLinks.classList.remove('expanded');
+					
+					// Trigger initial scroll event to set progress bar
+					window.dispatchEvent(new Event('scroll'));
+				});
+			</script>
 
 	</body>
 </html>
