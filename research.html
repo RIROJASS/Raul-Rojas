@@ -167,27 +167,6 @@
 				font-style: italic;
 				font-size: 0.9em;
 			}
-			
-			/* Quick Navigation Section */
-			.quick-nav-links {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				gap: 1em;
-				margin-bottom: 0.5em;
-			}
-
-			.quick-nav-links .button {
-				transition: all 0.3s ease;
-				border: 2px solid #E3572B;
-			}
-
-			.quick-nav-links .button:hover {
-				background-color: #F9DB50 !important;
-				color: #204B38 !important;
-				border-color: #F9DB50;
-				transform: translateY(-3px);
-			}
 
 			/* Smooth scrolling for anchor links */
 			html {
@@ -197,19 +176,6 @@
 			/* Offset for anchor links to account for fixed header */
 			:target {
 				scroll-margin-top: 5em;
-			}
-
-			/* Responsive adjustments for mobile */
-			@media screen and (max-width: 736px) {
-				.quick-nav-links {
-					flex-direction: column;
-					align-items: center;
-				}
-				
-				.quick-nav-links .button {
-					width: 80%;
-					margin: 0.25em 0;
-				}
 			}
 		</style>
 	</head>
@@ -239,20 +205,6 @@
 							<a href="#" class="close">Close</a>
 						</div>
 					</nav>
-
-				<!-- Quick Navigation Section -->
-				<section class="wrapper alt spotlight" style="background-color: #204B38 !important; background-image: none !important;">
-					<div class="inner">
-						<div class="content" style="text-align: center;">
-							<h3 style="color: #ffffff !important; margin-bottom: 1em;">Quick Navigation</h3>
-							<div class="quick-nav-links">
-								<a href="#research-projects" class="button" style="margin: 0.5em; background-color: #E3572B; color: #ffffff !important;">Research Projects</a>
-								<a href="#conferences" class="button" style="margin: 0.5em; background-color: #E3572B; color: #ffffff !important;">Conferences & Events</a>
-								<a href="#field-work" class="button" style="margin: 0.5em; background-color: #E3572B; color: #ffffff !important;">Field Work</a>
-							</div>
-						</div>
-					</div>
-				</section>
 
 				<!-- Wrapper -->
 					<section id="wrapper">
@@ -556,6 +508,183 @@
 
 			</div>
 
+		<!-- Dynamic Navigation Component -->
+		<nav id="dynamic-nav">
+			<div class="nav-container">
+				<div class="progress-container">
+					<div class="progress-bar" id="scroll-progress"></div>
+				</div>
+				<button id="nav-toggle">
+					<span class="nav-icon"></span>
+					<span class="nav-label">Navigation</span>
+				</button>
+				<ul id="nav-links">
+					<!-- Links will be dynamically generated here -->
+				</ul>
+			</div>
+		</nav>
+
+		<!-- CSS for the dynamic navigation -->
+		<style>
+			/* Dynamic Navigation Styling */
+			#dynamic-nav {
+				position: fixed;
+				top: 15%;
+				right: 0;
+				z-index: 1000;
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+				transition: transform 0.3s ease;
+			}
+			
+			.nav-container {
+				background-color: rgba(32, 75, 56, 0.95); /* Dark green with transparency */
+				border-radius: 8px 0 0 8px;
+				box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.3);
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+			}
+			
+			/* Progress bar styling */
+			.progress-container {
+				width: 100%;
+				height: 4px;
+				background: rgba(255, 255, 255, 0.1);
+			}
+			
+			.progress-bar {
+				height: 100%;
+				background: #F9DB50; /* Golden yellow */
+				width: 0%;
+				transition: width 0.1s ease;
+			}
+			
+			/* Toggle button styling */
+			#nav-toggle {
+				background-color: #E3572B; /* Orange */
+				color: white;
+				border: none;
+				padding: 10px 15px;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				width: 100%;
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+				font-size: 1.2em;
+			}
+			
+			.nav-icon {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+				position: relative;
+			}
+			
+			.nav-icon:before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: #fff;
+				top: 6px;
+				left: 0;
+				box-shadow: 0 6px 0 #fff;
+				transition: all 0.3s ease;
+			}
+			
+			.nav-icon:after {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: #fff;
+				bottom: 6px;
+				left: 0;
+				transition: all 0.3s ease;
+			}
+			
+			/* Navigation links list */
+			#nav-links {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			#nav-links.expanded {
+				max-height: 500px; /* Adjust based on your needs */
+			}
+			
+			#nav-links li {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#nav-links a {
+				display: block;
+				padding: 12px 15px;
+				color: white;
+				text-decoration: none;
+				border-left: 4px solid transparent;
+				transition: all 0.3s ease;
+				font-size: 1.1em;
+			}
+			
+			#nav-links a:hover {
+				background-color: rgba(227, 87, 43, 0.3); /* Light orange */
+				border-left-color: #F9DB50; /* Golden yellow */
+			}
+			
+			#nav-links a.active {
+				background-color: rgba(227, 87, 43, 0.5); /* Darker orange */
+				border-left-color: #F9DB50; /* Golden yellow */
+				font-weight: bold;
+			}
+			
+			/* Shows submenu items for active sections */
+			#nav-links .submenu {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease;
+				padding-left: 15px;
+			}
+			
+			#nav-links .active + .submenu,
+			#nav-links .submenu:hover {
+				max-height: 500px;
+			}
+			
+			#nav-links .submenu a {
+				padding: 8px 15px;
+				font-size: 0.95em;
+			}
+			
+			/* Collapsed state for mobile */
+			@media screen and (max-width: 736px) {
+				#dynamic-nav {
+					bottom: 0;
+					top: auto;
+					width: 100%;
+				}
+				
+				.nav-container {
+					border-radius: 8px 8px 0 0;
+				}
+				
+				#nav-toggle {
+					padding: 15px;
+				}
+				
+				/* When collapsed, push it off screen except for the toggle button */
+				#dynamic-nav.collapsed {
+					transform: translateY(calc(100% - 50px));
+				}
+			}
+		</style>
+
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -563,6 +692,172 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<!-- Dynamic Navigation Script -->
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					// Select elements
+					const dynamicNav = document.getElementById('dynamic-nav');
+					const navToggle = document.getElementById('nav-toggle');
+					const navLinks = document.getElementById('nav-links');
+					const progressBar = document.getElementById('scroll-progress');
+					
+					// Function to automatically generate navigation from page structure
+					function generateNavigation() {
+						// Get all category headers and their sections
+						const categories = document.querySelectorAll('.category-header');
+						const navList = document.getElementById('nav-links');
+						
+						categories.forEach(category => {
+							// Create main category link
+							const categoryId = category.id;
+							const categoryText = category.textContent;
+							const listItem = document.createElement('li');
+							const link = document.createElement('a');
+							
+							link.href = `#${categoryId}`;
+							link.textContent = categoryText;
+							link.setAttribute('data-section', categoryId);
+							listItem.appendChild(link);
+							navList.appendChild(listItem);
+							
+							// Find all major sections under this category
+							const nextCategory = category.nextElementSibling?.nextElementSibling?.classList.contains('category-header') 
+										? category.nextElementSibling.nextElementSibling 
+										: null;
+							
+							// Create submenu for sections if needed
+							const sections = [];
+							let currentElement = category.nextElementSibling;
+							
+							while (currentElement && (!nextCategory || currentElement !== nextCategory)) {
+								if (currentElement.querySelector && currentElement.querySelector('.major')) {
+									const sectionTitle = currentElement.querySelector('.major').textContent;
+									const sectionId = sectionTitle.toLowerCase().replace(/[^\w]+/g, '-');
+									
+									// If section doesn't have an ID, add one
+									if (!currentElement.id) {
+										currentElement.id = sectionId;
+									}
+									
+									sections.push({
+										id: currentElement.id,
+										title: sectionTitle
+									});
+								}
+								currentElement = currentElement.nextElementSibling;
+							}
+							
+							// If we have sections, create a submenu
+							if (sections.length > 0) {
+								const submenu = document.createElement('ul');
+								submenu.className = 'submenu';
+								
+								sections.forEach(section => {
+									const subItem = document.createElement('li');
+									const subLink = document.createElement('a');
+									subLink.href = `#${section.id}`;
+									subLink.textContent = section.title;
+									subLink.setAttribute('data-section', section.id);
+									subItem.appendChild(subLink);
+									submenu.appendChild(subItem);
+								});
+								
+								navList.appendChild(submenu);
+							}
+						});
+					}
+					
+					// Toggle navigation expansion
+					navToggle.addEventListener('click', function() {
+						navLinks.classList.toggle('expanded');
+						dynamicNav.classList.toggle('collapsed');
+					});
+					
+					// Handle scroll events
+					window.addEventListener('scroll', function() {
+						// Update progress bar
+						const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+						const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+						const scrolled = (winScroll / height) * 100;
+						progressBar.style.width = scrolled + '%';
+						
+						// Highlight current section
+						const scrollPosition = window.scrollY;
+						
+						// Get all section elements
+						const sections = document.querySelectorAll('.category-header, section h3.major');
+						
+						// Find which section is currently in view
+						let currentSection = null;
+						
+						sections.forEach(section => {
+							const sectionTop = section.getBoundingClientRect().top + window.scrollY - 100;
+							if (scrollPosition >= sectionTop) {
+								currentSection = section.id || section.closest('section').id;
+							}
+						});
+						
+						// Update active class on navigation links
+						if (currentSection) {
+							document.querySelectorAll('#nav-links a').forEach(link => {
+								link.classList.remove('active');
+								if (link.getAttribute('data-section') === currentSection) {
+									link.classList.add('active');
+								}
+							});
+						}
+						
+						// Auto-collapse nav on mobile when scrolling down
+						if (window.innerWidth <= 736) {
+							const isScrollingDown = this.oldScroll < winScroll;
+							this.oldScroll = winScroll;
+							
+							if (isScrollingDown && !navToggle.contains(document.activeElement)) {
+								dynamicNav.classList.add('collapsed');
+								navLinks.classList.remove('expanded');
+							}
+						}
+					});
+					
+					// Smooth scrolling for navigation links
+					document.addEventListener('click', function(e) {
+						if (e.target.tagName === 'A' && e.target.hash && e.target.hash.startsWith('#')) {
+							const targetElement = document.querySelector(e.target.hash);
+							if (targetElement) {
+								e.preventDefault();
+								
+								// Calculate offset (account for sticky header if any)
+								const offset = 80;
+								const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+								
+								// Scroll smoothly
+								window.scrollTo({
+									top: targetPosition,
+									behavior: 'smooth'
+								});
+								
+								// Update URL hash without scrolling
+								history.pushState(null, null, e.target.hash);
+								
+								// On mobile, collapse the menu after clicking
+								if (window.innerWidth <= 736) {
+									navLinks.classList.remove('expanded');
+									dynamicNav.classList.add('collapsed');
+								}
+							}
+						}
+					});
+					
+					// Initialize navigation
+					generateNavigation();
+					
+					// Set initial collapsed state on mobile
+					if (window.innerWidth <= 736) {
+						dynamicNav.classList.add('collapsed');
+					}
+				});
+			</script>
 
 	</body>
 </html>
