@@ -509,54 +509,75 @@
 			</div>
 
 		<!-- Dynamic Navigation Component -->
-		<nav id="dynamic-nav">
-			<div class="nav-container">
-				<div class="progress-container">
-					<div class="progress-bar" id="scroll-progress"></div>
+		<div id="dynamic-nav-wrapper">
+			<nav id="dynamic-nav">
+				<div class="nav-container">
+					<div class="progress-container">
+						<div class="progress-bar" id="scroll-progress"></div>
+					</div>
+					<button id="nav-toggle">
+						<span class="nav-icon"></span>
+						<span class="nav-label">Navigation</span>
+					</button>
+					<ul id="nav-links">
+						<!-- Links will be dynamically generated here -->
+					</ul>
 				</div>
-				<button id="nav-toggle">
-					<span class="nav-icon"></span>
-					<span class="nav-label">Navigation</span>
-				</button>
-				<ul id="nav-links">
-					<!-- Links will be dynamically generated here -->
-				</ul>
-			</div>
-		</nav>
+			</nav>
+		</div>
 
 		<!-- CSS for the dynamic navigation -->
 		<style>
 			/* Dynamic Navigation Styling */
+			#dynamic-nav-wrapper {
+				position: absolute;
+				left: 0;
+				top: 100%; /* Position below the header */
+				z-index: 999;
+				width: auto;
+			}
+			
 			#dynamic-nav {
 				position: fixed;
-				top: 15%;
-				right: 0;
+				top: 3.25em; /* Height of header */
+				left: 0;
 				z-index: 1000;
 				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
 				transition: transform 0.3s ease;
+				display: flex;
+				height: auto;
 			}
 			
 			.nav-container {
 				background-color: rgba(32, 75, 56, 0.95); /* Dark green with transparency */
-				border-radius: 8px 0 0 8px;
-				box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.3);
+				border-radius: 0 8px 8px 0;
+				box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
 				overflow: hidden;
 				display: flex;
 				flex-direction: column;
+				position: relative;
 			}
 			
-			/* Progress bar styling */
+			/* Progress bar styling - now vertical */
 			.progress-container {
-				width: 100%;
-				height: 4px;
+				width: 4px;
+				height: 100%;
 				background: rgba(255, 255, 255, 0.1);
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				z-index: 2;
 			}
 			
 			.progress-bar {
-				height: 100%;
+				width: 100%;
 				background: #F9DB50; /* Golden yellow */
-				width: 0%;
-				transition: width 0.1s ease;
+				height: 0%;
+				transition: height 0.1s ease;
+				position: absolute;
+				bottom: 0; /* Start from the bottom */
+				left: 0;
 			}
 			
 			/* Toggle button styling */
@@ -564,13 +585,15 @@
 				background-color: #E3572B; /* Orange */
 				color: white;
 				border: none;
-				padding: 10px 15px;
+				padding: 10px 15px 10px 20px; /* Extra padding left for progress bar */
 				cursor: pointer;
 				display: flex;
 				align-items: center;
 				width: 100%;
 				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
 				font-size: 1.2em;
+				position: relative;
+				z-index: 1;
 			}
 			
 			.nav-icon {
@@ -610,12 +633,15 @@
 				overflow: hidden;
 				transition: max-height 0.5s ease;
 				margin: 0;
-				padding: 0;
+				padding: 0 0 0 20px; /* Extra left padding for progress bar */
 				list-style: none;
+				position: relative;
+				z-index: 1;
 			}
 			
 			#nav-links.expanded {
-				max-height: 500px; /* Adjust based on your needs */
+				max-height: calc(100vh - 7em); /* Account for header and toggle */
+				overflow-y: auto; /* Allow scrolling if many links */
 			}
 			
 			#nav-links li {
@@ -631,6 +657,7 @@
 				border-left: 4px solid transparent;
 				transition: all 0.3s ease;
 				font-size: 1.1em;
+				white-space: nowrap; /* Prevent text wrapping */
 			}
 			
 			#nav-links a:hover {
@@ -665,22 +692,49 @@
 			/* Collapsed state for mobile */
 			@media screen and (max-width: 736px) {
 				#dynamic-nav {
-					bottom: 0;
 					top: auto;
+					bottom: 0;
 					width: 100%;
+					left: 0;
 				}
 				
 				.nav-container {
 					border-radius: 8px 8px 0 0;
+					width: 100%;
+				}
+				
+				/* Progress bar becomes horizontal again on mobile */
+				.progress-container {
+					width: 100%;
+					height: 4px;
+					top: 0;
+					left: 0;
+					right: 0;
+				}
+				
+				.progress-bar {
+					height: 100%;
+					width: 0%;
+					bottom: auto;
+					top: 0;
 				}
 				
 				#nav-toggle {
 					padding: 15px;
+					width: 100%;
 				}
 				
 				/* When collapsed, push it off screen except for the toggle button */
 				#dynamic-nav.collapsed {
 					transform: translateY(calc(100% - 50px));
+				}
+				
+				#nav-links {
+					padding-left: 0;
+				}
+				
+				#nav-links a {
+					white-space: normal; /* Allow text wrapping on mobile */
 				}
 			}
 		</style>
@@ -776,11 +830,20 @@
 					
 					// Handle scroll events
 					window.addEventListener('scroll', function() {
-						// Update progress bar
+						// Update progress bar - now vertical for desktop, horizontal for mobile
 						const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
 						const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 						const scrolled = (winScroll / height) * 100;
-						progressBar.style.width = scrolled + '%';
+						
+						if (window.innerWidth <= 736) {
+							// Horizontal progress for mobile
+							progressBar.style.width = scrolled + '%';
+							progressBar.style.height = '100%';
+						} else {
+							// Vertical progress for desktop
+							progressBar.style.height = scrolled + '%';
+							progressBar.style.width = '100%';
+						}
 						
 						// Highlight current section
 						const scrollPosition = window.scrollY;
@@ -849,6 +912,29 @@
 						}
 					});
 					
+					// Handle window resize
+					window.addEventListener('resize', function() {
+						// Reset progress bar orientation
+						const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+						const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+						const scrolled = (winScroll / height) * 100;
+						
+						if (window.innerWidth <= 736) {
+							progressBar.style.width = scrolled + '%';
+							progressBar.style.height = '100%';
+						} else {
+							progressBar.style.height = scrolled + '%';
+							progressBar.style.width = '100%';
+						}
+						
+						// Set collapsed state on mobile
+						if (window.innerWidth <= 736) {
+							dynamicNav.classList.add('collapsed');
+						} else {
+							dynamicNav.classList.remove('collapsed');
+						}
+					});
+					
 					// Initialize navigation
 					generateNavigation();
 					
@@ -856,6 +942,9 @@
 					if (window.innerWidth <= 736) {
 						dynamicNav.classList.add('collapsed');
 					}
+					
+					// Trigger initial scroll event to set progress bar
+					window.dispatchEvent(new Event('scroll'));
 				});
 			</script>
 
