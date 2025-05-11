@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Research & Field Work - Raul Rojas</title>
+		<title>Research & Field Work - Raúl Rojas</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -167,6 +167,50 @@
 				font-style: italic;
 				font-size: 0.9em;
 			}
+			
+			/* Quick Navigation Section */
+			.quick-nav-links {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 1em;
+				margin-bottom: 0.5em;
+			}
+
+			.quick-nav-links .button {
+				transition: all 0.3s ease;
+				border: 2px solid #E3572B;
+			}
+
+			.quick-nav-links .button:hover {
+				background-color: #F9DB50 !important;
+				color: #204B38 !important;
+				border-color: #F9DB50;
+				transform: translateY(-3px);
+			}
+
+			/* Smooth scrolling for anchor links */
+			html {
+				scroll-behavior: smooth;
+			}
+
+			/* Offset for anchor links to account for fixed header */
+			:target {
+				scroll-margin-top: 5em;
+			}
+
+			/* Responsive adjustments for mobile */
+			@media screen and (max-width: 736px) {
+				.quick-nav-links {
+					flex-direction: column;
+					align-items: center;
+				}
+				
+				.quick-nav-links .button {
+					width: 80%;
+					margin: 0.25em 0;
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -196,6 +240,20 @@
 						</div>
 					</nav>
 
+				<!-- Quick Navigation Section -->
+				<section class="wrapper alt spotlight" style="background-color: #204B38 !important; background-image: none !important;">
+					<div class="inner">
+						<div class="content" style="text-align: center;">
+							<h3 style="color: #ffffff !important; margin-bottom: 1em;">Quick Navigation</h3>
+							<div class="quick-nav-links">
+								<a href="#research-projects" class="button" style="margin: 0.5em; background-color: #E3572B; color: #ffffff !important;">Research Projects</a>
+								<a href="#conferences" class="button" style="margin: 0.5em; background-color: #E3572B; color: #ffffff !important;">Conferences & Events</a>
+								<a href="#field-work" class="button" style="margin: 0.5em; background-color: #E3572B; color: #ffffff !important;">Field Work</a>
+							</div>
+						</div>
+					</div>
+				</section>
+
 				<!-- Wrapper -->
 					<section id="wrapper">
 						<header>
@@ -210,7 +268,7 @@
 								<div class="inner">
 									
 									<!-- RESEARCH PROJECTS SECTION -->
-									<h2 class="category-header">Research Projects</h2>
+									<h2 class="category-header" id="research-projects">Research Projects</h2>
 
 									<section>
 										<h3 class="major">AI-Enhanced Remote Sensing for Archaeological Discovery</h3>
@@ -281,7 +339,7 @@
 									</section>
 									
 									<!-- CONFERENCES & ACADEMIC EVENTS SECTION -->
-									<h2 class="category-header">Conferences & Academic Events</h2>
+									<h2 class="category-header" id="conferences">Conferences & Academic Events</h2>
 
 									<section>
 										<h3 class="major">Florida Undergraduate Research Conference 2025</h3>
@@ -452,7 +510,7 @@
 									</section>
 
 									<!-- FIELD WORK SECTION -->
-									<h2 class="category-header">Field Work</h2>
+									<h2 class="category-header" id="field-work">Field Work</h2>
 
 									<section>
 										<h3 class="major">Pampa La Cruz Archaeological Expedition</h3>
@@ -490,7 +548,7 @@
 					<section id="footer">
 						<div class="inner">
 							<ul class="copyright">
-								<li>&copy; Raul Rojas. All rights reserved.</li>
+								<li>&copy; Raúl Rojas. All rights reserved.</li>
 								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
