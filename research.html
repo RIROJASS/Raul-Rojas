@@ -510,7 +510,7 @@
 
 		<!-- Dynamic Navigation Component -->
 		<div id="dynamic-nav-wrapper">
-			<nav id="dynamic-nav">
+			<nav id="dynamic-nav" class="collapsed">
 				<div class="nav-container">
 					<div class="progress-container">
 						<div class="progress-bar" id="scroll-progress"></div>
@@ -543,7 +543,7 @@
 				left: 0;
 				z-index: 1000;
 				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
-				transition: transform 0.3s ease;
+				transition: transform 0.3s ease, width 0.3s ease;
 				display: flex;
 				height: auto;
 			}
@@ -556,9 +556,10 @@
 				display: flex;
 				flex-direction: column;
 				position: relative;
+				transition: width 0.3s ease;
 			}
 			
-			/* Progress bar styling - now vertical */
+			/* Progress bar styling - vertical */
 			.progress-container {
 				width: 4px;
 				height: 100%;
@@ -576,7 +577,7 @@
 				height: 0%;
 				transition: height 0.1s ease;
 				position: absolute;
-				bottom: 0; /* Start from the bottom */
+				top: 0; /* Start from the top */
 				left: 0;
 			}
 			
@@ -596,6 +597,7 @@
 				z-index: 1;
 			}
 			
+			/* Icon animation for toggle */
 			.nav-icon {
 				display: inline-block;
 				width: 20px;
@@ -625,6 +627,18 @@
 				bottom: 6px;
 				left: 0;
 				transition: all 0.3s ease;
+			}
+			
+			/* Collapsed state icon animation */
+			#dynamic-nav.collapsed .nav-icon:before {
+				transform: rotate(90deg);
+				top: 10px;
+				box-shadow: none;
+			}
+			
+			#dynamic-nav.collapsed .nav-icon:after {
+				transform: rotate(90deg);
+				bottom: 8px;
 			}
 			
 			/* Navigation links list */
@@ -689,6 +703,29 @@
 				font-size: 0.95em;
 			}
 			
+			/* Collapsed state styling */
+			#dynamic-nav.collapsed .nav-container {
+				width: 40px; /* Narrow when collapsed */
+			}
+			
+			#dynamic-nav.collapsed .nav-label {
+				display: none; /* Hide text when collapsed */
+			}
+			
+			#dynamic-nav.collapsed #nav-toggle {
+				padding: 10px; /* Smaller padding when collapsed */
+				justify-content: center;
+			}
+			
+			#dynamic-nav.collapsed .nav-icon {
+				margin-right: 0; /* No margin needed when text is hidden */
+			}
+			
+			/* Hover effect to hint at expandability */
+			#dynamic-nav.collapsed:hover .nav-container {
+				width: 45px; /* Slightly wider on hover to hint at expandability */
+			}
+			
 			/* Collapsed state for mobile */
 			@media screen and (max-width: 736px) {
 				#dynamic-nav {
@@ -700,10 +737,10 @@
 				
 				.nav-container {
 					border-radius: 8px 8px 0 0;
-					width: 100%;
+					width: 100% !important; /* Override desktop collapsed width */
 				}
 				
-				/* Progress bar becomes horizontal again on mobile */
+				/* Progress bar becomes horizontal on mobile */
 				.progress-container {
 					width: 100%;
 					height: 4px;
@@ -715,18 +752,27 @@
 				.progress-bar {
 					height: 100%;
 					width: 0%;
-					bottom: auto;
-					top: 0;
+					left: 0;
+					right: auto;
 				}
 				
 				#nav-toggle {
 					padding: 15px;
 					width: 100%;
+					justify-content: flex-start;
 				}
 				
 				/* When collapsed, push it off screen except for the toggle button */
 				#dynamic-nav.collapsed {
 					transform: translateY(calc(100% - 50px));
+				}
+				
+				#dynamic-nav.collapsed .nav-label {
+					display: inline; /* Show text on mobile even when collapsed */
+				}
+				
+				#dynamic-nav.collapsed .nav-icon {
+					margin-right: 10px; /* Restore margin for mobile */
 				}
 				
 				#nav-links {
@@ -824,8 +870,12 @@
 					
 					// Toggle navigation expansion
 					navToggle.addEventListener('click', function() {
-						navLinks.classList.toggle('expanded');
 						dynamicNav.classList.toggle('collapsed');
+						if (!dynamicNav.classList.contains('collapsed')) {
+							navLinks.classList.add('expanded');
+						} else {
+							navLinks.classList.remove('expanded');
+						}
 					});
 					
 					// Handle scroll events
@@ -840,7 +890,7 @@
 							progressBar.style.width = scrolled + '%';
 							progressBar.style.height = '100%';
 						} else {
-							// Vertical progress for desktop
+							// Vertical progress for desktop - FROM TOP TO BOTTOM
 							progressBar.style.height = scrolled + '%';
 							progressBar.style.width = '100%';
 						}
@@ -867,6 +917,23 @@
 								link.classList.remove('active');
 								if (link.getAttribute('data-section') === currentSection) {
 									link.classList.add('active');
+									
+									// Automatically expand navigation if we're at a new section (optional)
+									// Uncomment the next lines if you want the nav to automatically expand on new sections
+									/*
+									if (dynamicNav.classList.contains('collapsed') && window.innerWidth > 736) {
+										dynamicNav.classList.remove('collapsed');
+										navLinks.classList.add('expanded');
+										
+										// Auto-collapse after a delay
+										setTimeout(() => {
+											if (!navToggle.contains(document.activeElement)) {
+												dynamicNav.classList.add('collapsed');
+												navLinks.classList.remove('expanded');
+											}
+										}, 3000);
+									}
+									*/
 								}
 							});
 						}
@@ -903,11 +970,18 @@
 								// Update URL hash without scrolling
 								history.pushState(null, null, e.target.hash);
 								
-								// On mobile, collapse the menu after clicking
-								if (window.innerWidth <= 736) {
-									navLinks.classList.remove('expanded');
-									dynamicNav.classList.add('collapsed');
-								}
+								// Collapse the navigation after clicking a link
+								setTimeout(() => {
+									if (window.innerWidth > 736) {
+										// On desktop, collapse after a delay
+										dynamicNav.classList.add('collapsed');
+										navLinks.classList.remove('expanded');
+									} else {
+										// On mobile, collapse immediately
+										dynamicNav.classList.add('collapsed');
+										navLinks.classList.remove('expanded');
+									}
+								}, 300);
 							}
 						}
 					});
@@ -926,22 +1000,14 @@
 							progressBar.style.height = scrolled + '%';
 							progressBar.style.width = '100%';
 						}
-						
-						// Set collapsed state on mobile
-						if (window.innerWidth <= 736) {
-							dynamicNav.classList.add('collapsed');
-						} else {
-							dynamicNav.classList.remove('collapsed');
-						}
 					});
 					
 					// Initialize navigation
 					generateNavigation();
 					
-					// Set initial collapsed state on mobile
-					if (window.innerWidth <= 736) {
-						dynamicNav.classList.add('collapsed');
-					}
+					// Set initial collapsed state
+					dynamicNav.classList.add('collapsed');
+					navLinks.classList.remove('expanded');
 					
 					// Trigger initial scroll event to set progress bar
 					window.dispatchEvent(new Event('scroll'));
