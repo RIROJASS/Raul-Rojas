@@ -190,6 +190,31 @@
 			:target {
 				scroll-margin-top: 5em;
 			}
+			
+			/* Optimize GIF display */
+			.gif-container {
+				/* Background color while GIF loads */
+				background-color: rgba(0, 0, 0, 0.1);
+				/* Add minimum height to prevent layout shift */
+				min-height: 200px;
+				/* Add smooth transition from loading state */
+				transition: background-color 0.3s ease;
+			}
+			
+			.gif-container img {
+				/* Make sure GIFs maintain aspect ratio */
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
+			
+			/* Mobile adjustments */
+			@media screen and (max-width: 736px) {
+				.gif-row .col-6 {
+					/* On small screens, add some space between GIFs when they stack */
+					margin-bottom: 1em;
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -301,8 +326,17 @@
 											<div class="box alt">
 												<div class="row gtr-uniform">
 													<div class="col-12"><span class="image fit"><img src="images/nasa-project.jpg" alt="NASA Innovation Challenge" /></span></div>
-													<div class="col-6"><span class="image fit"><img src="images/firearchy_win.jpeg" alt="FIREARCHY Team" /></span></div>
-													<div class="col-6"><span class="image fit"><img src="images/firearchy_presentations.jpeg" alt="FIREARCHY Presentation" /></span></div>
+												</div>
+											</div>
+											<!-- New side-by-side GIFs section -->
+											<div class="box alt">
+												<div class="row gtr-uniform gif-row">
+													<div class="col-6"><span class="image fit gif-container">
+														<img src="images/Charger_Assembly.gif" alt="NASA Project Visualization 1" />
+													</span></div>
+													<div class="col-6"><span class="image fit gif-container">
+														<img src="images/Filter_Assembly.gif" alt="NASA Project Visualization 2" />
+													</span></div>
 												</div>
 											</div>
 											
