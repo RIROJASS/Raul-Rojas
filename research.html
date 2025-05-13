@@ -177,6 +177,91 @@
 			:target {
 				scroll-margin-top: 5em;
 			}
+			
+			/* Slideshow container */
+			.slideshow-container {
+				max-width: 100%;
+				position: relative;
+				margin: auto;
+			}
+
+			/* Hide the images by default */
+			.mySlides {
+				display: none;
+			}
+
+			/* Next & previous buttons */
+			.prev, .next {
+				cursor: pointer;
+				position: absolute;
+				top: 50%;
+				width: auto;
+				margin-top: -22px;
+				padding: 16px;
+				color: white;
+				font-weight: bold;
+				font-size: 18px;
+				transition: 0.6s ease;
+				border-radius: 0 3px 3px 0;
+				user-select: none;
+				background-color: rgba(0,0,0,0.3);
+			}
+
+			/* Position the "next button" to the right */
+			.next {
+				right: 0;
+				border-radius: 3px 0 0 3px;
+			}
+
+			/* On hover, add a black background color with a little bit see-through */
+			.prev:hover, .next:hover {
+				background-color: rgba(0,0,0,0.8);
+			}
+
+			/* The dots/bullets/indicators */
+			.dot {
+				cursor: pointer;
+				height: 15px;
+				width: 15px;
+				margin: 0 2px;
+				background-color: #bbb;
+				border-radius: 50%;
+				display: inline-block;
+				transition: background-color 0.6s ease;
+			}
+
+			.active, .dot:hover {
+				background-color: #F9DB50; /* Golden yellow to match your site theme */
+			}
+
+			/* Fading animation */
+			.fade {
+				animation-name: fade;
+				animation-duration: 1.5s;
+			}
+
+			@keyframes fade {
+				from {opacity: .4}
+				to {opacity: 1}
+			}
+
+			/* Video container for responsive embedding */
+			.video-container {
+				position: relative;
+				padding-bottom: 56.25%; /* 16:9 aspect ratio */
+				height: 0;
+				margin-bottom: 1.5em; /* Spacing below the video */
+				overflow: hidden;
+				border-radius: 5px; /* Rounded corners to match your site style */
+			}
+
+			.video-container iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -329,7 +414,32 @@
 										<h3 class="major">Spacepower Conference 2024</h3>
 										<div class="box alt">
 											<div class="row gtr-uniform">
-												<div class="col-12"><span class="image fit"><img src="images/spacepower-conference.jpg" alt="Spacepower Conference 2024" /></span></div>
+												<div class="col-12">
+													<!-- Image Slideshow -->
+													<div class="slideshow-container">
+														<div class="mySlides fade">
+															<img src="images/spacepower_dog.JPG" alt="Spacepower Conference - Dog image" style="width:100%">
+														</div>
+
+														<div class="mySlides fade">
+															<img src="images/spacepower_duo.JPG" alt="Spacepower Conference - Duo image" style="width:100%">
+														</div>
+
+														<div class="mySlides fade">
+															<img src="images/spacepower_solo.JPG" alt="Spacepower Conference - Solo image" style="width:100%">
+														</div>
+
+														<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+														<a class="next" onclick="plusSlides(1)">&#10095;</a>
+													</div>
+													<br>
+
+													<div style="text-align:center">
+														<span class="dot" onclick="currentSlide(1)"></span>
+														<span class="dot" onclick="currentSlide(2)"></span>
+														<span class="dot" onclick="currentSlide(3)"></span>
+													</div>
+												</div>
 											</div>
 										</div>
 										
@@ -349,6 +459,20 @@
 											<li><span class="highlight">Gen-AI Challenge Finals</span>: Teams used Guardian fitness telemetry to generate personalized training plans—exactly the type of multimodal pipeline work I enjoy.</li>
 											<li>Quote that stuck with me: <blockquote>"Innovation is our orbital maneuver; agility is our delta-V." — SFA President William Woolf</blockquote></li>
 										</ul>
+										
+										<!-- YouTube Video Embed -->
+										<h4>Conference Video Highlights</h4>
+										<div class="video-container">
+											<iframe 
+												width="100%" 
+												height="450" 
+												src="https://www.youtube.com/embed/PK1hglr4cVA?list=PLlbjJLrAGkhIWudidzbiDK8xVW8WrOm-d&start=466" 
+												title="YouTube video player" 
+												frameborder="0" 
+												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+												allowfullscreen>
+											</iframe>
+										</div>
 										
 										<h4>Take-Away Skills & Next Steps</h4>
 										<ul>
@@ -539,265 +663,6 @@
 			</nav>
 		</div>
 
-		<!-- CSS for the dynamic navigation -->
-		<style>
-			/* Dynamic Navigation Styling */
-			#dynamic-nav-wrapper {
-				position: absolute;
-				left: 0;
-				top: 100%; /* Position below the header */
-				z-index: 999;
-				width: auto;
-			}
-			
-			#dynamic-nav {
-				position: fixed;
-				top: 3.25em; /* Height of header */
-				left: 0;
-				z-index: 1000;
-				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
-				transition: transform 0.3s ease, width 0.3s ease;
-				display: flex;
-				height: auto;
-			}
-			
-			.nav-container {
-				background-color: rgba(32, 75, 56, 0.95); /* Dark green with transparency */
-				border-radius: 0 8px 8px 0;
-				box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
-				overflow: hidden;
-				display: flex;
-				flex-direction: column;
-				position: relative;
-				transition: width 0.3s ease;
-			}
-			
-			/* Progress bar styling - vertical */
-			.progress-container {
-				width: 4px;
-				height: 100%;
-				background: rgba(255, 255, 255, 0.1);
-				position: absolute;
-				left: 0;
-				top: 0;
-				bottom: 0;
-				z-index: 2;
-			}
-			
-			.progress-bar {
-				width: 100%;
-				background: #F9DB50; /* Golden yellow */
-				height: 0%;
-				transition: height 0.1s ease;
-				position: absolute;
-				top: 0; /* Start from the top */
-				left: 0;
-			}
-			
-			/* Toggle button styling */
-			#nav-toggle {
-				background-color: #E3572B; /* Orange */
-				color: white;
-				border: none;
-				padding: 10px 15px 10px 20px; /* Extra padding left for progress bar */
-				cursor: pointer;
-				display: flex;
-				align-items: center;
-				width: 100%;
-				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
-				font-size: 1.2em;
-				position: relative;
-				z-index: 1;
-			}
-			
-			/* Icon animation for toggle */
-			.nav-icon {
-				display: inline-block;
-				width: 20px;
-				height: 20px;
-				margin-right: 10px;
-				position: relative;
-			}
-			
-			.nav-icon:before {
-				content: '';
-				position: absolute;
-				width: 100%;
-				height: 2px;
-				background-color: #fff;
-				top: 6px;
-				left: 0;
-				box-shadow: 0 6px 0 #fff;
-				transition: all 0.3s ease;
-			}
-			
-			.nav-icon:after {
-				content: '';
-				position: absolute;
-				width: 100%;
-				height: 2px;
-				background-color: #fff;
-				bottom: 6px;
-				left: 0;
-				transition: all 0.3s ease;
-			}
-			
-			/* Collapsed state icon animation */
-			#dynamic-nav.collapsed .nav-icon:before {
-				transform: rotate(90deg);
-				top: 10px;
-				box-shadow: none;
-			}
-			
-			#dynamic-nav.collapsed .nav-icon:after {
-				transform: rotate(90deg);
-				bottom: 8px;
-			}
-			
-			/* Navigation links list */
-			#nav-links {
-				max-height: 0;
-				overflow: hidden;
-				transition: max-height 0.5s ease;
-				margin: 0;
-				padding: 0 0 0 20px; /* Extra left padding for progress bar */
-				list-style: none;
-				position: relative;
-				z-index: 1;
-			}
-			
-			#nav-links.expanded {
-				max-height: calc(100vh - 7em); /* Account for header and toggle */
-				overflow-y: auto; /* Allow scrolling if many links */
-			}
-			
-			#nav-links li {
-				padding: 0;
-				margin: 0;
-			}
-			
-			#nav-links a {
-				display: block;
-				padding: 12px 15px;
-				color: white;
-				text-decoration: none;
-				border-left: 4px solid transparent;
-				transition: all 0.3s ease;
-				font-size: 1.1em;
-				white-space: nowrap; /* Prevent text wrapping */
-			}
-			
-			#nav-links a:hover {
-				background-color: rgba(227, 87, 43, 0.3); /* Light orange */
-				border-left-color: #F9DB50; /* Golden yellow */
-			}
-			
-			#nav-links a.active {
-				background-color: rgba(227, 87, 43, 0.5); /* Darker orange */
-				border-left-color: #F9DB50; /* Golden yellow */
-				font-weight: bold;
-			}
-			
-			/* Shows submenu items for active sections */
-			#nav-links .submenu {
-				max-height: 0;
-				overflow: hidden;
-				transition: max-height 0.5s ease;
-				padding-left: 15px;
-			}
-			
-			#nav-links .active + .submenu,
-			#nav-links .submenu:hover {
-				max-height: 500px;
-			}
-			
-			#nav-links .submenu a {
-				padding: 8px 15px;
-				font-size: 0.95em;
-			}
-			
-			/* Collapsed state styling */
-			#dynamic-nav.collapsed .nav-container {
-				width: 40px; /* Narrow when collapsed */
-			}
-			
-			#dynamic-nav.collapsed .nav-label {
-				display: none; /* Hide text when collapsed */
-			}
-			
-			#dynamic-nav.collapsed #nav-toggle {
-				padding: 10px; /* Smaller padding when collapsed */
-				justify-content: center;
-			}
-			
-			#dynamic-nav.collapsed .nav-icon {
-				margin-right: 0; /* No margin needed when text is hidden */
-			}
-			
-			/* Hover effect to hint at expandability */
-			#dynamic-nav.collapsed:hover .nav-container {
-				width: 45px; /* Slightly wider on hover to hint at expandability */
-			}
-			
-			/* Collapsed state for mobile */
-			@media screen and (max-width: 736px) {
-				#dynamic-nav {
-					top: auto;
-					bottom: 0;
-					width: 100%;
-					left: 0;
-				}
-				
-				.nav-container {
-					border-radius: 8px 8px 0 0;
-					width: 100% !important; /* Override desktop collapsed width */
-				}
-				
-				/* Progress bar becomes horizontal on mobile */
-				.progress-container {
-					width: 100%;
-					height: 4px;
-					top: 0;
-					left: 0;
-					right: 0;
-				}
-				
-				.progress-bar {
-					height: 100%;
-					width: 0%;
-					left: 0;
-					right: auto;
-				}
-				
-				#nav-toggle {
-					padding: 15px;
-					width: 100%;
-					justify-content: flex-start;
-				}
-				
-				/* When collapsed, push it off screen except for the toggle button */
-				#dynamic-nav.collapsed {
-					transform: translateY(calc(100% - 50px));
-				}
-				
-				#dynamic-nav.collapsed .nav-label {
-					display: inline; /* Show text on mobile even when collapsed */
-				}
-				
-				#dynamic-nav.collapsed .nav-icon {
-					margin-right: 10px; /* Restore margin for mobile */
-				}
-				
-				#nav-links {
-					padding-left: 0;
-				}
-				
-				#nav-links a {
-					white-space: normal; /* Allow text wrapping on mobile */
-				}
-			}
-		</style>
-
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -930,23 +795,6 @@
 								link.classList.remove('active');
 								if (link.getAttribute('data-section') === currentSection) {
 									link.classList.add('active');
-									
-									// Automatically expand navigation if we're at a new section (optional)
-									// Uncomment the next lines if you want the nav to automatically expand on new sections
-									/*
-									if (dynamicNav.classList.contains('collapsed') && window.innerWidth > 736) {
-										dynamicNav.classList.remove('collapsed');
-										navLinks.classList.add('expanded');
-										
-										// Auto-collapse after a delay
-										setTimeout(() => {
-											if (!navToggle.contains(document.activeElement)) {
-												dynamicNav.classList.add('collapsed');
-												navLinks.classList.remove('expanded');
-											}
-										}, 3000);
-									}
-									*/
 								}
 							});
 						}
@@ -1025,6 +873,74 @@
 					// Trigger initial scroll event to set progress bar
 					window.dispatchEvent(new Event('scroll'));
 				});
+			</script>
+			
+			<!-- Slideshow Script -->
+			<script>
+				let slideIndex = 1;
+				let slideInterval;
+
+				// Start automatic slideshow when the page loads
+				document.addEventListener('DOMContentLoaded', function() {
+					showSlides(slideIndex);
+					startSlideshow();
+
+					// Pause slideshow when user hovers over it
+					const slideshowContainers = document.querySelectorAll('.slideshow-container');
+					slideshowContainers.forEach(container => {
+						container.addEventListener('mouseenter', function() {
+							clearInterval(slideInterval);
+						});
+
+						container.addEventListener('mouseleave', function() {
+							startSlideshow();
+						});
+					});
+				});
+
+				// Start automatic slideshow
+				function startSlideshow() {
+					clearInterval(slideInterval); // Clear any existing interval
+					slideInterval = setInterval(function() {
+						plusSlides(1);
+					}, 5000); // Change image every 5 seconds
+				}
+
+				// Next/previous controls
+				function plusSlides(n) {
+					showSlides(slideIndex += n);
+				}
+
+				// Thumbnail image controls
+				function currentSlide(n) {
+					showSlides(slideIndex = n);
+				}
+
+				function showSlides(n) {
+					let i;
+					let slides = document.getElementsByClassName("mySlides");
+					let dots = document.getElementsByClassName("dot");
+					
+					// Loop back to the first slide if we've reached the end
+					if (n > slides.length) {slideIndex = 1}
+					
+					// Go to the last slide if we go back from the first slide
+					if (n < 1) {slideIndex = slides.length}
+					
+					// Hide all slides
+					for (i = 0; i < slides.length; i++) {
+						slides[i].style.display = "none";
+					}
+					
+					// Remove active class from all dots
+					for (i = 0; i < dots.length; i++) {
+						dots[i].className = dots[i].className.replace(" active", "");
+					}
+					
+					// Show the current slide and activate the corresponding dot
+					slides[slideIndex-1].style.display = "block";
+					dots[slideIndex-1].className += " active";
+				}
 			</script>
 
 	</body>
