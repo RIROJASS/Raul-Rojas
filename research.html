@@ -1,180 +1,1122 @@
-<!-- Implementation code for adding the images to the existing AI-Enhanced Remote Sensing section -->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Research & Field Work - Raúl Rojas</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom-colors.css" />
+		<link rel="stylesheet" href="assets/css/tanker.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Apply Tanker font to all text */
+			* {
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+			}
+			
+			/* Ensure all text elements use Tanker */
+			body, p, li, a, span, div, section, article, header, footer,
+			.content, .inner, .major, .special, h1, h2, h3, h4, h5, h6 {
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+			}
+			
+			/* Increase font size for body text */
+			p, li, .inner p, .content p {
+				font-size: 1.2em !important;
+			}
+			
+			/* Make specific titles orange and same size */
+			header .inner h2,  /* Research main title */
+			.inner > h3.major,  /* Section titles */
+			section > h3.major  /* Section titles */
+			{
+				color: #E3572B !important;
+				font-size: 2em !important;  /* Standardize size */
+			}
+			
+			/* Add more separation before major sections */
+			.inner > h3.major,
+			section > h3.major {
+				margin-top: 1.5em !important;
+				padding-top: 0.5em;
+			}
+			
+			/* First h3.major doesn't need extra top margin */
+			.inner > h3.major:first-child {
+				margin-top: 0 !important;
+				padding-top: 0;
+			}
+			
+			/* Make subtitles golden */
+			.inner h4:not(.major),
+			.row h4:not(.major),
+			section h4:not(.major) {
+				color: #F9DB50 !important;
+				font-size: 1.7em !important;
+				margin-top: 1.5em !important;
+				margin-bottom: 0.7em !important;
+				font-weight: 700 !important;
+			}
+			
+			/* Remove default borders from box elements */
+			.box.alt {
+				border: none !important;
+			}
+			
+			/* Styling for individual research sections */
+			.inner > section {
+				padding: 1em 0;
+				margin: 2em 0;
+				position: relative;
+				/* Optional subtle divider like toolkit uses */
+				border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+				padding-bottom: 2em;
+			}
+			
+			/* Last section doesn't need a border */
+			.inner > section:last-child {
+				border-bottom: none;
+			}
+			
+			/* First section spacing adjustment */
+			.inner > section:first-child {
+				margin-top: 1em;
+				padding-top: 0;
+			}
+			
+			/* Style for link buttons */
+			a.special:before {
+				width: 1.7em !important; /* Smaller circle */
+				height: 1.7em !important;
+				line-height: 1.55em !important; /* Adjust line height to center the arrow */
+				font-size: 1.15em !important; /* Slightly smaller arrow */
+				color: #F19A3E !important; /* New color between golden and orange */
+				border-color: #F19A3E !important; /* Match the circle border color */
+			}
+			
+			a.special:hover:before {
+				background-color: rgba(241, 154, 62, 0.1) !important; /* Matching hover effect */
+			}
+			
+			/* Menu text size increases */
+			#menu h2 {
+				font-size: 2.5em !important; /* Larger menu title */
+			}
+			
+			#menu .links li a {
+				font-size: 1.5em !important; /* Larger menu links */
+				padding: 0.9em 0 !important; /* More vertical spacing */
+			}
+			
+			#menu .inner {
+				width: 22em !important; /* Slightly wider menu container */
+			}
+			
+			/* Style for embedded PDF */
+			object[data$=".pdf"] {
+				border: 1px solid rgba(255, 255, 255, 0.125);
+				border-radius: 5px;
+				margin-bottom: 1.5em;
+			}
+			
+			/* Add space between images in gallery */
+			.row.gtr-uniform > .col-4 {
+				padding: 0.5em;
+			}
+			
+			/* Categories section styling */
+			.category-header {
+				color: #E3572B !important;
+				font-size: 2.5em !important;
+				text-align: center;
+				margin: 2em 0 1em 0;
+				padding-bottom: 0.5em;
+				border-bottom: 2px solid rgba(255, 255, 255, 0.125);
+			}
+			
+			/* First category doesn't need top margin */
+			.category-header:first-of-type {
+				margin-top: 0.5em;
+			}
+			
+			/* Highlight text style */
+			.highlight {
+				color: #F9DB50 !important;
+				font-weight: bold;
+			}
+			
+			/* Quote styling */
+			blockquote {
+				border-left: 4px solid #E3572B;
+				padding-left: 1.5em;
+				font-style: italic;
+				margin-left: 0;
+				margin-right: 0;
+			}
+			
+			/* More specific styling for conference details */
+			.speaker-name {
+				color: #4daf7c !important;
+				font-weight: bold;
+				display: inline-block;
+				margin-right: 0.5em;
+			}
+			
+			.speaker-title {
+				color: rgba(255, 255, 255, 0.7);
+				font-style: italic;
+				font-size: 0.9em;
+			}
 
-<div class="box alt">
-    <div class="row gtr-uniform">
-        <!-- Left side - Slideshow of PNG images -->
-        <div class="col-7">
-            <h4 class="image-title" id="current-slide-title">raised_fields_auto_id_v1.png</h4>
-            <div class="slideshow-container research-slides">
-                <div class="mySlides research-slide fade">
-                    <img src="images/raised_fields_auto_id_v1.png" alt="AI auto-identification of raised fields" style="width:100%">
-                    <div class="slide-caption">Automated identification of potential raised field sites</div>
-                </div>
+			/* Smooth scrolling for anchor links */
+			html {
+				scroll-behavior: smooth;
+			}
 
-                <div class="mySlides research-slide fade">
-                    <img src="images/rasied_fields_results_v1.png" alt="Results of AI analysis v1" style="width:100%">
-                    <div class="slide-caption">Result visualization from initial model</div>
-                </div>
+			/* Offset for anchor links to account for fixed header */
+			:target {
+				scroll-margin-top: 5em;
+			}
+			
+			/* Slideshow container */
+			.slideshow-container {
+				max-width: 100%;
+				position: relative;
+				margin: auto;
+			}
 
-                <div class="mySlides research-slide fade">
-                    <img src="images/rasied_fields_results_v2.png" alt="Results of AI analysis v2" style="width:100%">
-                    <div class="slide-caption">Improved results after model refinement</div>
-                </div>
+			/* Hide the images by default */
+			.mySlides {
+				display: none;
+			}
 
-                <a class="prev" onclick="plusResearchSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusResearchSlides(1)">&#10095;</a>
-            </div>
-            <br>
+			/* Next & previous buttons */
+			.prev, .next {
+				cursor: pointer;
+				position: absolute;
+				top: 50%;
+				width: auto;
+				margin-top: -22px;
+				padding: 16px;
+				color: white;
+				font-weight: bold;
+				font-size: 18px;
+				transition: 0.6s ease;
+				border-radius: 0 3px 3px 0;
+				user-select: none;
+				background-color: rgba(0,0,0,0.3);
+			}
 
-            <div style="text-align:center">
-                <span class="dot research-dot" onclick="currentResearchSlide(1)" data-title="raised_fields_auto_id_v1.png"></span>
-                <span class="dot research-dot" onclick="currentResearchSlide(2)" data-title="rasied_fields_results_v1.png"></span>
-                <span class="dot research-dot" onclick="currentResearchSlide(3)" data-title="rasied_fields_results_v2.png"></span>
-            </div>
-        </div>
-        
-        <!-- Right side - GIF with title -->
-        <div class="col-5">
-            <h4 class="image-title">raised_field_deep_learning_process.gif</h4>
-            <div class="image fit">
-                <img src="images/raised_field_deep_learning_process.gif" alt="Deep learning process animation" style="width:100%">
-                <div class="caption">Animation of the deep learning detection process</div>
-            </div>
-        </div>
-    </div>
-</div>
+			/* Position the "next button" to the right */
+			.next {
+				right: 0;
+				border-radius: 3px 0 0 3px;
+			}
 
-<!-- Additional CSS for the image layout -->
-<style>
-    /* Image titles */
-    h4.image-title {
-        color: #F9DB50 !important;
-        font-size: 1.2em !important;
-        margin-top: 0 !important;
-        margin-bottom: 0.5em !important;
-        font-family: 'Tanker-Regular', Raleway, sans-serif !important;
-        text-align: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    
-    /* Caption styling */
-    .slide-caption, .caption {
-        text-align: center;
-        font-size: 0.9em;
-        font-style: italic;
-        padding: 0.5em 0;
-        color: rgba(255, 255, 255, 0.7);
-    }
-    
-    /* Research slideshow specific styles */
-    .research-slides {
-        max-width: 100%;
-        position: relative;
-        margin: auto;
-    }
-    
-    .research-slide {
-        display: none;
-        background-color: #222;
-        border-radius: 5px;
-        overflow: hidden;
-    }
-    
-    /* Ensure GIF container matches slideshow height */
-    .col-5 .image.fit {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        background-color: #222;
-        border-radius: 5px;
-        overflow: hidden;
-    }
-    
-    .col-5 .image.fit img {
-        flex: 1;
-        object-fit: contain;
-        max-height: 80%;
-    }
-    
-    /* Special mobile adjustments */
-    @media screen and (max-width: 736px) {
-        .col-7, .col-5 {
-            width: 100%;
-            margin-bottom: 2em;
-        }
-    }
-</style>
+			/* On hover, add a black background color with a little bit see-through */
+			.prev:hover, .next:hover {
+				background-color: rgba(0,0,0,0.8);
+			}
 
-<!-- JavaScript for the research slideshow -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize variables for research slideshow
-    let researchSlideIndex = 1;
-    let researchSlideInterval;
-    
-    // Show the initial slide
-    showResearchSlides(researchSlideIndex);
-    startResearchSlideshow();
-    
-    // Make these functions globally available
-    window.plusResearchSlides = function(n) {
-        showResearchSlides(researchSlideIndex += n);
-    };
-    
-    window.currentResearchSlide = function(n) {
-        showResearchSlides(researchSlideIndex = n);
-    };
-    
-    // Auto-advance slides
-    function startResearchSlideshow() {
-        clearInterval(researchSlideInterval);
-        researchSlideInterval = setInterval(function() {
-            plusResearchSlides(1);
-        }, 5000); // Change slide every 5 seconds
-    }
-    
-    // Main slideshow function
-    function showResearchSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("research-slide");
-        let dots = document.getElementsByClassName("research-dot");
-        let titleElement = document.getElementById("current-slide-title");
-        
-        if (n > slides.length) {researchSlideIndex = 1}
-        if (n < 1) {researchSlideIndex = slides.length}
-        
-        // Hide all slides
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        
-        // Remove active class from dots
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        
-        // Show current slide and activate dot
-        slides[researchSlideIndex-1].style.display = "block";
-        dots[researchSlideIndex-1].className += " active";
-        
-        // Update the title
-        if (titleElement && dots[researchSlideIndex-1].dataset.title) {
-            titleElement.textContent = dots[researchSlideIndex-1].dataset.title;
-        }
-    }
-    
-    // Pause slideshow on hover
-    const researchSlideshowContainer = document.querySelector('.research-slides');
-    if (researchSlideshowContainer) {
-        researchSlideshowContainer.addEventListener('mouseenter', function() {
-            clearInterval(researchSlideInterval);
-        });
-        
-        researchSlideshowContainer.addEventListener('mouseleave', function() {
-            startResearchSlideshow();
-        });
-    }
-});
-</script>
+			/* The dots/bullets/indicators */
+			.dot {
+				cursor: pointer;
+				height: 15px;
+				width: 15px;
+				margin: 0 2px;
+				background-color: #bbb;
+				border-radius: 50%;
+				display: inline-block;
+				transition: background-color 0.6s ease;
+			}
+
+			.active, .dot:hover {
+				background-color: #F9DB50; /* Golden yellow to match your site theme */
+			}
+
+			/* Fading animation */
+			.fade {
+				animation-name: fade;
+				animation-duration: 1.5s;
+			}
+
+			@keyframes fade {
+				from {opacity: .4}
+				to {opacity: 1}
+			}
+
+			/* Video container for responsive embedding */
+			.video-container {
+				position: relative;
+				padding-bottom: 56.25%; /* 16:9 aspect ratio */
+				height: 0;
+				margin-bottom: 1.5em; /* Spacing below the video */
+				overflow: hidden;
+				border-radius: 5px; /* Rounded corners to match your site style */
+			}
+
+			.video-container iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+			
+			/* Image titles for research slideshow */
+			h4.image-title {
+				color: #F9DB50 !important;
+				font-size: 1.2em !important;
+				margin-top: 0 !important;
+				margin-bottom: 0.5em !important;
+				font-family: 'Tanker-Regular', Raleway, sans-serif !important;
+				text-align: center;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			/* Caption styling */
+			.slide-caption, .caption {
+				text-align: center;
+				font-size: 0.9em;
+				font-style: italic;
+				padding: 0.5em 0;
+				color: rgba(255, 255, 255, 0.7);
+			}
+			
+			/* Research slideshow specific styles */
+			.research-slides {
+				max-width: 100%;
+				position: relative;
+				margin: auto;
+			}
+			
+			.research-slide {
+				display: none;
+				background-color: #222;
+				border-radius: 5px;
+				overflow: hidden;
+			}
+			
+			/* Ensure GIF container matches slideshow height */
+			.col-5 .image.fit {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				background-color: #222;
+				border-radius: 5px;
+				overflow: hidden;
+			}
+			
+			.col-5 .image.fit img {
+				flex: 1;
+				object-fit: contain;
+				max-height: 80%;
+			}
+			
+			/* Special mobile adjustments */
+			@media screen and (max-width: 736px) {
+				.col-7, .col-5 {
+					width: 100%;
+					margin-bottom: 2em;
+				}
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Raúl Rojas</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="projects.html">Projects</a></li>
+								<li><a href="toolkit.html">Toolkit</a></li>
+								<li><a href="research.html">Research & Field Work</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2>Research & Field Work</h2>
+								<p>My intellectual journey across the world, physically and digitally</p>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+									
+									<!-- RESEARCH PROJECTS SECTION -->
+									<h2 class="category-header" id="research-projects">Research Projects</h2>
+
+									<section>
+										<h3 class="major">AI-Enhanced Remote Sensing for Archaeological Discovery</h3>
+										
+										<p>My ongoing research applies advanced machine learning algorithms to satellite imagery for the identification of archaeological sites, with a focus on raised field structures in the <a href="https://lacgeo.com/llanos-moxos-archaeological-region" target="_blank">Llanos de Moxos area</a> in Beni, Colombia. This project bridges cutting-edge AI techniques with traditional archaeological methods to enable non-invasive site detection.</p>
+										
+										<!-- New Research Slideshow -->
+										<div class="box alt">
+											<div class="row gtr-uniform">
+												<!-- Left side - Slideshow of PNG images -->
+												<div class="col-7">
+													<h4 class="image-title" id="current-slide-title">raised_fields_auto_id_v1.png</h4>
+													<div class="slideshow-container research-slides">
+														<div class="mySlides research-slide fade">
+															<img src="images/raised_fields_auto_id_v1.png" alt="AI auto-identification of raised fields" style="width:100%">
+															<div class="slide-caption">Automated identification of potential raised field sites</div>
+														</div>
+
+														<div class="mySlides research-slide fade">
+															<img src="images/rasied_fields_results_v1.png" alt="Results of AI analysis v1" style="width:100%">
+															<div class="slide-caption">Result visualization from initial model</div>
+														</div>
+
+														<div class="mySlides research-slide fade">
+															<img src="images/rasied_fields_results_v2.png" alt="Results of AI analysis v2" style="width:100%">
+															<div class="slide-caption">Improved results after model refinement</div>
+														</div>
+
+														<a class="prev" onclick="plusResearchSlides(-1)">&#10094;</a>
+														<a class="next" onclick="plusResearchSlides(1)">&#10095;</a>
+													</div>
+													<br>
+
+													<div style="text-align:center">
+														<span class="dot research-dot" onclick="currentResearchSlide(1)" data-title="raised_fields_auto_id_v1.png"></span>
+														<span class="dot research-dot" onclick="currentResearchSlide(2)" data-title="rasied_fields_results_v1.png"></span>
+														<span class="dot research-dot" onclick="currentResearchSlide(3)" data-title="rasied_fields_results_v2.png"></span>
+													</div>
+												</div>
+												
+												<!-- Right side - GIF with title -->
+												<div class="col-5">
+													<h4 class="image-title">raised_field_deep_learning_process.gif</h4>
+													<div class="image fit">
+														<img src="images/raised_field_deep_learning_process.gif" alt="Deep learning process animation" style="width:100%">
+														<div class="caption">Animation of the deep learning detection process</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<h4>Technical Approach</h4>
+										<p>This research employs a comprehensive technical framework that combines multiple satellite imagery sources with deep learning models:</p>
+										<ul>
+											<li><span class="highlight">Multi-Source Satellite Imagery</span>: Leveraging both Sentinel and Landsat imagery accessed through ArcGIS, providing multi-spectral data at different resolutions to identify subtle terrain features</li>
+											<li><span class="highlight">YOLO Object Detection</span>: Implementing YOLOv8 (You Only Look Once) models for their efficiency in detecting archaeological features across large geographic areas</li>
+											<li><span class="highlight">Data Processing Pipeline</span>: Custom Python and R scripts for data normalization, format conversion between KITTI and YOLO frameworks, and batch processing of satellite imagery</li>
+											<li><span class="highlight">High-Performance Computing</span>: Utilizing UFS supercomputer resources for hyperparameter grid search optimization to fine-tune model performance</li>
+										</ul>
+										
+										<h4>Pattern Recognition Methodology</h4>
+										<p>The research employs specialized pattern recognition techniques tailored to archaeological feature detection:</p>
+										<ul>
+											<li><span class="highlight">Template Matching</span>: Algorithmic comparison of image segments against known archaeological feature templates</li>
+											<li><span class="highlight">Orientation Analysis</span>: Differentiation between ancient and modern structures based on alignment patterns:
+												<ul>
+													<li>Ancient structures: Often aligned with solar or celestial orientations</li>
+													<li>Modern structures: Typically aligned with contemporary infrastructure</li>
+												</ul>
+											</li>
+											<li><span class="highlight">Geometric Feature Focus</span>: Particular attention to rectangular lakes and rectilinear patterns, which often indicate human modification in the Llanos de Moxos landscape</li>
+											<li><span class="highlight">Feature Typology Development</span>: Creating a comprehensive classification system of structure types to enhance model training and validation</li>
+										</ul>
+										
+										<h4>Technical Implementation</h4>
+										<p>The project workflow includes several sophisticated technical components:</p>
+										<ul>
+											<li><span class="highlight">Image Annotation Process</span>:
+												<ul>
+													<li>Manual annotation of verified archaeological features</li>
+													<li>Export to deep learning formats using specialized plugins</li>
+													<li>Processing and augmentation using Python/R libraries</li>
+												</ul>
+											</li>
+											<li><span class="highlight">Coordinate Normalization</span>: Transformation of geographic coordinates and standardization for model compatibility</li>
+											<li><span class="highlight">Model Architecture</span>: Implementation of both convolutional neural networks (CNNs) for spatial pattern recognition and recurrent neural networks (RNNs) for temporal analysis of land use changes</li>
+											<li><span class="highlight">Clustering Algorithms</span>: Application of unsupervised learning techniques to identify potential site clusters and settlement patterns</li>
+										</ul>
+										
+										<h4>Integration with Archaeological Knowledge</h4>
+										<p>This technical approach is grounded in archaeological expertise about the region:</p>
+										<ul>
+											<li>Incorporation of known archaeological site characteristics specific to pre-Columbian raised field agriculture in the Amazon basin</li>
+											<li>Validation of model results against previously documented sites to refine detection accuracy</li>
+											<li>Collaboration with archaeologists specializing in Amazonian cultures to ensure AI detections align with cultural and historical contexts</li>
+										</ul>
+										
+										<h4>Broader Applications</h4>
+										<p>The methodologies developed in this project have applications beyond the immediate research:</p>
+										<ul>
+											<li>Creation of comprehensive visual analyses highlighting critical conservation areas</li>
+											<li>Development of geo-temporal environmental references to track landscape changes over time</li>
+											<li>Potential application to other archaeologically rich regions with similar environmental conditions</li>
+											<li>Contributing to digital heritage preservation through detailed documentation of archaeological landscapes</li>
+										</ul>
+										
+										<p>This research represents a significant step forward in non-invasive archaeological prospection, allowing for the identification of potential sites while minimizing physical disturbance to these culturally and historically significant areas.</p>
+									</section>
+									
+									<!-- CONFERENCES & ACADEMIC EVENTS SECTION -->
+									<h2 class="category-header" id="conferences">Conferences & Academic Events</h2>
+
+									<section>
+										<h3 class="major">Florida Undergraduate Research Conference 2025</h3>
+										<div class="box alt">
+											<div class="row gtr-uniform">
+												<div class="col-12">
+													<!-- PDF embed instead of img tag -->
+													<object data="images/2025_FURC_conference_poster.pdf" type="application/pdf" width="100%" height="600">
+														<p>Your browser doesn't support embedded PDFs. You can <a href="images/2025_FURC_conference_poster.pdf">download the PDF</a> instead.</p>
+													</object>
+												</div>
+											</div>
+										</div>
+										
+										<p>I presented my research on "Finding Lost Archaeological Sites with AI: Object Detection with Remote Sensing" at the 2025 Florida Undergraduate Research Conference alongside lab partner <a href="https://www.linkedin.com/in/via-zhang/">Olivia Zhang.</a></p>
+										
+										<h4>Presentation Focus:</h4>
+										<ul>
+											<li>Demonstrating how machine learning algorithms can identify potential archaeological sites from satellite imagery</li>
+											<li>Discussing the ethical implications and benefits of non-invasive archaeological techniques</li>
+											<li>Showcasing the accuracy improvements over traditional methods</li>
+											<li>Explaining the pros and cons to such methods, associated caveats, and pit-falls to avoid</li>
+											<li>Exploring future applications and directions for this technology</li>
+										</ul>
+										
+										<h4>Additional Learning:</h4>
+										<ul>
+											<li>Low-cost methods to create 3D models of fossils and archaeological artifacts</li>
+											<li>Novel research on using CBD to regenerate otherwise dead olfactory nerves in the nose</li>
+											<li>Applications of AI models to track construction worker health and safety, monitoring hydration levels and other vital metrics</li>
+										</ul>
+									</section>
+
+									<section id="spacepower-conference">
+										<h3 class="major">Spacepower Conference 2024</h3>
+										<div class="box alt">
+											<div class="row gtr-uniform">
+												<div class="col-12">
+													<!-- Image Slideshow -->
+													<div class="slideshow-container">
+														<div class="mySlides fade">
+															<img src="images/spacepower_dog.JPG" alt="Spacepower Conference - Dog image" style="width:100%">
+														</div>
+
+														<div class="mySlides fade">
+															<img src="images/spacepower_duo.JPG" alt="Spacepower Conference - Duo image" style="width:100%">
+														</div>
+
+														<div class="mySlides fade">
+															<img src="images/spacepower_solo.JPG" alt="Spacepower Conference - Solo image" style="width:100%">
+														</div>
+
+														<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+														<a class="next" onclick="plusSlides(1)">&#10095;</a>
+													</div>
+													<br>
+
+													<div style="text-align:center">
+														<span class="dot" onclick="currentSlide(1)"></span>
+														<span class="dot" onclick="currentSlide(2)"></span>
+														<span class="dot" onclick="currentSlide(3)"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<p>I attended the Spacepower Conference in Orlando as one of the five winners of the UF Space Initiative 2024 Innovation Challenge. The Space Force Association previewed our team in its official magazine, calling us "a dynamic group who embodied the power of cross-disciplinary collaboration." That recognition—and the bright orange WINNER badge on my lanyard—made this event a true personal milestone.</p>
+										
+										<h4>Why It Mattered to Me</h4>
+										<ul>
+											<li><span class="highlight">First deep dive into the space sector</span>: I could finally see how my anthropological eye for human systems and my AI engineering toolkit intersect in a real industry setting.</li>
+											<li><span class="highlight">Startup-centric atmosphere</span>: Panels on venture funding, SpaceWERX accelerators, and small-sat constellations showed how quickly ideas move from lab to launchpad.</li>
+											<li><span class="highlight">Hands-on tech demos</span>: I tried an AI-enabled space debris tracker, tested a digital-twin trainer for Guardians, and saw live inference running on orbit-qualified edge GPUs.</li>
+										</ul>
+										
+										<h4>Conference Highlights</h4>
+										<ul>
+											<li><span class="speaker-name">Maj Gen Timothy Sejba</span> <span class="speaker-title">(Commander, STARCOM)</span>: Delivered keynote on building a "purpose-built" Space Force ready for Great-Power competition.</li>
+											<li><span class="highlight">Startup showcase</span>: 30+ early-stage companies pitching propulsion, on-orbit servicing, and AI autonomy—many funded by the SpaceWERX Tactical Funding Increase program.</li>
+											<li><span class="highlight">Gen-AI Challenge Finals</span>: Teams used Guardian fitness telemetry to generate personalized training plans—exactly the type of multimodal pipeline work I enjoy.</li>
+											<li>Quote that stuck with me: <blockquote>"Innovation is our orbital maneuver; agility is our delta-V." — SFA President William Woolf</blockquote></li>
+										</ul>
+										
+										<!-- YouTube Video Embed -->
+										<h4>Conference Video Highlights</h4>
+										<div class="video-container">
+											<iframe 
+												width="100%" 
+												height="450" 
+												src="https://www.youtube.com/embed/PK1hglr4cVA?list=PLlbjJLrAGkhIWudidzbiDK8xVW8WrOm-d&start=466" 
+												title="YouTube video player" 
+												frameborder="0" 
+												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+												allowfullscreen>
+											</iframe>
+										</div>
+										
+										<h4>Take-Away Skills & Next Steps</h4>
+										<ul>
+											<li>Identified potential mentors in model-based systems engineering (MBSE) and satellite-AI inference for follow-up calls.</li>
+											<li>Sketched a capstone idea: an AI-powered, culture-aware knowledge base for long-duration missions—merging my anthropology and CS background.</li>
+											<li>Brought home design cues for my own projects (e.g., using on-device ML for edge decision-making in remote sensing).</li>
+										</ul>
+										
+										<a href="docs/SFA-Magazine-Pre-Spacepower-2024-Rev2-Compress.pdf" class="special" target="_blank">Read the SFA Pre-Spacepower Magazine</a>
+									</section>
+
+									<section>
+										<h3 class="major">Innovation Summit 2024</h3>
+										
+										<p>At the Innovation Summit 2024, I engaged with industry leaders and gained valuable insights into venture capital, entrepreneurship, and the intersection of technology with business.</p>
+										
+										<h4>Notable Speakers:</h4>
+										<ul>
+											<li><span class="speaker-name">Brian Mawdsley</span> <span class="speaker-title">Deputy CIO @ UFICO</span>
+												<ul>
+													<li>Shared insights on investment analysis and finding meaning in work</li>
+													<li>Emphasized identifying the next big thing rather than focusing on retroactive investments</li>
+													<li>Key quote: <blockquote>"Focus on the compass, not the clock."</blockquote></li>
+												</ul>
+											</li>
+											<li><span class="speaker-name">Jackson Streeter</span> <span class="speaker-title">Director @ UF Ventures</span>
+												<ul>
+													<li>Provided the entrepreneurial perspective to complement Brian's investment outlook</li>
+													<li>Expressed enthusiasm for clean energy and business ecosystems</li>
+													<li>Emphasized the importance of understanding individual customers, not just market trends</li>
+												</ul>
+											</li>
+											<li><span class="speaker-name">Jack Kendall</span> <span class="speaker-title">CTO of Rain AI</span>
+												<ul>
+													<li>Shared insights on neuromorphic computing and the future of AI</li>
+													<li>Discussed his experience developing patent-worthy technologies</li>
+													<li>Highlighted the importance of multidisciplinary knowledge in breakthrough innovation</li>
+												</ul>
+											</li>
+										</ul>
+										
+										<h4>VC Panel Highlights:</h4>
+										<ul>
+											<li><span class="speaker-name">Ryan Pruitt</span> <span class="speaker-title">Managing Director @ Ocean Azul Partners</span></li>
+											<li><span class="speaker-name">Olivia Gaudree</span> <span class="speaker-title">Managing Director @ Fuel VC</span></li>
+											<li><span class="speaker-name">Chris Langford</span> <span class="speaker-title">Managing Partner @ Home Tech Ventures</span></li>
+										</ul>
+										
+										<p>The panel provided valuable perspective on what venture capitalists look for in founders and startups, emphasizing that passion, expertise, and character are essential qualities. Their insights helped me understand how my research in AI and archaeological applications could potentially be positioned within the broader technology landscape.</p>
+									</section>
+
+									<section>
+										<h3 class="major">SHPE National Convention 2024</h3>
+										<div class="box alt">
+											<div class="row gtr-uniform">
+												<div class="col-12"><span class="image fit"><img src="images/shpe-convention.jpg" alt="SHPE National Convention" /></span></div>
+											</div>
+										</div>
+										
+										<p>As Corporate Database Director for the Society of Hispanic Professional Engineers (SHPE), I participated in the National Convention, where I helped develop and distribute a comprehensive record of all corporate partners to over 35,000 attendees and members across 42 states.</p>
+										
+										<h4>Convention Highlights:</h4>
+										<ul>
+											<li>Attended specialized workshops including:
+												<ul>
+													<li>Amazon Career Readiness Talk</li>
+													<li>Professional Networking Event</li>
+													<li>L3Harris Goal Setting 101</li>
+													<li>Northrop Grumman LGBT Leadership Panel</li>
+													<li>John Deere and Automation presentation</li>
+												</ul>
+											</li>
+											<li>Networked with representatives from top companies including Google, Apple, Lockheed Martin, and Northrop Grumman</li>
+											<li>Gained insights into both technical and professional development topics, from AI automation to career advancement strategies</li>
+											<li>Connected with peers and professionals in the industry, expanding my network and creating opportunities for future collaboration</li>
+										</ul>
+										
+										<h4>Key Takeaways:</h4>
+										<ul>
+											<li>The importance of effective pitch development and interview preparation</li>
+											<li>Strategies for managing multiple responsibilities and preventing burnout</li>
+											<li>How to navigate defense company interviews and their specific expectations</li>
+											<li>Breaking into emerging industries through passion, expertise, and character</li>
+										</ul>
+										
+										<p>This convention provided not only valuable networking opportunities but also practical skills and knowledge that I've been able to apply to my academic and professional development.</p>
+									</section>
+
+									<section>
+										<h3 class="major">Musculoskeletal Symposium 2025</h3>
+										
+										<p>Attended the Musculoskeletal Symposium which brought together medical professionals, researchers, and engineers to explore advancements in understanding musculoskeletal systems and related technologies.</p>
+										
+										<h4>Notable Presentations:</h4>
+										<ul>
+											<li><span class="speaker-name">Randy D. Trumbower</span>
+												<ul>
+													<li>Research on spinal cord injury (SCI) and neuroplasticity</li>
+													<li>Innovative use of Acute Intermittent Hypoxia (AIH) protocol to restore movement in SCI patients</li>
+													<li>Development of specialized devices for oxygen level manipulation to prime neural pathways</li>
+												</ul>
+											</li>
+											<li><span class="speaker-name">Kristen Vandenborne</span>
+												<ul>
+													<li>Research on Duchenne muscular dystrophy (DMD)</li>
+													<li>Use of MR imaging to replace invasive biopsies for diagnosis</li>
+													<li>Application of machine learning to enhance disease tracking and speed up validation processes</li>
+												</ul>
+											</li>
+										</ul>
+										
+										<h4>Interdisciplinary Applications:</h4>
+										<p>The symposium highlighted how modern medical research techniques can be applied to archaeological contexts, particularly in the analysis of human remains and understanding movement patterns in ancient populations. These insights provide valuable perspective for my work at the intersection of technology and anthropology.</p>
+									</section>
+
+									<!-- FIELD WORK SECTION -->
+									<h2 class="category-header" id="field-work">Field Work</h2>
+
+									<section>
+										<h3 class="major">Pampa La Cruz Archaeological Expedition</h3>
+										<div class="box alt">
+											<div class="row gtr-uniform">
+												<div class="col-12"><span class="image fit"><img src="images/peru-wide.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/excavation1.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/excavation2.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/excavation3.jpg" alt="" /></span></div>
+											</div>
+										</div>
+										
+										<p>4-Week intensive archaeological field program with the University of Florida at Huanchaco, Peru, working on the Pampa La Cruz site under the supervision of <a href="https://scholar.google.com/citations?user=shL5G3EAAAAJ">Dr. Gabriel Prieto</a>.</p>
+										
+										<h4>Field Work Highlights:</h4>
+										<ul>
+											<li>Participated in excavations of a Chimú child sacrifice site used between 800-1500 CE</li>
+											<li>Created drone orthophotography maps of the excavation site at different stages</li>
+											<li>Developed 3D site models using Agisoft Metascape and AutoCAD</li>
+											<li>Studied osteological remains under the guidance of <a href="https://scholar.google.com/citations?hl=en&user=ljEDZe4AAAAJ&view_op=list_works&sortby=pubdate">Dr. John Verano</a></li>
+											<li>Cataloged artifacts including ceramics, textiles, and ritual items</li>
+										</ul>
+										
+										<p>This field experience was transformative, providing hands-on archaeological training while introducing me to the vibrant coastal culture of Peru. Beyond the academic work, I embraced local experiences including surfing the famous waves of Huanchaco and enjoying fresh ceviche after long days in the field.</p>
+										
+										<a href="https://archaeology.org/issues/january-february-2020/collection/peru-pampa-la-cruz-sacrifice/" class="special" target="_blank">Learn More About Pampa La Cruz</a>
+									</section>
+
+								</div>
+							</div>
+
+					</section>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Raúl Rojas. All rights reserved.</li>
+								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Dynamic Navigation Component -->
+		<div id="dynamic-nav-wrapper">
+			<nav id="dynamic-nav" class="collapsed">
+				<div class="nav-container">
+					<div class="progress-container">
+						<div class="progress-bar" id="scroll-progress"></div>
+					</div>
+					<button id="nav-toggle">
+						<span class="nav-icon"></span>
+						<span class="nav-label">Navigation</span>
+					</button>
+					<ul id="nav-links">
+						<!-- Links will be dynamically generated here -->
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			
+			<!-- Dynamic Navigation Script -->
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					// Select elements
+					const dynamicNav = document.getElementById('dynamic-nav');
+					const navToggle = document.getElementById('nav-toggle');
+					const navLinks = document.getElementById('nav-links');
+					const progressBar = document.getElementById('scroll-progress');
+					
+					// Function to automatically generate navigation from page structure
+					function generateNavigation() {
+						// Get all category headers and their sections
+						const categories = document.querySelectorAll('.category-header');
+						const navList = document.getElementById('nav-links');
+						
+						categories.forEach(category => {
+							// Create main category link
+							const categoryId = category.id;
+							const categoryText = category.textContent;
+							const listItem = document.createElement('li');
+							const link = document.createElement('a');
+							
+							link.href = `#${categoryId}`;
+							link.textContent = categoryText;
+							link.setAttribute('data-section', categoryId);
+							listItem.appendChild(link);
+							navList.appendChild(listItem);
+							
+							// Find all major sections under this category
+							const nextCategory = category.nextElementSibling?.nextElementSibling?.classList.contains('category-header') 
+										? category.nextElementSibling.nextElementSibling 
+										: null;
+							
+							// Create submenu for sections if needed
+							const sections = [];
+							let currentElement = category.nextElementSibling;
+							
+							while (currentElement && (!nextCategory || currentElement !== nextCategory)) {
+								if (currentElement.querySelector && currentElement.querySelector('.major')) {
+									const sectionTitle = currentElement.querySelector('.major').textContent;
+									const sectionId = sectionTitle.toLowerCase().replace(/[^\w]+/g, '-');
+									
+									// If section doesn't have an ID, add one
+									if (!currentElement.id) {
+										currentElement.id = sectionId;
+									}
+									
+									sections.push({
+										id: currentElement.id,
+										title: sectionTitle
+									});
+								}
+								currentElement = currentElement.nextElementSibling;
+							}
+							
+							// If we have sections, create a submenu
+							if (sections.length > 0) {
+								const submenu = document.createElement('ul');
+								submenu.className = 'submenu';
+								
+								sections.forEach(section => {
+									const subItem = document.createElement('li');
+									const subLink = document.createElement('a');
+									subLink.href = `#${section.id}`;
+									subLink.textContent = section.title;
+									subLink.setAttribute('data-section', section.id);
+									subItem.appendChild(subLink);
+									submenu.appendChild(subItem);
+								});
+								
+								navList.appendChild(submenu);
+							}
+						});
+					}
+					
+					// Toggle navigation expansion
+					navToggle.addEventListener('click', function() {
+						dynamicNav.classList.toggle('collapsed');
+						if (!dynamicNav.classList.contains('collapsed')) {
+							navLinks.classList.add('expanded');
+						} else {
+							navLinks.classList.remove('expanded');
+						}
+					});
+					
+					// Handle scroll events
+					window.addEventListener('scroll', function() {
+						// Update progress bar - now vertical for desktop, horizontal for mobile
+						const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+						const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+						const scrolled = (winScroll / height) * 100;
+						
+						if (window.innerWidth <= 736) {
+							// Horizontal progress for mobile
+							progressBar.style.width = scrolled + '%';
+							progressBar.style.height = '100%';
+						} else {
+							// Vertical progress for desktop - FROM TOP TO BOTTOM
+							progressBar.style.height = scrolled + '%';
+							progressBar.style.width = '100%';
+						}
+						
+						// Highlight current section
+						const scrollPosition = window.scrollY;
+						
+						// Get all section elements
+						const sections = document.querySelectorAll('.category-header, section h3.major');
+						
+						// Find which section is currently in view
+						let currentSection = null;
+						
+						sections.forEach(section => {
+							const sectionTop = section.getBoundingClientRect().top + window.scrollY - 100;
+							if (scrollPosition >= sectionTop) {
+								currentSection = section.id || section.closest('section').id;
+							}
+						});
+						
+						// Update active class on navigation links
+						if (currentSection) {
+							document.querySelectorAll('#nav-links a').forEach(link => {
+								link.classList.remove('active');
+								if (link.getAttribute('data-section') === currentSection) {
+									link.classList.add('active');
+								}
+							});
+						}
+						
+						// Auto-collapse nav on mobile when scrolling down
+						if (window.innerWidth <= 736) {
+							const isScrollingDown = this.oldScroll < winScroll;
+							this.oldScroll = winScroll;
+							
+							if (isScrollingDown && !navToggle.contains(document.activeElement)) {
+								dynamicNav.classList.add('collapsed');
+								navLinks.classList.remove('expanded');
+							}
+						}
+					});
+					
+					// Smooth scrolling for navigation links
+					document.addEventListener('click', function(e) {
+						if (e.target.tagName === 'A' && e.target.hash && e.target.hash.startsWith('#')) {
+							const targetElement = document.querySelector(e.target.hash);
+							if (targetElement) {
+								e.preventDefault();
+								
+								// Calculate offset (account for sticky header if any)
+								const offset = 80;
+								const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+								
+								// Scroll smoothly
+								window.scrollTo({
+									top: targetPosition,
+									behavior: 'smooth'
+								});
+								
+								// Update URL hash without scrolling
+								history.pushState(null, null, e.target.hash);
+								
+								// Collapse the navigation after clicking a link
+								setTimeout(() => {
+									if (window.innerWidth > 736) {
+										// On desktop, collapse after a delay
+										dynamicNav.classList.add('collapsed');
+										navLinks.classList.remove('expanded');
+									} else {
+										// On mobile, collapse immediately
+										dynamicNav.classList.add('collapsed');
+										navLinks.classList.remove('expanded');
+									}
+								}, 300);
+							}
+						}
+					});
+					
+					// Handle window resize
+					window.addEventListener('resize', function() {
+						// Reset progress bar orientation
+						const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+						const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+						const scrolled = (winScroll / height) * 100;
+						
+						if (window.innerWidth <= 736) {
+							progressBar.style.width = scrolled + '%';
+							progressBar.style.height = '100%';
+						} else {
+							progressBar.style.height = scrolled + '%';
+							progressBar.style.width = '100%';
+						}
+					});
+					
+					// Initialize navigation
+					generateNavigation();
+					
+					// Set initial collapsed state
+					dynamicNav.classList.add('collapsed');
+					navLinks.classList.remove('expanded');
+					
+					// Trigger initial scroll event to set progress bar
+					window.dispatchEvent(new Event('scroll'));
+				});
+			</script>
+			
+			<!-- Regular Slideshow Script -->
+			<script>
+				let slideIndex = 1;
+				let slideInterval;
+
+				// Start automatic slideshow when the page loads
+				document.addEventListener('DOMContentLoaded', function() {
+					showSlides(slideIndex);
+					startSlideshow();
+
+					// Pause slideshow when user hovers over it
+					const slideshowContainers = document.querySelectorAll('.slideshow-container:not(.research-slides)');
+					slideshowContainers.forEach(container => {
+						container.addEventListener('mouseenter', function() {
+							clearInterval(slideInterval);
+						});
+
+						container.addEventListener('mouseleave', function() {
+							startSlideshow();
+						});
+					});
+				});
+
+				// Start automatic slideshow
+				function startSlideshow() {
+					clearInterval(slideInterval); // Clear any existing interval
+					slideInterval = setInterval(function() {
+						plusSlides(1);
+					}, 5000); // Change image every 5 seconds
+				}
+
+				// Next/previous controls
+				function plusSlides(n) {
+					showSlides(slideIndex += n);
+				}
+
+				// Thumbnail image controls
+				function currentSlide(n) {
+					showSlides(slideIndex = n);
+				}
+
+				function showSlides(n) {
+					let i;
+					let slides = document.getElementsByClassName("mySlides");
+					let dots = document.getElementsByClassName("dot");
+					
+					// Exclude research slides
+					slides = Array.from(slides).filter(slide => !slide.classList.contains('research-slide'));
+					dots = Array.from(dots).filter(dot => !dot.classList.contains('research-dot'));
+					
+					// Loop back to the first slide if we've reached the end
+					if (n > slides.length) {slideIndex = 1}
+					
+					// Go to the last slide if we go back from the first slide
+					if (n < 1) {slideIndex = slides.length}
+					
+					// Hide all slides
+					for (i = 0; i < slides.length; i++) {
+						slides[i].style.display = "none";
+					}
+					
+					// Remove active class from all dots
+					for (i = 0; i < dots.length; i++) {
+						dots[i].className = dots[i].className.replace(" active", "");
+					}
+					
+					// Show the current slide and activate the corresponding dot
+					if (slides.length > 0 && slideIndex <= slides.length) {
+						slides[slideIndex-1].style.display = "block";
+						if (dots.length > 0 && slideIndex <= dots.length) {
+							dots[slideIndex-1].className += " active";
+						}
+					}
+				}
+			</script>
+			
+			<!-- Research Slideshow Script -->
+			<script>
+				let researchSlideIndex = 1;
+				let researchSlideInterval;
+				
+				// Start automatic slideshow when the page loads
+				document.addEventListener('DOMContentLoaded', function() {
+					showResearchSlides(researchSlideIndex);
+					startResearchSlideshow();
+					
+					// Pause slideshow when user hovers over it
+					const researchSlideshowContainer = document.querySelector('.research-slides');
+					if (researchSlideshowContainer) {
+						researchSlideshowContainer.addEventListener('mouseenter', function() {
+							clearInterval(researchSlideInterval);
+						});
+						
+						researchSlideshowContainer.addEventListener('mouseleave', function() {
+							startResearchSlideshow();
+						});
+					}
+				});
+				
+				// Start automatic slideshow
+				function startResearchSlideshow() {
+					clearInterval(researchSlideInterval);
+					researchSlideInterval = setInterval(function() {
+						plusResearchSlides(1);
+					}, 5000); // Change slide every 5 seconds
+				}
+				
+				// Next/previous controls
+				function plusResearchSlides(n) {
+					showResearchSlides(researchSlideIndex += n);
+				}
+				
+				// Thumbnail image controls
+				function currentResearchSlide(n) {
+					showResearchSlides(researchSlideIndex = n);
+				}
+				
+				function showResearchSlides(n) {
+					let i;
+					let slides = document.getElementsByClassName("research-slide");
+					let dots = document.getElementsByClassName("research-dot");
+					let titleElement = document.getElementById("current-slide-title");
+					
+					// Loop back to the first slide if we've reached the end
+					if (n > slides.length) {researchSlideIndex = 1}
+					
+					// Go to the last slide if we go back from the first slide
+					if (n < 1) {researchSlideIndex = slides.length}
+					
+					// Hide all slides
+					for (i = 0; i < slides.length; i++) {
+						slides[i].style.display = "none";
+					}
+					
+					// Remove active class from all dots
+					for (i = 0; i < dots.length; i++) {
+						dots[i].className = dots[i].className.replace(" active", "");
+					}
+					
+					// Show the current slide and activate the corresponding dot
+					if (slides.length > 0 && researchSlideIndex <= slides.length) {
+						slides[researchSlideIndex-1].style.display = "block";
+						if (dots.length > 0 && researchSlideIndex <= dots.length) {
+							dots[researchSlideIndex-1].className += " active";
+							
+							// Update the title
+							if (titleElement && dots[researchSlideIndex-1].dataset.title) {
+								titleElement.textContent = dots[researchSlideIndex-1].dataset.title;
+							}
+						}
+					}
+				}
+			</script>
+	</body>
+</html>
