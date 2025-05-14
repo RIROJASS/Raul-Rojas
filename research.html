@@ -322,6 +322,262 @@
 					margin-bottom: 2em;
 				}
 			}
+			
+			/* Dynamic Navigation Styling */
+			#dynamic-nav-wrapper {
+				position: absolute;
+				left: 0;
+				top: 100%; /* Position below the header */
+				z-index: 999;
+				width: auto;
+			}
+			
+			#dynamic-nav {
+				position: fixed;
+				top: 3.25em; /* Height of header */
+				left: 0;
+				z-index: 1000;
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+				transition: transform 0.3s ease, width 0.3s ease;
+				display: flex;
+				height: auto;
+			}
+			
+			.nav-container {
+				background-color: rgba(32, 75, 56, 0.95); /* Dark green with transparency */
+				border-radius: 0 8px 8px 0;
+				box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				position: relative;
+				transition: width 0.3s ease;
+			}
+			
+			/* Progress bar styling - vertical */
+			.progress-container {
+				width: 4px;
+				height: 100%;
+				background: rgba(255, 255, 255, 0.1);
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				z-index: 2;
+			}
+			
+			.progress-bar {
+				width: 100%;
+				background: #F9DB50; /* Golden yellow */
+				height: 0%;
+				transition: height 0.1s ease;
+				position: absolute;
+				top: 0; /* Start from the top */
+				left: 0;
+			}
+			
+			/* Toggle button styling */
+			#nav-toggle {
+				background-color: #E3572B; /* Orange */
+				color: white;
+				border: none;
+				padding: 10px 15px 10px 20px; /* Extra padding left for progress bar */
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				width: 100%;
+				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif !important;
+				font-size: 1.2em;
+				position: relative;
+				z-index: 1;
+			}
+			
+			/* Icon animation for toggle */
+			.nav-icon {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+				position: relative;
+			}
+			
+			.nav-icon:before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: #fff;
+				top: 6px;
+				left: 0;
+				box-shadow: 0 6px 0 #fff;
+				transition: all 0.3s ease;
+			}
+			
+			.nav-icon:after {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: #fff;
+				bottom: 6px;
+				left: 0;
+				transition: all 0.3s ease;
+			}
+			
+			/* Collapsed state icon animation */
+			#dynamic-nav.collapsed .nav-icon:before {
+				transform: rotate(90deg);
+				top: 10px;
+				box-shadow: none;
+			}
+			
+			#dynamic-nav.collapsed .nav-icon:after {
+				transform: rotate(90deg);
+				bottom: 8px;
+			}
+			
+			/* Navigation links list */
+			#nav-links {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease;
+				margin: 0;
+				padding: 0 0 0 20px; /* Extra left padding for progress bar */
+				list-style: none;
+				position: relative;
+				z-index: 1;
+			}
+			
+			#nav-links.expanded {
+				max-height: calc(100vh - 7em); /* Account for header and toggle */
+				overflow-y: auto; /* Allow scrolling if many links */
+			}
+			
+			#nav-links li {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#nav-links a {
+				display: block;
+				padding: 12px 15px;
+				color: white;
+				text-decoration: none;
+				border-left: 4px solid transparent;
+				transition: all 0.3s ease;
+				font-size: 1.1em;
+				white-space: nowrap; /* Prevent text wrapping */
+			}
+			
+			#nav-links a:hover {
+				background-color: rgba(227, 87, 43, 0.3); /* Light orange */
+				border-left-color: #F9DB50; /* Golden yellow */
+			}
+			
+			#nav-links a.active {
+				background-color: rgba(227, 87, 43, 0.5); /* Darker orange */
+				border-left-color: #F9DB50; /* Golden yellow */
+				font-weight: bold;
+			}
+			
+			/* Shows submenu items for active sections */
+			#nav-links .submenu {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease;
+				padding-left: 15px;
+			}
+			
+			#nav-links .active + .submenu,
+			#nav-links .submenu:hover {
+				max-height: 500px;
+			}
+			
+			#nav-links .submenu a {
+				padding: 8px 15px;
+				font-size: 0.95em;
+			}
+			
+			/* Collapsed state styling */
+			#dynamic-nav.collapsed .nav-container {
+				width: 40px; /* Narrow when collapsed */
+			}
+			
+			#dynamic-nav.collapsed .nav-label {
+				display: none; /* Hide text when collapsed */
+			}
+			
+			#dynamic-nav.collapsed #nav-toggle {
+				padding: 10px; /* Smaller padding when collapsed */
+				justify-content: center;
+			}
+			
+			#dynamic-nav.collapsed .nav-icon {
+				margin-right: 0; /* No margin needed when text is hidden */
+			}
+			
+			/* Hover effect to hint at expandability */
+			#dynamic-nav.collapsed:hover .nav-container {
+				width: 45px; /* Slightly wider on hover to hint at expandability */
+			}
+			
+			/* Collapsed state for mobile */
+			@media screen and (max-width: 736px) {
+				#dynamic-nav {
+					top: auto;
+					bottom: 0;
+					width: 100%;
+					left: 0;
+				}
+				
+				.nav-container {
+					border-radius: 8px 8px 0 0;
+					width: 100% !important; /* Override desktop collapsed width */
+				}
+				
+				/* Progress bar becomes horizontal on mobile */
+				.progress-container {
+					width: 100%;
+					height: 4px;
+					top: 0;
+					left: 0;
+					right: 0;
+				}
+				
+				.progress-bar {
+					height: 100%;
+					width: 0%;
+					left: 0;
+					right: auto;
+				}
+				
+				#nav-toggle {
+					padding: 15px;
+					width: 100%;
+					justify-content: flex-start;
+				}
+				
+				/* When collapsed, push it off screen except for the toggle button */
+				#dynamic-nav.collapsed {
+					transform: translateY(calc(100% - 50px));
+				}
+				
+				#dynamic-nav.collapsed .nav-label {
+					display: inline; /* Show text on mobile even when collapsed */
+				}
+				
+				#dynamic-nav.collapsed .nav-icon {
+					margin-right: 10px; /* Restore margin for mobile */
+				}
+				
+				#nav-links {
+					padding-left: 0;
+				}
+				
+				#nav-links a {
+					white-space: normal; /* Allow text wrapping on mobile */
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -801,7 +1057,7 @@
 							while (currentElement && (!nextCategory || currentElement !== nextCategory)) {
 								if (currentElement.querySelector && currentElement.querySelector('.major')) {
 									const sectionTitle = currentElement.querySelector('.major').textContent;
-									const sectionId = sectionTitle.toLowerCase().replace(/[^\w]+/g, '-');
+									const sectionId = currentElement.id || sectionTitle.toLowerCase().replace(/[^\w]+/g, '-');
 									
 									// If section doesn't have an ID, add one
 									if (!currentElement.id) {
