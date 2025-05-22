@@ -77,39 +77,74 @@
 				background-color: rgba(241, 154, 62, 0.1) !important; /* Matching hover effect */
 			}
 			
-			/* Combined navigation section styles - more compact */
+			/* Combined navigation section styles - UPDATED FOR CASCADING EFFECT */
 			.main-links {
-				text-align: center;
-				padding: 1.5em 0;
+				text-align: left; /* Changed from center to left */
+				padding: 2.5em 0; /* Increased padding for more space */
 				margin-bottom: 1em;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
+				display: block; /* Changed from flex to block */
+				max-width: 60%; /* REDUCED WIDTH as requested */
+				margin-left: auto;
+				margin-right: auto;
 			}
 			
 			.main-links p {
-				margin-bottom: 1em;
+				margin-bottom: 2em; /* More space after intro text */
 				font-size: 1.2em;
-				width: 100%;
+				text-align: center; /* Keep intro text centered */
 			}
 			
-			/* Create row layout for first two links */
+			/* CASCADING LINKS LAYOUT */
 			.main-links .links-container {
-				display: flex;
-				justify-content: center;
-				flex-wrap: wrap;
-				margin-bottom: 0.5em;
+				position: relative;
+				height: 12em; /* Set container height to accommodate cascade */
+			}
+			
+			/* Individual link positioning for cascade effect */
+			.main-links a.special:nth-child(1) {
+				position: absolute;
+				top: 0;
+				left: 0;
+				margin: 0;
+			}
+			
+			.main-links a.special:nth-child(2) {
+				position: absolute;
+				top: 3em;
+				left: 25%; /* Offset to the right */
+				margin: 0;
+			}
+			
+			.main-links a.special:nth-child(3) {
+				position: absolute;
+				top: 6em;
+				left: 50%; /* Further offset to the right */
+				margin: 0;
 			}
 			
 			/* Responsive styling for small screens */
 			@media screen and (max-width: 736px) {
-				.main-links .links-container {
-					flex-direction: column;
+				.main-links {
+					max-width: 90%; /* Wider on mobile */
 				}
 				
-				.main-links a.special {
-					margin: 0.5em 0;
+				.main-links .links-container {
+					height: 15em; /* More height for mobile */
+				}
+				
+				.main-links a.special:nth-child(1) {
+					top: 0;
+					left: 0;
+				}
+				
+				.main-links a.special:nth-child(2) {
+					top: 4em;
+					left: 15%;
+				}
+				
+				.main-links a.special:nth-child(3) {
+					top: 8em;
+					left: 30%;
 				}
 			}
 			
@@ -172,12 +207,6 @@
 					margin-right: -1.5em;
 					width: calc(100% + 3em);
 				}
-				
-				.main-links a.special {
-					display: block;
-					margin: 0.75em 0;
-					text-align: center;
-				}
 			}
 			
 			/* SWAPPED COLORS: About Me section now has the style3 colors */
@@ -239,7 +268,6 @@
 			.main-links a.special {
 				font-size: 1.4em !important; /* Increased from original size */
 				color: #204B38 !important; /* Dark green */
-				margin-right: 1.5em;
 				display: inline-block;
 			}
 
@@ -375,7 +403,7 @@
 				<!-- Wrapper -->
 				<section id="wrapper">
 					
-					<!-- Simplified navigation links - Now green background -->
+					<!-- Simplified navigation links - Now green background with cascading layout -->
 					<section class="wrapper alt spotlight style3">
 						<div class="inner">
 							<div class="main-links">
@@ -383,8 +411,8 @@
 								<div class="links-container">
 									<a href="projects.html" class="special">Projects</a>
 									<a href="toolkit.html" class="special">Toolkit</a>
+									<a href="research.html" class="special">Research & Field Work</a>
 								</div>
-								<a href="research.html" class="special">Research & Field Work</a>
 							</div>
 						</div>
 					</section>
