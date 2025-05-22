@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <!--
 	Solid State by HTML5 UP
@@ -97,26 +96,26 @@
 			
 			/* CASCADING LINKS LAYOUT */
 			.main-links .links-container {
-				position: relative;
+				position: relative; /* Set positioning context */
 				height: 12em; /* Set container height to accommodate cascade */
 			}
 			
 			/* Individual link positioning for cascade effect - wider spread at 1/3 intervals */
-			.main-links a.special:nth-child(1) {
+			.main-links .links-container a.special:nth-child(1) {
 				position: absolute;
 				top: 0;
 				left: 33.33%; /* 1/3 point */
 				margin: 0;
 			}
 			
-			.main-links a.special:nth-child(2) {
+			.main-links .links-container a.special:nth-child(2) {
 				position: absolute;
 				top: 3em;
 				left: 66.66%; /* 2/3 point */
 				margin: 0;
 			}
 			
-			.main-links a.special:nth-child(3) {
+			.main-links .links-container a.special:nth-child(3) {
 				position: absolute;
 				top: 6em;
 				left: 100%; /* 3/3 point (full width) */
@@ -134,17 +133,17 @@
 					height: 15em; /* More height for mobile */
 				}
 				
-				.main-links a.special:nth-child(1) {
+				.main-links .links-container a.special:nth-child(1) {
 					top: 0;
 					left: 33.33%; /* 1/3 point */
 				}
 				
-				.main-links a.special:nth-child(2) {
+				.main-links .links-container a.special:nth-child(2) {
 					top: 4em;
 					left: 66.66%; /* 2/3 point */
 				}
 				
-				.main-links a.special:nth-child(3) {
+				.main-links .links-container a.special:nth-child(3) {
 					top: 8em;
 					left: 100%; /* 3/3 point */
 					transform: translateX(-100%); /* Keep within bounds */
