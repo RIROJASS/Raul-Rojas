@@ -100,27 +100,33 @@
 				height: 12em; /* Set container height to accommodate cascade */
 			}
 			
-			/* Individual link positioning for cascade effect - wider spread at 1/3 intervals */
-			.main-links .links-container a.special:nth-child(1) {
-				position: absolute;
-				top: 0;
-				left: 33.33%; /* 1/3 point */
-				margin: 0;
+			/* CASCADING LINKS LAYOUT */
+			.main-links .links-container {
+				position: relative; /* Set positioning context */
+				height: 12em; /* Set container height to accommodate cascade */
 			}
 			
-			.main-links .links-container a.special:nth-child(2) {
-				position: absolute;
-				top: 3em;
-				left: 66.66%; /* 2/3 point */
-				margin: 0;
+			/* Individual link positioning for cascade effect - using specific classes */
+			.main-links .links-container a.link-1 {
+				position: absolute !important;
+				top: 0 !important;
+				left: 33.33% !important; /* 1/3 point */
+				margin: 0 !important;
 			}
 			
-			.main-links .links-container a.special:nth-child(3) {
-				position: absolute;
-				top: 6em;
-				left: 100%; /* 3/3 point (full width) */
-				margin: 0;
-				transform: translateX(-100%); /* Adjust so the link doesn't overflow */
+			.main-links .links-container a.link-2 {
+				position: absolute !important;
+				top: 3em !important;
+				left: 66.66% !important; /* 2/3 point */
+				margin: 0 !important;
+			}
+			
+			.main-links .links-container a.link-3 {
+				position: absolute !important;
+				top: 6em !important;
+				left: 100% !important; /* 3/3 point (full width) */
+				margin: 0 !important;
+				transform: translateX(-100%) !important; /* Adjust so the link doesn't overflow */
 			}
 			
 			/* Responsive styling for small screens */
@@ -133,20 +139,26 @@
 					height: 15em; /* More height for mobile */
 				}
 				
-				.main-links .links-container a.special:nth-child(1) {
-					top: 0;
-					left: 33.33%; /* 1/3 point */
+				.main-links .links-container a.link-1 {
+					position: absolute !important;
+					top: 0 !important;
+					left: 33.33% !important; /* 1/3 point */
+					margin: 0 !important;
 				}
 				
-				.main-links .links-container a.special:nth-child(2) {
-					top: 4em;
-					left: 66.66%; /* 2/3 point */
+				.main-links .links-container a.link-2 {
+					position: absolute !important;
+					top: 4em !important;
+					left: 66.66% !important; /* 2/3 point */
+					margin: 0 !important;
 				}
 				
-				.main-links .links-container a.special:nth-child(3) {
-					top: 8em;
-					left: 100%; /* 3/3 point */
-					transform: translateX(-100%); /* Keep within bounds */
+				.main-links .links-container a.link-3 {
+					position: absolute !important;
+					top: 8em !important;
+					left: 100% !important; /* 3/3 point */
+					margin: 0 !important;
+					transform: translateX(-100%) !important; /* Keep within bounds */
 				}
 			}
 			
@@ -411,9 +423,9 @@
 							<div class="main-links">
 								<p>Explore my work, skills, and research:</p>
 								<div class="links-container">
-									<a href="projects.html" class="special">Projects</a>
-									<a href="toolkit.html" class="special">Toolkit</a>
-									<a href="research.html" class="special">Research & Field Work</a>
+									<a href="projects.html" class="special link-1">Projects</a>
+									<a href="toolkit.html" class="special link-2">Toolkit</a>
+									<a href="research.html" class="special link-3">Research & Field Work</a>
 								</div>
 							</div>
 						</div>
