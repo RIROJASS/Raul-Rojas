@@ -52,14 +52,9 @@
 				padding-top: 5px;
 			}
 			
-			/* Link styles for the main sections - REMOVED CONFLICTING RULES */
-			.main-links a.special {
-				color: #204B38 !important; /* Dark green from custom colors */
-				/* Removed margin and display that were conflicting with absolute positioning */
-			}
-
-			.main-links a.special:hover {
-				color: #2d6a50 !important; /* Slightly lighter green on hover */
+			/* Link styles for the main sections - cleaned up */
+			.main-links a {
+				/* Styles now handled by .cascade-link class */
 			}
 			
 			/* Make the circles around arrows smaller */
@@ -288,11 +283,7 @@
 			
 			/* FONT SIZE INCREASES */
 
-			/* Increase font size for navigation links - UPDATED FOR NEW LAYOUT */
-			.main-links .links-container a {
-				font-size: 1.4em !important; /* Increased from original size */
-				color: #204B38 !important; /* Dark green */
-			}
+			/* Navigation links font size now handled by .cascade-link class */
 
 			/* Increase font size for About Me section text */
 			#about p {
