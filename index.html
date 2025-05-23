@@ -5,146 +5,143 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Raúl Rojas</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/custom-colors.css" />
-		<link rel="stylesheet" href="assets/css/tanker.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			/* Base font */
-			body {
-				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif;
-			}
+<head>
+	<title>Raúl Rojas</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/custom-colors.css" />
+	<link rel="stylesheet" href="assets/css/tanker.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-			/* Banner subtitle */
-			#banner p {
-				font-size: 1.75em;
-				color: #fff;
-			}
+	<style>
+		/* Base font */
+		body { font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif; }
 
-			/* Header tweaks */
-			#header h1 { margin: 0.5em 0; }
+		/* Cascade container override */
+		#cascade {
+			position: relative;
+			height: 12em;
+			width: 100%;
+		}
 
-			/* Main section background for cascade */
-			.wrapper.alt.spotlight.style3 {
-				background-color: #204B38;
-				background-image: none;
-			}
+		#cascade .cascade-link {
+			position: absolute;
+			display: block;
+			font-size: 1.4em;
+			color: #E3572B;
+			text-decoration: none;
+			border: 2px solid #F19A3E;
+			border-radius: 50px;
+			padding: 0.5em 1.5em;
+			box-sizing: border-box;
+			transition: background 0.3s ease, color 0.3s ease;
+			background: transparent;
+		}
 
-			/* Navigation links container */
-			.main-links {
-				text-align: left;
-				padding: 2.5em 0;
-				max-width: 60%;
-				margin: 0 auto 1em;
-			}
-			.main-links p {
-				text-align: center;
-				margin-bottom: 2em;
-				font-size: 1.2em;
-				color: #fff;
-			}
+		#cascade .cascade-link:hover {
+			background: #F19A3E;
+			color: #fff;
+		}
 
-			/* Cascade container */
-			.links-container {
-				position: relative;
-				height: 12em;
-				width: 100%;
-			}
+		#cascade .cascade-link-1 {
+			top: 0;
+			left: 16.67%;
+			z-index: 3;
+		}
 
-			/* Cascade links */
-			.cascade-link {
-				position: absolute;
-				display: block;
-				font-size: 1.4em;
-				color: #E3572B;
-				text-decoration: none;
-				border: 2px solid #F19A3E;
-				border-radius: 50px;
-				padding: 0.5em 1.5em;
-				box-sizing: border-box;
-				transition: background 0.3s ease, color 0.3s ease;
-			}
-			.cascade-link:hover {
-				background: #F19A3E;
-				color: #fff;
-			}
+		#cascade .cascade-link-2 {
+			top: 3em;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 2;
+		}
 
-			/* Position & stacking */
-			.cascade-link-1 { top: 0; left: 16.67%; z-index: 3; }
-			.cascade-link-2 { top: 3em; left: 50%; transform: translateX(-50%); z-index: 2; }
-			.cascade-link-3 { top: 6em; right: 16.67%; z-index: 1; }
+		#cascade .cascade-link-3 {
+			top: 6em;
+			right: 16.67%;
+			z-index: 1;
+		}
 
-			@media screen and (max-width: 736px) {
-				.links-container { height: 15em; }
-				.cascade-link-1 { top: 0; left: 10%; }
-				.cascade-link-2 { top: 4em; left: 50%; transform: translateX(-50%); }
-				.cascade-link-3 { top: 8em; right: 10%; }
-			}
-		</style>
-	</head>
-	<body class="is-preload">
-		<div id="page-wrapper">
-			<header id="header" class="alt">
-				<h1><a href="index.html">Raúl Rojas</a></h1>
-				<nav><a href="#menu">Menu</a></nav>
-			</header>
+		/* Responsive adjustments */
+		@media screen and (max-width: 736px) {
+			#cascade { height: 15em; }
+			#cascade .cascade-link-1 { top: 0; left: 10%; }
+			#cascade .cascade-link-2 { top: 4em; left: 50%; transform: translateX(-50%); }
+			#cascade .cascade-link-3 { top: 8em; right: 10%; }
+		}
 
-			<nav id="menu">
-				<div class="inner">
-					<h2>Menu</h2>
-					<ul class="links">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="projects.html">Projects</a></li>
-						<li><a href="toolkit.html">Toolkit</a></li>
-						<li><a href="research.html">Research & Field Work</a></li>
-					</ul>
-					<a href="#" class="close">Close</a>
+		/* Main-links background */
+		.wrapper.alt.spotlight.style3 { background: #204B38; }
+		.wrapper.alt.spotlight.style3 .main-links p { color: #fff; }
+	</style>
+</head>
+
+<body class="is-preload">
+
+	<div id="page-wrapper">
+
+		<header id="header" class="alt">
+			<h1><a href="index.html">Raúl Rojas</a></h1>
+			<nav><a href="#menu">Menu</a></nav>
+		</header>
+
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="toolkit.html">Toolkit</a></li>
+					<li><a href="research.html">Research & Field Work</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+		<section id="banner">
+			<div class="inner">
+				<h2>Raúl Rojas</h2>
+				<p>AI Engineer & Anthropologist</p>
+			</div>
+		</section>
+
+		<section id="about" class="wrapper spotlight style1">
+			<div class="inner">
+				<a href="#" class="image"><img src="images/profile_pic.JPG" alt="" /></a>
+				<div class="content">
+					<h2 class="major">About Me</h2>
+					<p>I'm a Computer Science and Anthropology student with a passion for AI engineering and cultural research. My interdisciplinary background allows me to approach technological problems with a unique human-centered perspective, and create solutions that bridge technology and society.</p>
+					<p>When I'm not coding or conducting research, you'll find me surfing, running, or exploring.</p>
 				</div>
-			</nav>
+			</div>
+		</section>
 
-			<section id="banner">
+		<section id="wrapper">
+			<section class="wrapper alt spotlight style3">
 				<div class="inner">
-					<h2>Raúl Rojas</h2>
-					<p>AI Engineer & Anthropologist</p>
-				</div>
-			</section>
-
-			<section id="about" class="wrapper spotlight style1">
-				<div class="inner">
-					<a href="#" class="image"><img src="images/profile_pic.JPG" alt="" /></a>
-					<div class="content">
-						<h2 class="major">About Me</h2>
-						<p>I'm a Computer Science and Anthropology student with a passion for AI engineering and cultural research. My interdisciplinary background allows me to approach technological problems with a unique human-centered perspective, and create solutions that bridge technology and society.</p>
-						<p>When I'm not coding or conducting research, you'll find me surfing, running, or exploring.</p>
-					</div>
-				</div>
-			</section>
-
-			<section id="wrapper">
-				<section class="wrapper alt spotlight style3">
-					<div class="inner">
-						<div class="main-links">
-							<p>Explore my work, skills, and research:</p>
-							<div class="links-container">
-								<a href="projects.html" class="cascade-link cascade-link-1">Projects</a>
-								<a href="toolkit.html" class="cascade-link cascade-link-2">Toolkit</a>
-								<a href="research.html" class="cascade-link cascade-link-3">Research & Field Work</a>
-							</div>
+					<div class="main-links">
+						<p>Explore my work, skills, and research:</p>
+						<div id="cascade" class="links-container">
+							<a href="projects.html" class="cascade-link cascade-link-1">Projects</a>
+							<a href="toolkit.html" class="cascade-link cascade-link-2">Toolkit</a>
+							<a href="research.html" class="cascade-link cascade-link-3">Research & Field Work</a>
 						</div>
 					</div>
-				</section>
-
-				<!-- What's New... -->
+				</div>
 			</section>
 
-			<section id="footer">
-				<div class="inner">
-					<h2 class="major">Connect With Me</h2>
-					<ul class="contact">
-						<li class="icon solid fa-envelope"><a href="mailto:raul.rojas@ufl.edu">raul.rojas@ufl.edu</a></li>
-						<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/ra%C3%BAl-rojas" target="_blank">LinkedIn</a></li>
-						<li class="icon brands fa-github"><a href="https://github.com/RIROJASS" target="_blank">GitHub</a></li>
+			<!-- ... What's New & Footer ... -->
+
+		</section>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</div>
+</body>
+</html>
