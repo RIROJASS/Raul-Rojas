@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="assets/css/tanker.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Base font declaration */
+			/* Base font */
 			body {
 				font-family: 'Tanker-Regular', Raleway, Helvetica, sans-serif;
 			}
@@ -25,10 +25,16 @@
 				color: #fff;
 			}
 
-			/* Header adjustments */
-			#header h1 { margin: 0.25em 0; }
+			/* Header tweaks */
+			#header h1 { margin: 0.5em 0; }
 
-			/* Main-links container */
+			/* Main section background for cascade */
+			.wrapper.alt.spotlight.style3 {
+				background-color: #204B38;
+				background-image: none;
+			}
+
+			/* Navigation links container */
 			.main-links {
 				text-align: left;
 				padding: 2.5em 0;
@@ -37,17 +43,19 @@
 			}
 			.main-links p {
 				text-align: center;
-				font-size: 1.2em;
 				margin-bottom: 2em;
+				font-size: 1.2em;
+				color: #fff;
 			}
 
-			/* Cascading links layout */
+			/* Cascade container */
 			.links-container {
 				position: relative;
 				height: 12em;
 				width: 100%;
 			}
 
+			/* Cascade links */
 			.cascade-link {
 				position: absolute;
 				display: block;
@@ -65,25 +73,11 @@
 				color: #fff;
 			}
 
-			/* Stair-step positions + stacking */
-			.cascade-link-1 {
-				top: 0;
-				left: 16.67%;
-				z-index: 3;
-			}
-			.cascade-link-2 {
-				top: 3em;
-				left: 50%;
-				transform: translateX(-50%);
-				z-index: 2;
-			}
-			.cascade-link-3 {
-				top: 6em;
-				right: 16.67%;
-				z-index: 1;
-			}
+			/* Position & stacking */
+			.cascade-link-1 { top: 0; left: 16.67%; z-index: 3; }
+			.cascade-link-2 { top: 3em; left: 50%; transform: translateX(-50%); z-index: 2; }
+			.cascade-link-3 { top: 6em; right: 16.67%; z-index: 1; }
 
-			/* Responsive */
 			@media screen and (max-width: 736px) {
 				.links-container { height: 15em; }
 				.cascade-link-1 { top: 0; left: 10%; }
@@ -93,9 +87,7 @@
 		</style>
 	</head>
 	<body class="is-preload">
-
 		<div id="page-wrapper">
-
 			<header id="header" class="alt">
 				<h1><a href="index.html">Raúl Rojas</a></h1>
 				<nav><a href="#menu">Menu</a></nav>
@@ -146,14 +138,7 @@
 					</div>
 				</section>
 
-				<section id="four" class="wrapper alt style1">
-					<div class="inner">
-						<h2 class="major">What's New?</h2>
-						<section class="features">
-							<!-- ... articles ... -->
-						</section>
-					</div>
-				</section>
+				<!-- What's New... -->
 			</section>
 
 			<section id="footer">
@@ -163,23 +148,3 @@
 						<li class="icon solid fa-envelope"><a href="mailto:raul.rojas@ufl.edu">raul.rojas@ufl.edu</a></li>
 						<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/ra%C3%BAl-rojas" target="_blank">LinkedIn</a></li>
 						<li class="icon brands fa-github"><a href="https://github.com/RIROJASS" target="_blank">GitHub</a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Raúl Rojas. All rights reserved.</li>
-						<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</section>
-
-		</div>
-
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-
-	</body>
-</html>
