@@ -52,66 +52,130 @@
 				padding-top: 5px;
 			}
 			
-			/* Link styles for the main sections */
-			.main-links a.special {
-				color: #204B38 !important; /* Dark green from custom colors */
-				margin: 0.8em 1.5em;
-				display: inline-block;
-			}
-
-			.main-links a.special:hover {
-				color: #2d6a50 !important; /* Slightly lighter green on hover */
+			/* ===== CASCADE LINKS STYLING ===== */
+			
+			/* Hide template special links in this section */
+			.wrapper.alt.spotlight.style3 a.special {
+				display: none !important;
 			}
 			
-			/* Make the circles around arrows smaller */
-			.main-links a.special:before {
-				width: 1.7em !important; /* Smaller circle (original was 2em) */
-				height: 1.7em !important;
-				line-height: 1.55em !important; /* Adjust line height to center the arrow */
-				font-size: 1.15em !important; /* Slightly smaller arrow */
-				color: #F19A3E !important; /* New color between golden and orange */
-				border-color: #F19A3E !important; /* Match the circle border color */
-			}
-			
-			.main-links a.special:hover:before {
-				background-color: rgba(241, 154, 62, 0.1) !important; /* Matching hover effect */
-			}
-			
-			/* Combined navigation section styles - more compact */
+			/* Main links container */
 			.main-links {
+				max-width: 60%;
+				margin: 0 auto 1em;
+				padding: 2.5em 0;
 				text-align: center;
-				padding: 1.5em 0;
-				margin-bottom: 1em;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
+				position: relative !important;
 			}
 			
 			.main-links p {
-				margin-bottom: 1em;
+				color: #ffffff !important;
 				font-size: 1.2em;
-				width: 100%;
+				margin-bottom: 2em;
+				text-align: center;
 			}
-			
-			/* Create row layout for first two links */
-			.main-links .links-container {
-				display: flex;
-				justify-content: center;
-				flex-wrap: wrap;
-				margin-bottom: 0.5em;
+
+			/* CASCADE container */
+			#cascade {
+				position: relative !important;
+				width: 100% !important;
+				height: 14em !important;
 			}
-			
-			/* Responsive styling for small screens */
-			@media screen and (max-width: 736px) {
-				.main-links .links-container {
-					flex-direction: column;
-				}
+
+			/* MINIMALIST OUTLINED STYLE */
+			#cascade .link {
+				position: absolute !important;
+				display: block !important;
 				
-				.main-links a.special {
-					margin: 0.5em 0;
+				/* Clean minimalist styling */
+				font-size: 1.1em !important;
+				font-weight: 500 !important;
+				text-transform: uppercase !important;
+				letter-spacing: 1px !important;
+				padding: 1em 2.5em !important;
+				border-radius: 6px !important;
+				text-decoration: none !important;
+				
+				/* Outlined style */
+				background: transparent !important;
+				border: 2px solid rgba(255,255,255,0.8) !important;
+				color: #ffffff !important;
+				
+				/* Subtle shadow */
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+				
+				/* Animation setup */
+				opacity: 0 !important;
+				transform: translateY(30px) !important;
+				transition: all .4s ease !important;
+			}
+			
+			/* Hover effect - fills with white, text becomes green */
+			#cascade .link:hover {
+				background: #ffffff !important;
+				color: #204B38 !important;
+				border-color: #ffffff !important;
+				transform: translateY(-8px) !important;
+				box-shadow: 0 8px 25px rgba(255,255,255,0.2) !important;
+			}
+
+			/* WIDE CASCADE POSITIONING */
+			#cascade .projects {
+				top: 0 !important;
+				left: 16.67% !important; /* 1/6 across */
+				z-index: 3 !important;
+				animation: fadeUp .6s .2s forwards !important;
+			}
+			
+			#cascade .toolkit {
+				top: 4.5em !important;
+				left: 50% !important; /* Center */
+				transform: translate(-50%, 30px) !important;
+				z-index: 2 !important;
+				animation: fadeUpCenter .6s .45s forwards !important;
+			}
+			
+			#cascade .research {
+				top: 9em !important;
+				right: 16.67% !important; /* 1/6 from right */
+				z-index: 1 !important;
+				animation: fadeUp .6s .7s forwards !important;
+			}
+
+			/* Animations */
+			@keyframes fadeUp {
+				to {
+					opacity: 1 !important;
+					transform: translateY(0) !important;
 				}
 			}
+			
+			@keyframes fadeUpCenter {
+				to {
+					opacity: 1 !important;
+					transform: translate(-50%, 0) !important;
+				}
+			}
+
+			/* Clean up template interference */
+			#cascade .link:before,
+			#cascade .link:after {
+				display: none !important;
+			}
+
+			/* ===== RESPONSIVE ===== */
+			@media(max-width:980px) {
+				#cascade { height: 16em !important; }
+			}
+			@media(max-width:736px) {
+				.main-links { max-width: 95%; }
+				#cascade { height: 18em !important; }
+				#cascade .projects { left: 10% !important; }
+				#cascade .toolkit { top: 5.5em !important; }
+				#cascade .research { top: 11em !important; right: 10% !important; }
+			}
+			
+			/* ===== REST OF YOUR EXISTING STYLES ===== */
 			
 			/* Increase font size for What's New text */
 			#four .features article p {
@@ -172,103 +236,9 @@
 					margin-right: -1.5em;
 					width: calc(100% + 3em);
 				}
-				
-				.main-links a.special {
-					display: block;
-					margin: 0.75em 0;
-					text-align: center;
-				}
 			}
 			
-			/* SWAPPED COLORS: About Me section now has the style3 colors */
-			.wrapper.spotlight.style1 {
-				background-color: #FAF4DF !important; /* Cream color */
-			}
-			
-			.wrapper.spotlight.style1 h2, 
-			.wrapper.spotlight.style1 p {
-				color: #204B38 !important; /* Dark green text */
-			}
-			
-			.wrapper.spotlight.style1:before, 
-			.wrapper.spotlight.style1:after {
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23FAF4DF%3B' /%3E%3C/svg%3E") !important;
-			}
-			
-			.wrapper.spotlight.style1:before {
-				box-shadow: inset 0 -1px 0 0 #FAF4DF, 0 1px 0 0 #FAF4DF !important;
-			}
-			
-			.wrapper.spotlight.style1:after {
-				box-shadow: inset 0 -1px 0 0 #FAF4DF, 0 1px 0 0 #FAF4DF !important;
-			}
-			
-			/* Main links section now has the blue gradient */
-			.wrapper.alt.spotlight.style3 {
-				background-color: #4fa49a !important; /* Blue */
-				background-image: linear-gradient(45deg, #4fa49a, #4361c2) !important;
-			}
-			
-			.wrapper.alt.spotlight.style3 .main-links p,
-			.wrapper.alt.spotlight.style3 .main-links a.special {
-				color: #ffffff !important; 
-			}
-			
-			.wrapper.alt.spotlight.style3 .main-links a.special:hover {
-				color: rgba(255, 255, 255, 0.8) !important;
-			}
-			
-			.wrapper.alt.spotlight.style3:before, 
-			.wrapper.alt.spotlight.style3:after {
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%234361c2%3B' /%3E%3C/svg%3E") !important;
-			}
-			
-			.wrapper.alt.spotlight.style3:before {
-				box-shadow: inset 0 -1px 0 0 #4361c2, 0 1px 0 0 #4361c2 !important;
-			}
-			
-			.wrapper.alt.spotlight.style3:after {
-				box-shadow: inset 0 -1px 0 0 #4361c2, 0 1px 0 0 #4361c2 !important;
-			}
-
-			/* NEW STYLES ADDED PER YOUR REQUEST */
-			
-			/* FONT SIZE INCREASES */
-
-			/* Increase font size for navigation links */
-			.main-links a.special {
-				font-size: 1.4em !important; /* Increased from original size */
-				color: #204B38 !important; /* Dark green */
-				margin-right: 1.5em;
-				display: inline-block;
-			}
-
-			/* Increase font size for About Me section text */
-			#about p {
-				font-size: 1.2em !important;
-			}
-
-			/* Menu text size increases */
-			#menu h2 {
-				font-size: 2.5em !important; /* Larger menu title */
-			}
-			
-			#menu .links li a {
-				font-size: 1.5em !important; /* Larger menu links */
-				padding: 0.9em 0 !important; /* More vertical spacing */
-			}
-			
-			#menu .inner {
-				width: 22em !important; /* Slightly wider menu container */
-			}
-
-			/* Change banner background to original blue gradient instead of orange */
-			#banner {
-				background-color: #4c5c96 !important; /* Original template blue */
-				background-image: linear-gradient(45deg, #4fa49a, #4361c2) !important; /* Blue gradient */
-			}
-
-			/* Change About Me section to orange (currently cream) */
+			/* About Me section - orange background */
 			.wrapper.spotlight.style1 {
 				background-color: #E3572B !important; /* Orange color */
 			}
@@ -286,16 +256,16 @@
 				box-shadow: inset 0 -1px 0 0 #E3572B, 0 1px 0 0 #E3572B !important;
 			}
 
-			/* Change About Me section text to white for better contrast on orange background */
+			/* About Me section text - white for contrast */
 			.wrapper.spotlight.style1 h2, 
 			.wrapper.spotlight.style1 p {
-				color: #ffffff !important; /* White text for better contrast on orange */
+				color: #ffffff !important;
 			}
 
-			/* Change links section to green (currently blue gradient) */
+			/* Links section - green background */
 			.wrapper.alt.spotlight.style3 {
 				background-color: #204B38 !important; /* Green */
-				background-image: none !important; /* Remove gradient */
+				background-image: none !important;
 			}
 
 			.wrapper.alt.spotlight.style3:before, 
@@ -311,17 +281,29 @@
 				box-shadow: inset 0 -1px 0 0 #204B38, 0 1px 0 0 #204B38 !important;
 			}
 
-			/* Links in green section - intro text white, links orange */
-			.wrapper.alt.spotlight.style3 .main-links p {
-				color: #ffffff !important; /* Keep the introductory text white */
+			/* Banner - blue gradient */
+			#banner {
+				background-color: #4c5c96 !important;
+				background-image: linear-gradient(45deg, #4fa49a, #4361c2) !important;
 			}
 
-			.wrapper.alt.spotlight.style3 .main-links a.special {
-				color: #E3572B !important; /* Orange color for links */
+			/* Menu styling */
+			#menu h2 {
+				font-size: 2.5em !important;
+			}
+			
+			#menu .links li a {
+				font-size: 1.5em !important;
+				padding: 0.9em 0 !important;
+			}
+			
+			#menu .inner {
+				width: 22em !important;
 			}
 
-			.wrapper.alt.spotlight.style3 .main-links a.special:hover {
-				color: #F9DB50 !important; /* Yellow on hover for better contrast */
+			/* About Me text size */
+			#about p {
+				font-size: 1.2em !important;
 			}
 		</style>
 	</head>
@@ -360,7 +342,7 @@
 						</div>
 					</section>
 
-				<!-- About Me Section - Now orange colored with white text -->
+				<!-- About Me Section -->
 				<section id="about" class="wrapper spotlight style1">
 					<div class="inner">
 						<a href="#" class="image"><img src="images/profile_pic.JPG" alt="" /></a>
@@ -375,16 +357,16 @@
 				<!-- Wrapper -->
 				<section id="wrapper">
 					
-					<!-- Simplified navigation links - Now green background -->
+					<!-- CASCADE LINKS SECTION -->
 					<section class="wrapper alt spotlight style3">
 						<div class="inner">
 							<div class="main-links">
 								<p>Explore my work, skills, and research:</p>
-								<div class="links-container">
-									<a href="projects.html" class="special">Projects</a>
-									<a href="toolkit.html" class="special">Toolkit</a>
+								<div id="cascade">
+									<a class="link projects" href="projects.html">Projects</a>
+									<a class="link toolkit" href="toolkit.html">Toolkit</a>
+									<a class="link research" href="research.html">Research & Field Work</a>
 								</div>
-								<a href="research.html" class="special">Research & Field Work</a>
 							</div>
 						</div>
 					</section>
