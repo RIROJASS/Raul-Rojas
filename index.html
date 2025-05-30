@@ -52,7 +52,7 @@
 				padding-top: 5px;
 			}
 			
-			/* ===== TIMELINE STYLE ===== */
+			/* ===== HORIZONTAL TIMELINE STYLE ===== */
 			
 			/* Hide template special links in this section */
 			.wrapper.alt.spotlight.style3 a.special {
@@ -61,7 +61,7 @@
 			
 			/* Main links container */
 			.main-links {
-				max-width: 70%;
+				max-width: 90%;
 				margin: 0 auto 1em;
 				padding: 2.5em 0;
 				text-align: center;
@@ -74,24 +74,27 @@
 				text-align: center;
 			}
 
-			/* TIMELINE CONTAINER */
+			/* HORIZONTAL TIMELINE CONTAINER */
 			#cascade {
 				position: relative !important;
-				max-width: 600px !important;
+				max-width: 100% !important;
 				margin: 0 auto !important;
-				padding: 2em 0 !important;
+				padding: 3em 2em !important;
+				display: flex !important;
+				justify-content: space-between !important;
+				align-items: flex-end !important;
 			}
 
-			/* CENTRAL TIMELINE LINE */
+			/* HORIZONTAL TIMELINE LINE */
 			#cascade::before {
 				content: '' !important;
 				position: absolute !important;
-				left: 50% !important;
-				top: 0 !important;
-				bottom: 0 !important;
-				width: 3px !important;
+				left: 10% !important;
+				right: 10% !important;
+				top: 50% !important;
+				height: 3px !important;
 				background: rgba(255,255,255,0.3) !important;
-				transform: translateX(-50%) !important;
+				transform: translateY(-50%) !important;
 				z-index: 1 !important;
 			}
 
@@ -100,13 +103,15 @@
 				position: relative !important;
 				display: block !important;
 				text-decoration: none !important;
-				margin-bottom: 3em !important;
+				flex: 1 !important;
+				max-width: 280px !important;
+				margin: 0 1em !important;
 				
 				/* Card appearance */
 				background: rgba(255,255,255,0.95) !important;
 				color: #204B38 !important;
 				border-radius: 12px !important;
-				padding: 1.8em 2.5em !important;
+				padding: 2em 1.5em !important;
 				
 				/* Typography */
 				font-size: 1.1em !important;
@@ -114,14 +119,15 @@
 				text-transform: uppercase !important;
 				letter-spacing: 0.5px !important;
 				text-align: center !important;
+				line-height: 1.3 !important;
 				
 				/* Floating effect */
 				box-shadow: 0 6px 25px rgba(0,0,0,0.15) !important;
 				transition: all 0.4s ease !important;
 				
 				/* Animation setup */
-				opacity: 0 !important;
-				transform: translateX(0) !important;
+				opacity: 0.5 !important;
+				transform: translateY(30px) !important;
 				z-index: 2 !important;
 			}
 
@@ -134,80 +140,62 @@
 				background: #E3572B !important; /* Orange circles */
 				border: 4px solid #ffffff !important;
 				border-radius: 50% !important;
-				top: 50% !important;
-				transform: translateY(-50%) !important;
+				left: 50% !important;
+				bottom: -12px !important;
+				transform: translateX(-50%) !important;
 				z-index: 3 !important;
 				box-shadow: 0 3px 10px rgba(0,0,0,0.2) !important;
 				transition: all 0.3s ease !important;
 			}
 
-			/* ALTERNATING LAYOUT */
-			/* Left side items (odd) */
-			#cascade .link:nth-child(odd) {
-				margin-right: 55% !important;
-				text-align: right !important;
+			/* ALTERNATING HEIGHTS for visual interest */
+			#cascade .projects {
+				margin-bottom: 2em !important;
 			}
 			
-			#cascade .link:nth-child(odd)::before {
-				right: -62px !important;
+			#cascade .toolkit {
+				margin-bottom: 0 !important; /* Middle item is lower */
 			}
 			
-			/* Right side items (even) */
-			#cascade .link:nth-child(even) {
-				margin-left: 55% !important;
-				text-align: left !important;
-			}
-			
-			#cascade .link:nth-child(even)::before {
-				left: -62px !important;
+			#cascade .research {
+				margin-bottom: 2em !important;
 			}
 
 			/* HOVER EFFECTS */
 			#cascade .link:hover {
-				transform: scale(1.05) !important;
-				box-shadow: 0 10px 35px rgba(0,0,0,0.25) !important;
+				transform: translateY(-15px) scale(1.05) !important;
+				box-shadow: 0 12px 35px rgba(0,0,0,0.25) !important;
 				background: #ffffff !important;
 				color: #E3572B !important;
 			}
 			
 			#cascade .link:hover::before {
 				background: #204B38 !important; /* Green on hover */
-				transform: translateY(-50%) scale(1.3) !important;
+				transform: translateX(-50%) scale(1.3) !important;
 			}
 
 			/* STAGGERED ANIMATIONS */
 			#cascade .projects {
-				animation: slideInLeft 0.6s ease 0.2s forwards !important;
+				animation: slideUpFade 0.6s ease 0.2s forwards !important;
 			}
 			
 			#cascade .toolkit {
-				animation: slideInRight 0.6s ease 0.4s forwards !important;
+				animation: slideUpFade 0.6s ease 0.4s forwards !important;
 			}
 			
 			#cascade .research {
-				animation: slideInLeft 0.6s ease 0.6s forwards !important;
+				animation: slideUpFade 0.6s ease 0.6s forwards !important;
 			}
 
 			/* ANIMATION KEYFRAMES */
-			@keyframes slideInLeft {
+			@keyframes slideUpFade {
 				from {
-					opacity: 0;
-					transform: translateX(-50px);
+					opacity: 0.5;
+					transform: translateY(40px);
 				}
 				to {
 					opacity: 1;
-					transform: translateX(0);
-				}
-			}
-			
-			@keyframes slideInRight {
-				from {
-					opacity: 0;
-					transform: translateX(50px);
-				}
-				to {
-					opacity: 1;
-					transform: translateX(0);
+					transform: translateY(0);
 				}
 			}
 
@@ -216,37 +204,48 @@
 				display: none !important;
 			}
 
-			/* ===== RESPONSIVE FOR TIMELINE ===== */
+			/* ===== RESPONSIVE FOR HORIZONTAL TIMELINE ===== */
 			@media(max-width:980px) {
-				.main-links { max-width: 85%; }
-				#cascade { max-width: 500px !important; }
+				.main-links { max-width: 95%; }
+				#cascade { 
+					padding: 2em 1em !important;
+				}
+				#cascade .link {
+					margin: 0 0.5em !important;
+					padding: 1.8em 1.2em !important;
+					font-size: 1em !important;
+				}
 			}
 			
 			@media(max-width:736px) {
-				.main-links { max-width: 95%; }
-				
-				/* Mobile: Stack all items on right side */
-				#cascade .link:nth-child(odd),
-				#cascade .link:nth-child(even) {
-					margin-left: 15% !important;
-					margin-right: 0 !important;
-					text-align: left !important;
+				/* Mobile: Convert to vertical stack */
+				#cascade {
+					flex-direction: column !important;
+					align-items: center !important;
+					padding: 2em 1em !important;
 				}
 				
-				#cascade .link::before {
-					left: -35px !important;
-					right: auto !important;
+				#cascade .link {
+					max-width: 100% !important;
+					margin: 0 0 2em 0 !important;
+					width: 100% !important;
 				}
 				
-				/* Adjust timeline line for mobile */
+				/* Hide horizontal line on mobile */
 				#cascade::before {
-					left: 20px !important;
-					transform: none !important;
+					display: none !important;
 				}
 				
-				/* Mobile animations - all slide in from left */
-				#cascade .toolkit {
-					animation: slideInLeft 0.6s ease 0.4s forwards !important;
+				/* Adjust nodes for mobile */
+				#cascade .link::before {
+					display: none !important;
+				}
+				
+				/* Remove alternating heights on mobile */
+				#cascade .projects,
+				#cascade .toolkit,
+				#cascade .research {
+					margin-bottom: 0 !important;
 				}
 			}
 			
