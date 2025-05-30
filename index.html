@@ -52,7 +52,7 @@
 				padding-top: 5px;
 			}
 			
-			/* ===== CASCADE LINKS STYLING ===== */
+			/* ===== FLOATING CARDS STYLE ===== */
 			
 			/* Hide template special links in this section */
 			.wrapper.alt.spotlight.style3 a.special {
@@ -61,99 +61,87 @@
 			
 			/* Main links container */
 			.main-links {
-				max-width: 60%;
+				max-width: 80%;
 				margin: 0 auto 1em;
 				padding: 2.5em 0;
 				text-align: center;
-				position: relative !important;
 			}
 			
 			.main-links p {
 				color: #ffffff !important;
-				font-size: 1.2em;
-				margin-bottom: 2em;
+				font-size: 1.3em;
+				margin-bottom: 2.5em;
 				text-align: center;
 			}
 
-			/* CASCADE container */
+			/* FLOATING CARDS CONTAINER */
 			#cascade {
-				position: relative !important;
-				width: 100% !important;
-				height: 14em !important;
+				display: grid !important;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+				gap: 2em !important;
+				padding: 1em 0 !important;
+				max-width: 100% !important;
 			}
 
-			/* MINIMALIST OUTLINED STYLE */
+			/* FLOATING CARD STYLE */
 			#cascade .link {
-				position: absolute !important;
 				display: block !important;
-				
-				/* Clean minimalist styling */
-				font-size: 1.1em !important;
-				font-weight: 500 !important;
-				text-transform: uppercase !important;
-				letter-spacing: 1px !important;
-				padding: 1em 2.5em !important;
-				border-radius: 6px !important;
 				text-decoration: none !important;
 				
-				/* Outlined style */
-				background: transparent !important;
-				border: 2px solid rgba(255,255,255,0.8) !important;
-				color: #ffffff !important;
+				/* Card appearance */
+				background: rgba(255,255,255,0.95) !important;
+				color: #204B38 !important;
+				border-radius: 16px !important;
+				padding: 2.5em 2em !important;
+				text-align: center !important;
 				
-				/* Subtle shadow */
-				box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+				/* Typography */
+				font-size: 1.2em !important;
+				font-weight: 600 !important;
+				text-transform: uppercase !important;
+				letter-spacing: 0.5px !important;
+				line-height: 1.4 !important;
+				
+				/* Floating effect */
+				box-shadow: 0 8px 30px rgba(0,0,0,0.15) !important;
+				transform: translateY(0) !important;
+				transition: all 0.4s ease !important;
 				
 				/* Animation setup */
-				opacity: 0.5 !important;
-				transform: translateY(30px) !important;
-				transition: all .4s ease !important;
+				opacity: 0 !important;
+				animation: cardFadeIn 0.6s ease forwards !important;
 			}
 			
-			/* Hover effect - fills with white, text becomes green */
-			#cascade .link:hover {
-				background: #ffffff !important;
-				color: #204B38 !important;
-				border-color: #ffffff !important;
-				transform: translateY(-8px) !important;
-				box-shadow: 0 8px 25px rgba(255,255,255,0.2) !important;
-			}
-
-			/* WIDE CASCADE POSITIONING */
+			/* Staggered animations for each card */
 			#cascade .projects {
-				top: 0 !important;
-				left: 16.67% !important; /* 1/6 across */
-				z-index: 3 !important;
-				animation: fadeUp .6s .2s forwards !important;
+				animation-delay: 0.1s !important;
 			}
 			
 			#cascade .toolkit {
-				top: 4.5em !important;
-				left: 50% !important; /* Center */
-				transform: translate(-50%, 30px) !important;
-				z-index: 2 !important;
-				animation: fadeUpCenter .6s .45s forwards !important;
+				animation-delay: 0.2s !important;
 			}
 			
 			#cascade .research {
-				top: 9em !important;
-				right: 16.67% !important; /* 1/6 from right */
-				z-index: 1 !important;
-				animation: fadeUp .6s .7s forwards !important;
-			}
-
-			/* Animations */
-			@keyframes fadeUp {
-				to {
-					opacity: 1 !important;
-					transform: translateY(0) !important;
-				}
+				animation-delay: 0.3s !important;
 			}
 			
-			@keyframes fadeUpCenter {
+			/* Hover effects */
+			#cascade .link:hover {
+				transform: translateY(-12px) !important;
+				box-shadow: 0 16px 40px rgba(0,0,0,0.25) !important;
+				background: #ffffff !important;
+				color: #E3572B !important; /* Orange on hover */
+			}
+
+			/* Animation keyframes */
+			@keyframes cardFadeIn {
+				from {
+					opacity: 0;
+					transform: translateY(30px);
+				}
 				to {
-					opacity: 1 !important;
-					transform: translate(-50%, 0) !important;
+					opacity: 1;
+					transform: translateY(0);
 				}
 			}
 
@@ -163,16 +151,23 @@
 				display: none !important;
 			}
 
-			/* ===== RESPONSIVE ===== */
+			/* ===== RESPONSIVE FOR CARDS ===== */
 			@media(max-width:980px) {
-				#cascade { height: 16em !important; }
+				.main-links { max-width: 90%; }
+				#cascade { gap: 1.5em !important; }
+				#cascade .link { padding: 2em 1.5em !important; }
 			}
+			
 			@media(max-width:736px) {
 				.main-links { max-width: 95%; }
-				#cascade { height: 18em !important; }
-				#cascade .projects { left: 10% !important; }
-				#cascade .toolkit { top: 5.5em !important; }
-				#cascade .research { top: 11em !important; right: 10% !important; }
+				#cascade { 
+					grid-template-columns: 1fr !important; 
+					gap: 1.5em !important; 
+				}
+				#cascade .link { 
+					padding: 2em 1.5em !important;
+					font-size: 1.1em !important;
+				}
 			}
 			
 			/* ===== REST OF YOUR EXISTING STYLES ===== */
