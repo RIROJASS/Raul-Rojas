@@ -59,16 +59,19 @@
 				display: none !important;
 			}
 			
-			/* Main links container - PERFECTLY CENTERED */
+			/* Main links container - PERFECTLY CENTERED VERTICALLY & HORIZONTALLY */
 			.main-links {
 				width: 100%;
 				margin: 0 auto;
-				padding: 2.5em 0;
+				padding: 0; /* Remove padding to control positioning manually */
 				text-align: center;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
+				min-height: 200px; /* Give container some height */
+				position: relative;
+				transform: translateY(-1em); /* LIFT THE BUTTONS UP */
 			}
 			
 			.main-links p {
