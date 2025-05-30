@@ -14,177 +14,98 @@
 
   <style>
     /* -------------------------------------------------- */
-    /*  GLOBALS                                          */
-    /* -------------------------------------------------- */
-    html,body { font-family: "Tanker-Regular", Raleway, Helvetica, sans-serif; }
-
-    #banner p { font-size: 1.75em; color:#fff; }
-    #header h1 { margin: .5em 0; }
-
-    /* -------------------------------------------------- */
-    /*  TEMPLATE OVERRIDES - CRITICAL!                   */
+    /*  DEBUGGING STYLES - Let's see what's happening!    */
     /* -------------------------------------------------- */
     
-    /* Force the green section to behave */
+    /* Make containers visible */
     .wrapper.alt.spotlight.style3 { 
-      background:#204B38 !important; 
-      display: block !important; /* Override any flex */
+      background: #204B38 !important;
+      border: 3px solid red !important; /* DEBUG */
     }
     
     .wrapper.alt.spotlight.style3 .inner {
-      display: block !important; /* Override any flex */
-    }
-
-    /* -------------------------------------------------- */
-    /*  CASCADE SECTION - COMPLETELY ISOLATED            */
-    /* -------------------------------------------------- */
-    
-    .main-links{ 
-      max-width:60%; 
-      margin:0 auto 1em; 
-      padding:2.5em 0; 
-      text-align:center;
-      display: block !important;
-      position: relative !important;
-      z-index: 1 !important;
+      border: 3px solid blue !important; /* DEBUG */
+      display: block !important; /* Override template flex */
     }
     
-    .main-links p{ 
-      text-align:center; 
-      font-size:1.2em; 
-      color:#fff !important; 
-      margin-bottom:2em; 
-      display: block !important;
+    .main-links { 
+      border: 3px solid green !important; /* DEBUG */
+      max-width: 60%; 
+      margin: 0 auto 1em; 
+      padding: 2.5em 0; 
+      text-align: center;
       position: relative !important;
     }
-
-    /* CASCADE container - FORCE positioning context */
-    #cascade{ 
-      position:relative !important; 
-      width:100% !important; 
-      height:14em !important; 
-      display: block !important;
-      overflow: visible !important;
-      margin: 0 !important;
-      padding: 0 !important;
+    
+    .main-links p { 
+      color: #fff !important; 
+      font-size: 1.2em; 
+      margin-bottom: 2em;
     }
 
-    /* CASCADE links - COMPLETELY override template */
-    #cascade a,
-    #cascade a.link,
+    #cascade { 
+      border: 3px solid yellow !important; /* DEBUG */
+      position: relative !important; 
+      width: 100% !important; 
+      height: 14em !important;
+      background: rgba(255,0,0,0.1) !important; /* DEBUG */
+    }
+
+    /* Make links super visible for debugging */
     #cascade .link {
-      /* RESET everything from template */
-      all: unset !important;
-      
-      /* FORCE our styles */
+      /* Force visible positioning */
       position: absolute !important;
       display: block !important;
-      box-sizing: border-box !important;
       
-      /* Visual styling */
-      font-family: "Tanker-Regular", Raleway, Helvetica, sans-serif !important;
-      font-size: 1.25em !important;
-      font-weight: 600 !important;
-      text-transform: uppercase !important;
-      letter-spacing: 1px !important;
+      /* Make them very obvious */
+      background: red !important;
+      color: white !important;
+      border: 2px solid white !important;
+      padding: 10px 20px !important;
+      font-size: 16px !important;
+      font-weight: bold !important;
       text-decoration: none !important;
       
-      /* Button appearance */
-      padding: .75em 1.75em !important;
-      border-radius: 24px !important;
-      color: #fff !important;
-      background: rgba(255,255,255,.15) !important;
-      border: 2px solid rgba(255,255,255,.3) !important;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 6px 20px rgba(0,0,0,.15) !important;
-      
-      /* Animation setup */
-      opacity: 0 !important;
-      transform: translateY(20px) !important;
-      transition: transform .3s ease, background .3s ease, opacity .6s ease !important;
-      
-      /* Ensure no template interference */
-      margin: 0 !important;
-      float: none !important;
-      clear: none !important;
-      width: auto !important;
-      height: auto !important;
-      line-height: normal !important;
-      vertical-align: baseline !important;
-    }
-    
-    /* Remove any template pseudo-elements */
-    #cascade a:before,
-    #cascade a:after,
-    #cascade .link:before,
-    #cascade .link:after {
-      display: none !important;
-      content: none !important;
-    }
-    
-    /* Hover effects */
-    #cascade a:hover,
-    #cascade .link:hover { 
-      background: rgba(255,255,255,.25) !important; 
-      transform: translateY(-6px) scale(1.05) !important; 
-      color: #fff !important;
+      /* Remove any animations for now */
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
     }
 
-    /* POSITIONING - with z-index for proper stacking */
+    /* Position them clearly */
     #cascade .projects { 
-      top: 0 !important;      
-      left: 10% !important;  
-      z-index: 13 !important;
-      animation: fadeUp .6s .2s forwards !important;
+      top: 0 !important; 
+      left: 0 !important; 
+      background: red !important;
+      z-index: 100 !important;
     }
     
     #cascade .toolkit { 
-      top: 4.5em !important;  
-      left: 50% !important;  
-      transform: translate(-50%, 20px) !important; 
-      z-index: 12 !important;
-      animation: fadeUp .6s .45s forwards !important;
+      top: 50px !important; 
+      left: 100px !important; 
+      background: green !important;
+      z-index: 100 !important;
     }
     
     #cascade .research { 
-      top: 9em !important;    
-      right: 10% !important; 
-      z-index: 11 !important;
-      animation: fadeUp .6s .7s forwards !important;
+      top: 100px !important; 
+      right: 0 !important; 
+      background: blue !important;
+      z-index: 100 !important;
     }
 
-    /* Animation keyframes */
-    @keyframes fadeUp { 
-      to { 
-        opacity: 1 !important; 
-        transform: translateY(0) !important; 
-      } 
+    /* Override any template interference */
+    #cascade .link:before,
+    #cascade .link:after {
+      display: none !important;
     }
     
-    /* Special case for toolkit to fix transform */
-    @keyframes fadeUpCenter { 
-      to { 
-        opacity: 1 !important; 
-        transform: translate(-50%, 0) !important; 
-      } 
-    }
-    
-    #cascade .toolkit {
-      animation: fadeUpCenter .6s .45s forwards !important;
-    }
-
-    /* -------------------------------------------------- */
-    /*  RESPONSIVE                                        */
-    /* -------------------------------------------------- */
-    @media(max-width:980px){ 
-      #cascade{ height:16em !important; } 
-    }
-    @media(max-width:736px){
-      .main-links{ max-width:95%; }
-      #cascade{ height:18em !important; }
-      #cascade .projects{ left:5% !important; }
-      #cascade .toolkit { top:5.5em !important; }
-      #cascade .research{ top:11em !important; right:5% !important; }
+    /* Make sure no template rules interfere */
+    .wrapper.alt.spotlight.style3 a,
+    .wrapper.alt.spotlight.style3 .link {
+      margin: 0 !important;
+      float: none !important;
+      clear: none !important;
     }
   </style>
 </head>
