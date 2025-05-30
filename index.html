@@ -22,7 +22,7 @@
     #header h1 { margin: .5em 0; }
 
     /* -------------------------------------------------- */
-    /*  WORKING CASCADE - Beautiful Styling              */
+    /*  CASCADE - SOLID MODERN STYLE                     */
     /* -------------------------------------------------- */
     
     .wrapper.alt.spotlight.style3 { 
@@ -30,7 +30,7 @@
     }
     
     .wrapper.alt.spotlight.style3 .inner {
-      display: block !important; /* Override template flex */
+      display: block !important;
     }
     
     .main-links { 
@@ -54,56 +54,72 @@
       height: 14em !important;
     }
 
-    /* Beautiful cascade links */
+    /* STYLE OPTION 1: Solid colored buttons with distinct colors */
     #cascade .link {
       position: absolute !important;
       display: block !important;
       
-      /* Beautiful styling */
-      font-size: 1.25em !important;
-      font-weight: 600 !important;
+      font-size: 1.1em !important;
+      font-weight: 700 !important;
       text-transform: uppercase !important;
-      letter-spacing: 1px !important;
-      padding: .75em 1.75em !important;
-      border-radius: 24px !important;
-      color: #fff !important;
+      letter-spacing: 0.5px !important;
+      padding: 1em 2em !important;
+      border-radius: 8px !important;
       text-decoration: none !important;
-      background: rgba(255,255,255,.15) !important;
-      border: 2px solid rgba(255,255,255,.3) !important;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 6px 20px rgba(0,0,0,.15) !important;
+      border: none !important;
+      box-shadow: 0 4px 15px rgba(0,0,0,.3) !important;
       
-      /* Animation */
+      /* Animation setup */
       opacity: 0 !important;
-      transform: translateY(20px) !important;
-      transition: all .3s ease !important;
-    }
-    
-    #cascade .link:hover {
-      background: rgba(255,255,255,.25) !important;
-      transform: translateY(-6px) scale(1.05) !important;
-      box-shadow: 0 12px 30px rgba(0,0,0,.25) !important;
+      transform: translateY(30px) !important;
+      transition: all .4s ease !important;
     }
 
-    /* WIDE CASCADE POSITIONING - across the full width */
+    /* Individual colors for each link */
+    #cascade .projects { 
+      background: #E67E22 !important; /* Orange */
+      color: white !important;
+    }
+    
+    #cascade .toolkit { 
+      background: #3498DB !important; /* Blue */
+      color: white !important;
+    }
+    
+    #cascade .research { 
+      background: #27AE60 !important; /* Green */
+      color: white !important;
+    }
+    
+    /* Hover effects */
+    #cascade .link:hover {
+      transform: translateY(-8px) scale(1.05) !important;
+      box-shadow: 0 8px 25px rgba(0,0,0,.4) !important;
+    }
+    
+    #cascade .projects:hover { background: #D35400 !important; }
+    #cascade .toolkit:hover { background: #2980B9 !important; }
+    #cascade .research:hover { background: #229954 !important; }
+
+    /* POSITIONING - same as before */
     #cascade .projects { 
       top: 0 !important; 
-      left: 16.67% !important; /* 1/6 across */
+      left: 16.67% !important;
       z-index: 3 !important;
       animation: fadeUp .6s .2s forwards !important;
     }
     
     #cascade .toolkit { 
       top: 4.5em !important; 
-      left: 50% !important; /* Center */
-      transform: translate(-50%, 20px) !important;
+      left: 50% !important;
+      transform: translate(-50%, 30px) !important;
       z-index: 2 !important;
       animation: fadeUpCenter .6s .45s forwards !important;
     }
     
     #cascade .research { 
       top: 9em !important; 
-      right: 16.67% !important; /* 1/6 from right */
+      right: 16.67% !important;
       z-index: 1 !important;
       animation: fadeUp .6s .7s forwards !important;
     }
@@ -123,7 +139,7 @@
       } 
     }
 
-    /* Clean up any template interference */
+    /* Clean up */
     #cascade .link:before,
     #cascade .link:after {
       display: none !important;
